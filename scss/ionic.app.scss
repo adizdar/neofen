@@ -1,0 +1,219 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Override default Ionic style
+$stable: rgb(128, 195, 224);
+
+// Media queries
+$bp-small: 24em;
+$bp-med: 46.8em;
+$bp-large: 50em;
+$bp-xl: 73em;
+
+// Color variations
+$red-normal: rgb(205, 0, 20);
+$red-strong: rgb(164, 0, 17);
+$blue-light: rgb(102, 192, 223);
+$blue-strong: rgb(76, 151, 180);
+$smpc-color: rgb(27, 153, 213);
+
+// Url
+$bg-url-second: url("../images/bg.png");
+$bg-url-main: url("../images/bghome.png");
+$blue-star-url: url("../images/bluestar.png");
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+// Include custom sass files
+@import "scss/calculator.scss";
+
+/*------------------------------------*\
+    $SHARED
+\*------------------------------------*/
+
+.red-normal {
+    background-color: $red-normal !important;
+}
+
+.red-strong {
+    background-color: $red-strong !important;
+}
+
+.blue-light {
+    background-color: $blue-light !important;
+}
+
+.blue-strong {
+    background-color: $blue-strong !important;
+}
+
+.bar-stable {
+    .button.button-clear {
+        color: $light;
+    }
+}
+
+.bg-style-main {
+    background-image: $bg-url-main;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: white;
+}
+
+.bg-style-second {
+    background-image: $bg-url-second;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: white;
+}
+
+.sub-container {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 92%;
+    z-index: -10;
+}
+
+.blue-star {
+    background-image: $blue-star-url;
+}
+
+.title-star {
+    background-color: white;
+    border-radius: 9px;
+    border: 8px solid #66c0df;
+    height: 44px;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    top: 4px;
+    width: 100%;
+    z-index: 100;
+    img {
+        position: absolute;
+        left: -12px;
+        top: -5px;
+        width: 45px;
+    }
+    span {
+        color: rgb(37, 170, 225);
+        font-size: 20px;
+        font-weight: bold;
+        left: 35px;
+        position: relative;
+        top: 4px;
+    }
+}
+
+.back-button-image {
+    left: -4px;
+    position: absolute;
+    width: 60px;
+}
+
+/*------------------------------------*\
+    $HOME
+\*------------------------------------*/
+.home {
+    .my-picture {
+        a {
+            position: absolute;
+            right: -23%;
+            top: -3%;
+            width: 100%;
+            z-index: -1;
+        }
+        img {
+            width: 80%;
+        }
+    }
+    .row:first-child {
+        padding-bottom: 32%;
+    }
+    .scroll {
+        height: 100%;
+        // override default css, because hiding navbar causes height lack
+        min-height: 560px;
+    }
+    .home-menu {
+        a {
+            display: block;
+            img {
+                width: 90%;
+            }
+        }
+    }
+    .button {
+        background-color: transparent;
+        border: none;
+        line-height: 0;
+        padding: 0;
+    }
+    .button.activated {
+        border: none;
+        box-shadow: none;
+        img {
+            opacity: 0.7;
+        }
+    }
+    .footer {
+        bottom: 0;
+        margin-left: 3%;
+        padding-bottom: 0;
+        // position: relative;
+        .smpc {
+            -moz-box-shadow: 0px 0px 0px 3px #1b99d5;
+            -webkit-box-shadow: 0px 0px 0px 3px #1b99d5;
+            background-color: #1b99d5;
+            border-top-left-radius: 0.5em;
+            border-top-right-radius: 0.5em;
+            bottom: 0;
+            border: 1px solid white;
+            border-bottom: none;
+            box-shadow: 0px 0px 0px 3px #1b99d5;
+            color: white;
+            font-size: 140%;
+            padding: 9px;
+            position: absolute;
+            text-align: center;
+            width: 25%;
+        }
+        .logo-col {
+            .logo {
+                padding-right: 4%;
+                width: 55%;
+                position: absolute;
+                right: 0;
+                bottom: 1%;
+            }
+        }
+    }
+}

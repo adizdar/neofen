@@ -1,0 +1,407 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../bower_components/ionic/release/fonts" !default;
+
+// Override default Ionic style
+$stable: rgb(128, 195, 224);
+
+// Media queries
+$bp-small: 24em;
+$bp-med: 46.8em;
+$bp-large: 50em;
+$bp-xl: 73em;
+
+// Color variations
+$red-normal: rgb(205, 0, 20);
+$red-strong: rgb(164, 0, 17);
+$blue-light: rgb(102, 192, 223);
+$blue-strong: rgb(76, 151, 180);
+$smpc-color: rgb(27, 153, 213);
+
+// Url
+$bg-url-second: url("../images/bg.png");
+$bg-url-main: url("../images/bghome.png");
+$blue-star-url: url("../images/bluestar.png");
+
+// Include all of Ionic
+@import "../bower_components/ionic/scss/ionic";
+
+// Include custom sass files
+//@import "calculator.scss";
+
+/*------------------------------------*\
+    $iOS specific class
+\*------------------------------------*/
+.platform-ios {
+    .home .smpc {
+        // position: fixed
+   
+    }
+}
+
+/*------------------------------------*\
+    $Android specific class
+\*------------------------------------*/
+.platform-android {
+    .home {
+        .row-footer {
+            .smpc {
+                // bottom: -35px;
+           
+            }
+        }
+    }
+}
+
+/*------------------------------------*\
+    $SHARED
+\*------------------------------------*/
+
+// override class for android title
+// .platform-android .bar .title{
+//   text-align: center;
+//   z-index: -1;
+//   left: 0 !important;
+// }
+
+.red-normal {
+    background-color: $red-normal !important;
+}
+
+.red-strong {
+    background-color: $red-strong !important;
+}
+
+.blue-light {
+    background-color: $blue-light !important;
+}
+
+.blue-strong {
+    background-color: $blue-strong !important;
+}
+
+.bar-stable {
+    .button.button-clear {
+        color: $light;
+    }
+}
+
+.bg-style-main {
+    background-image: $bg-url-main;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: white;
+}
+
+.bg-style-second {
+    background-image: $bg-url-second;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: white;
+}
+
+.sub-container {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 92%;
+    z-index: -10;
+}
+
+.blue-star {
+    background-image: $blue-star-url;
+}
+
+.title-star {
+    background-color: white;
+    border-radius: 9px;
+    border: 8px solid #66c0df;
+    height: 44px;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    top: 4px;
+    width: 100%;
+    z-index: 100;
+    img {
+        position: absolute;
+        left: -12px;
+        top: -5px;
+        width: 45px;
+    }
+    span {
+        color: rgb(37, 170, 225);
+        font-size: 20px;
+        font-weight: bold;
+        left: 35px;
+        position: relative;
+        top: 4px;
+    }
+}
+
+.back-button-image {
+    left: -4px;
+    position: absolute;
+    width: 60px;
+}
+
+.back-button-trigger {
+    left: 0;
+    position: relative;
+}
+
+.my-content {
+    width: 100%;
+    height: 100%;
+    margin-top: 94px;
+    /* this is because of header and subheader which I use */
+    overflow-y: scroll;
+}
+
+/*------------------------------------*\
+    $HOME
+\*------------------------------------*/
+.home {
+    .row:first-child {
+        padding-bottom: 32%;
+    }
+    .scroll {
+        height: 100%;
+        // override default css, because hiding navbar causes height lack
+        min-height: 560px;
+    }
+    .row-container {
+        min-height: 100%;
+        position: relative;
+        .my-picture {
+            a {
+                position: absolute;
+                right: -23%;
+                top: -3%;
+                width: 100%;
+                z-index: -1;
+            }
+            img {
+                width: 80%;
+            }
+        }
+        .home-menu {
+            a {
+                display: block;
+                img {
+                    width: 90%;
+                }
+            }
+        }
+        .button {
+            background-color: transparent;
+            border: none;
+            line-height: 0;
+            padding: 0;
+        }
+        .button.activated {
+            border: none;
+            box-shadow: none;
+            img {
+                opacity: 0.7;
+            }
+        }
+        .row-footer {
+            bottom: 0;
+            margin-left: 6%;
+            padding-bottom: 0;
+            .smpc {
+                -moz-box-shadow: 0px 0px 0px 3px #1b99d5;
+                -webkit-box-shadow: 0px 0px 0px 3 px #1b99d5;
+                background-color: rgb(66, 160, 204);
+                border-top-left-radius: 0.5em;
+                border-top-right-radius: 0.5em;
+                bottom: 0;
+                border: 1px solid white;
+                border-bottom: none;
+                box-shadow: 0px 0px 0px 3px #1b99d5;
+                color: white;
+                font-size: 150%;
+                position: absolute;
+                text-align: center;
+                // width: 25%;
+           
+            }
+            .logo-col {
+                .logo {
+                    padding-right: 4%;
+                    width: 55%;
+                    position: absolute;
+                    right: 0;
+                    bottom: 1%;
+                }
+            }
+        }
+    }
+}
+
+/*------------------------------------*\
+    $CALCULATOR
+\*------------------------------------*/
+
+// **** Header Title ****
+
+.bar.bar-stable .title {
+    color: white;
+    font-size: 26px;
+}
+
+// **** Menu *****
+
+.menu-container {
+    padding-top: 15px;
+    .button.button-positive {
+        margin-left: auto;
+        margin-right: auto;
+        border: 0;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 32px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        min-height: 25px;
+        padding-left: 30px;
+        text-align: left;
+        width: 100%;
+        span {
+            font-size: 12px;
+            position: relative;
+            top: -6px;
+        }
+    }
+    // on press
+    .button.button-full.button-positive.activated {
+        opacity: 0.7;
+    }
+}
+
+// **** Calculator ****
+
+.calculator {
+    overflow: auto;
+    padding-bottom: 10px;
+    position: relative;
+    width: 100%;
+    div {
+        background-color: #BE935C;
+        border: 1px solid black;
+        height: 12px;
+        position: absolute;
+        top: 7px;
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+.abacus-placeholder {
+    -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 1);
+    border-radius: 4%;
+    border: 9px solid rgb(102, 203, 228);
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 1);
+    margin: 4% auto auto auto;
+    outline-offset: -9px;
+    outline: 1px solid #000;
+    padding: 10px 0 0px 0;
+    width: 85%;
+    .abacus-weight {
+        padding-top: 15px;
+    }
+    .abacus-container {
+        p {
+            color: rgb(214, 29, 35);
+            font-size: 1.8em;
+            font-weight: bold;
+            padding-bottom: 1px;
+            padding-right: 8px;
+            text-align: right;
+        }
+        .abacus {
+            background-color: #D91918;
+            border-radius: 40%;
+            border: 1px solid black;
+            display: inline-block;
+            float: right;
+            height: 26px;
+            padding: 0;
+            width: 7%;
+            min-width: 18px;
+            max-width: 20px;
+        }
+        .abacus-active {
+            float: left;
+        }
+        .abacus-red {
+            background-color: $red-normal;
+        }
+        .abacus-green {
+            background-color: #9ECC00;
+        }
+        .abacus-orange-light {
+            background-color: rgb(248, 177, 67);
+        }
+        .abacus-orange {
+            background-color: #F28F00;
+        }
+        .abacus-yelow-lite {
+            background-color: rgb(226, 218, 47);
+        }
+        .abacus-yelow {
+            background-color: rgb(246, 224, 65);
+        }
+    }
+}
+
+// **** Disclaimer ****
+.disclaimer {
+    font-size: 13px;
+    margin: auto;
+    padding-bottom: 8px;
+    text-align: center;
+    width: 91%;
+    word-wrap: normal;
+}
+
+// **** Calculatr Result ****
+.calculator-result {
+    -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 1);
+    border-radius: 4%;
+    border: 6px solid rgb(175, 130, 74);
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 1);
+    height: 200px;
+}
+
+/*------------------------------------*\
+    $PRODUCTS
+\*------------------------------------*/

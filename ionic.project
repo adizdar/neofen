@@ -1,0 +1,11 @@
+{
+  "name": "neofen_gen",
+  "app_id": "23330247",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk-lite",
+      "version": "10.39.236.1"
+    }
+  ]
+}

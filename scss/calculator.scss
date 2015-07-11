@@ -1,0 +1,142 @@
+
+/*------------------------------------*\
+    $CALCULATOR
+\*------------------------------------*/
+
+// **** Header Title ****
+
+.bar.bar-stable .title {
+    color: white;
+    font-size: 26px;
+}
+
+// **** Menu *****
+
+.menu-container {
+    padding-top: 15px;
+    .button.button-positive {
+		margin-left: auto;
+  		margin-right: auto;
+        border: 0;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 32px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        min-height: 25px;
+        padding-left: 30px;
+        text-align: left;
+        width: 100%;
+
+        span {
+        	  font-size: 12px;
+  			  position: relative;
+  			  top: -6px;
+        }
+    }
+
+    // on press
+    .button.button-full.button-positive.activated {
+        opacity: 0.7;
+    }
+}
+
+// **** Calculator ****
+
+.calculator {
+    overflow: auto;
+    padding-bottom: 10px;
+    position: relative;
+    width: 100%;
+
+    div {
+        background-color: #BE935C;
+        border: 1px solid black;
+        height: 12px;
+        position: absolute;
+        top: 7px;
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+.abacus-placeholder {
+    -moz-box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, 1);
+    border-radius: 4%;
+    border: 9px solid rgb(102, 203, 228);
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 1);
+    margin: 4% auto auto auto;
+    outline-offset: -9px;
+    outline: 1px solid #000;
+    padding: 10px 0 0px 0;
+    width: 85%;
+    .abacus-weight {
+        padding-top: 15px;
+    }
+    .abacus-container {
+        p {
+            color: rgb(214, 29, 35);
+            font-size: 1.8em;
+            font-weight: bold;
+            padding-bottom: 1px;
+            padding-right: 8px;
+            text-align: right;
+        }
+        .abacus {
+            background-color: #D91918;
+            border-radius: 40%;
+            border: 1px solid black;
+            display: inline-block;
+            float: right;
+            height: 26px;
+            padding: 0;
+            width: 7%;
+            min-width: 18px;
+            max-width: 20px;
+        }
+        .abacus-active {
+            float: left;
+        }
+        .abacus-red {
+            background-color: $red-normal;
+        }
+        .abacus-green {
+            background-color: #9ECC00;
+        }
+        .abacus-orange-light {
+            background-color: rgb(248, 177, 67);
+        }
+        .abacus-orange {
+            background-color: #F28F00;
+        }
+        .abacus-yelow-lite {
+            background-color: rgb(226, 218, 47);
+        }
+        .abacus-yelow {
+            background-color: rgb(246, 224, 65);
+        }
+    }
+}
+
+// **** Calculatr Result ****
+
+.calculator-result {
+  -moz-box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, 1);
+  border-radius: 4%;
+  border: 6px solid rgb(175,130,74);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 1);
+  height: 200px;
+}
+
+// **** Disclaimer ****
+
+.disclaimer {
+  font-size: 13px;
+  margin: auto;
+  padding-bottom: 8px;
+  text-align: center;
+  width: 91%;
+  word-wrap: normal;
+}
