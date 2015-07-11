@@ -31,12 +31,12 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     })
 
     // Each tab has its own nav history stack:
-    .state('tab.dash', {
-        url: '/dash',
+    .state('tab.products', {
+        url: '/products',
         views: {
-            'tab-dash': {
-                templateUrl: 'templates/tab-dash.html',
-                controller: 'DashCtrl'
+            'tab-products': {
+                templateUrl: 'templates/tab-products.html',
+                controller: 'ProductsController as products'
             }
         }
     })

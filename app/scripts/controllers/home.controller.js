@@ -23,8 +23,11 @@
 
 	    	switch (key) {
 	    		case 'calculator':
-	    		$state.go('calculator');
+	    		     $state.go('calculator');
 	    		break;
+                case 'products':
+                     $state.go('tab.products');
+                break;
 	    	}
 
     	}

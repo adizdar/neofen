@@ -38,6 +38,14 @@ $smpc-color: rgb(27, 153, 213);
 $bg-url-second: url("../images/bg.png");
 $bg-url-main: url("../images/bghome.png");
 $blue-star-url: url("../images/bluestar.png");
+$about-me-small: url("../images/imp.png");
+$me-small: url("../images/tosamja.png");
+$me-work-small: url("../images/toradimsam.png");
+$me-info-small: url("../images/savjeti.png");
+$products-small: url("../images/proizvodi.png");
+$calc-small: url("../images/calculator.png");
+$home-small: url("../images/home.png");
+$alarm-small: url("../images/alarm.png");
 
 // Include all of Ionic
 @import "../bower_components/ionic/scss/ionic";
@@ -67,6 +75,58 @@ $blue-star-url: url("../images/bluestar.png");
             }
         }
     }
+}
+
+/*------------------------------------*\
+    $TAB_ICONS
+\*------------------------------------*/
+// .ion-about-me-on, .ion-me-on, .ion-me-work-on,
+// .ion-info-on, .ion-products-on, .ion-calc-on,
+// .ion-home-on, .ion-alarm-on {
+// background-color: rgb(89, 169, 203);
+// }
+.ion-about-me, .ion-me, .ion-me-work,
+.ion-info, .ion-products, .ion-calc,
+.ion-home, .ion-alarm {
+    height: 45px !important; 
+    padding-top: 3px;
+    &:before {
+        background-image: $about-me-small !important;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: "";
+        display: block;
+        height: 100%;
+    }
+}
+
+.ion-me:before {
+    background-image: $me-small !important;
+}
+
+.ion-me-work:before {
+    background-image: $me-work-small !important;
+}
+
+.ion-info:before {
+    background-image: $me-info-small !important;
+}
+
+.ion-products:before {
+    background-image: $products-small !important;
+}
+
+.ion-calc:before {
+    background-image: $calc-small !important;
+}
+
+.ion-home:before {
+    background-image: $home-small !important;
+}
+
+.ion-alarm:before {
+    background-image: $alarm-small !important;
 }
 
 /*------------------------------------*\
