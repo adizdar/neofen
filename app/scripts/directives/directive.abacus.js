@@ -12,7 +12,11 @@
     function abacus() {
         var directive = {
         	scope: {
-        		abacusColor: "="
+        		text: '=?',
+                color: '=?',
+                bordercolor: '=?',
+                imgurl: '=?',
+                contentclass: '=?'
         	}, // isolate scope
             link: link,
             templateUrl: 'templates/abacus.single.html',

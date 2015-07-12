@@ -14,6 +14,9 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     // disable animations
     $ionicConfigProvider.views.transition('none');
 
+    // override tabs css so it won appear white on Android
+    $ionicConfigProvider.tabs.style('standard');
+
     $stateProvider
 
     // setup an abstract state for the tabs directive

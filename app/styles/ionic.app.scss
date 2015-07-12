@@ -36,8 +36,12 @@ $smpc-color: rgb(27, 153, 213);
 
 // Url
 $bg-url-second: url("../images/bg.png");
+$bg-url-products: url("../images/bgproducts.png");
 $bg-url-main: url("../images/bghome.png");
+
 $blue-star-url: url("../images/bluestar.png");
+$red-star-url: url("../images/redstar.png");
+
 $about-me-small: url("../images/imp.png");
 $me-small: url("../images/tosamja.png");
 $me-work-small: url("../images/toradimsam.png");
@@ -88,7 +92,7 @@ $alarm-small: url("../images/alarm.png");
 .ion-about-me, .ion-me, .ion-me-work,
 .ion-info, .ion-products, .ion-calc,
 .ion-home, .ion-alarm {
-    height: 45px !important; 
+    height: 45px !important;
     padding-top: 3px;
     &:before {
         background-image: $about-me-small !important;
@@ -171,13 +175,20 @@ $alarm-small: url("../images/alarm.png");
     background-color: white;
 }
 
-.bg-style-second {
-    background-image: $bg-url-second;
+.bg-style-second, .bg-style-products {
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-color: white;
+}
+
+.bg-style-second {
+    background-image: $bg-url-second;
+}
+
+.bg-style-products {
+    background-image: $bg-url-products;
 }
 
 .sub-container {
@@ -465,3 +476,13 @@ $alarm-small: url("../images/alarm.png");
 /*------------------------------------*\
     $PRODUCTS
 \*------------------------------------*/
+
+.products {
+    .title {
+        margin: auto;
+        font-size: 16px;
+        font-weight: 500;
+        padding-top: 10%;
+        width: 84%;
+    }
+}
