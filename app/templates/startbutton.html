@@ -1,6 +1,7 @@
-<div class="title-star" 
-	 ng-class="contentclass" 
+<div class="title-star {{contentclass}}" 
 	 ng-style="{'border-color': bordercolor}">
 	<img ng-src="{{imgurl || 'images/starblue.png'}}" alt="">
 	<span ng-style="{'color': color}">{{::text}}</span>
+	<span ng-if"subtext" ng-style="{'color': color}">{{::subtext}}</span>
+	<img ng-if="subimgurl" ng-src="{{subimgurl}}" alt="">
 </div>

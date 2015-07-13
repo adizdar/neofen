@@ -12598,124 +12598,7 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003206}}
-.blue-star {
-  background-image: url("../images/bluestar.png");
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003210}}
-.title-star {
-  background-color: white;
-  border-radius: 9px;
-  border: 8px solid #66c0df;
-  height: 44px;
-  margin-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  position: relative;
-  top: 4px;
-  width: 100%;
-  z-index: 100;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003222}}
-.title-star img {
-  position: absolute;
-  left: -12px;
-  top: -5px;
-  width: 45px;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003228}}
-.title-star span {
-  color: #25aae1;
-  font-size: 20px;
-  font-weight: bold;
-  left: 35px;
-  position: relative;
-  top: 4px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003238}}
-.back-button-image {
-  left: -4px;
-  position: absolute;
-  width: 60px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003244}}
-.back-button-trigger {
-  left: 0;
-  position: relative;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003249}}
-.my-content {
-  width: 100%;
-  height: 100%;
-  margin-top: 94px;
-  /* this is because of header and subheader which I use */
-  overflow-y: scroll;
-}
-
-/*------------------------------------*\
-    $HOME
-\*------------------------------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003261}}
-.home .row:first-child {
-  padding-bottom: 32%;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003264}}
-.home .scroll {
-  height: 100%;
-  min-height: 560px;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003269}}
-.home .row-container {
-  min-height: 100%;
-  position: relative;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003273}}
-.home .row-container .my-picture a {
-  position: absolute;
-  right: -23%;
-  top: -3%;
-  width: 100%;
-  z-index: -1;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003280}}
-.home .row-container .my-picture img {
-  width: 80%;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003285}}
-.home .row-container .home-menu a {
-  display: block;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003287}}
-.home .row-container .home-menu a img {
-  width: 90%;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003292}}
-.home .row-container .button {
-  background-color: transparent;
-  border: none;
-  line-height: 0;
-  padding: 0;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003298}}
-.home .row-container .button.activated {
-  border: none;
-  box-shadow: none;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003301}}
-.home .row-container .button.activated img {
-  opacity: 0.7;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003305}}
-.home .row-container .row-footer {
-  bottom: 0;
-  margin-left: 6%;
-  padding-bottom: 0;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003309}}
-.home .row-container .row-footer .smpc {
+.smpc {
   -moz-box-shadow: 0px 0px 0px 3px #1b99d5;
   -webkit-box-shadow: 0px 0px 0px 3 px #1b99d5;
   background-color: #42a0cc;
@@ -12729,6 +12612,124 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   font-size: 150%;
   position: absolute;
   text-align: center;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003223}}
+.blue-star {
+  background-image: url("../images/bluestar.png");
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003227}}
+.title-star {
+  background-color: white;
+  border-radius: 9px;
+  border: 8px solid #66c0df;
+  height: 44px;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  top: 4px;
+  width: 100%;
+  z-index: 100;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003239}}
+.title-star img {
+  position: absolute;
+  left: -12px;
+  top: -5px;
+  width: 45px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003245}}
+.title-star span {
+  color: #25aae1;
+  font-size: 120%;
+  font-weight: bold;
+  left: 35px;
+  position: relative;
+  top: 4px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003255}}
+.back-button-image {
+  left: -4px;
+  position: absolute;
+  width: 60px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003261}}
+.back-button-trigger {
+  left: 0;
+  position: relative;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003266}}
+.my-content {
+  width: 100%;
+  height: 100%;
+  margin-top: 94px;
+  /* this is because of header and subheader which I use */
+  overflow-y: scroll;
+}
+
+/*------------------------------------*\
+    $HOME
+\*------------------------------------*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003278}}
+.home .row:first-child {
+  padding-bottom: 32%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003281}}
+.home .scroll {
+  height: 100%;
+  min-height: 560px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003286}}
+.home .row-container {
+  min-height: 100%;
+  position: relative;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003290}}
+.home .row-container .my-picture a {
+  position: absolute;
+  right: -23%;
+  top: -3%;
+  width: 100%;
+  z-index: -1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003297}}
+.home .row-container .my-picture img {
+  width: 80%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003302}}
+.home .row-container .home-menu a {
+  display: block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003304}}
+.home .row-container .home-menu a img {
+  width: 90%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003309}}
+.home .row-container .button {
+  background-color: transparent;
+  border: none;
+  line-height: 0;
+  padding: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003315}}
+.home .row-container .button.activated {
+  border: none;
+  box-shadow: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003318}}
+.home .row-container .button.activated img {
+  opacity: 0.7;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003322}}
+.home .row-container .row-footer {
+  bottom: 0;
+  margin-left: 6%;
+  padding-bottom: 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003327}}
 .home .row-container .row-footer .logo-col .logo {
@@ -12887,11 +12888,29 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
 /*------------------------------------*\
     $PRODUCTS
 \*------------------------------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003481}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003480}}
+.products {
+  padding-bottom: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003482}}
+.products .scroll {
+  height: 100%;
+  min-height: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003487}}
 .products .title {
   margin: auto;
-  font-size: 16px;
+  margin-right: 0;
+  font-size: 107%;
   font-weight: 500;
   padding-top: 10%;
   width: 84%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003495}}
+.products .product-menu-item {
+  padding-top: 6%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/ionic\.app\.scss}line{font-family:\00003498}}
+.products .smpc {
+  left: 38%;
 }

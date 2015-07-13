@@ -4,7 +4,7 @@
 class="back-button-trigger back-button-image"
 on-tap="$ionicGoBack()">
 </ion-nav-buttons>
-<ion-content class="padding bg-style-products products">
+<ion-content class="padding bg-style-products products" scroll="false">
 <p class="title">
 	Ovdje možete pronaći sve<br/>
 	potrebne informacije<br/>
@@ -14,11 +14,25 @@ on-tap="$ionicGoBack()">
 	 text="PROIZVODI"
 	 bordercolor="rgb(244,171,171)"
 	 imgurl="images/redstar.png"
-	 color="rgb(215,0,9)"></div>
+	 color="rgb(215,0,9)"
+	 class="product-menu-item"
+	 style="padding-top: 15%;"
+	 on-tap="products.navigate('products-list')"></div>
 <div star-button 
 	 text="DOZIRANJE"
 	 bordercolor="rgb(244,171,171)"
 	 imgurl="images/redstar.png"
-	 color="rgb(215,0,9)"></div>
+	 color="rgb(215,0,9)"
+	 class="product-menu-item"></div>
+<div star-button 
+	 text="KALKULATOR TEZINE I DOZA"
+	 bordercolor="rgb(244,171,171)"
+	 imgurl="images/redstar.png"
+	 color="rgb(215,0,9)"
+	 class="product-menu-item"
+	 on-tap="products.navigate('calculator')"></div>
+<button class="smpc">
+		SMPC
+</button>
 </ion-content>
 </ion-view>

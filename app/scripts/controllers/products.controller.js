@@ -1,16 +1,18 @@
-(function(){
+(function() {
 
-	'use strict';
+    'use strict';
 
-	angular
+    angular
         .module('neofen.controllers')
         .controller('ProductsController', ProductsController);
 
-    ProductsController.$inject = ['$scope', '$log'];  
-    
-    function ProductsController($scope, $log) {
+    ProductsController.$inject = ['$scope', '$log', 'navigationUtil'];
 
-    	var vm = this;
+    function ProductsController($scope, $log, navigationUtil) {
+
+        var vm = this;
+
+        vm.navigate = navigationUtil.navigate;
 
     }
 

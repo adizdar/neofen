@@ -44,6 +44,26 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
     })
 
+    .state('tab.list', {
+        url: '/list',
+        views: {
+            'tab-products': {
+                templateUrl: 'templates/tab-products-list.html',
+                controller: 'ProductsController as products'
+            }
+        }
+    })
+
+    .state('tab.details', {
+        url: '/details',
+        views: {
+            'tab-products': {
+                templateUrl: 'templates/tab-product-details.html',
+                controller: 'ProductsController as products'
+            }
+        }
+    })
+
     .state('tab.chats', {
         url: '/chats',
         views: {

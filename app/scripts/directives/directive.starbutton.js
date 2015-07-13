@@ -16,8 +16,9 @@
                 imgurl: '@',
                 bordercolor: '@',
                 contentclass: '@',
-                text: '@'
-
+                text: '@',
+                subtext: '@',
+                subimgurl: '@'
         	}, // isolate scope
             link: link,
             templateUrl: 'templates/startbutton.html',
@@ -27,7 +28,14 @@
         return directive;
     }
 
-    function link(scope, element, attrs, vm) {
+    function link(scope, element, attrs) {
+        element.bind('click', function(){ 
+            this.style.opacity = 0.7;
+            
+            setTimeout((function() {
+                this.style.opacity = 1;
+            }).bind(this), 30);
+        });
     }
 
 

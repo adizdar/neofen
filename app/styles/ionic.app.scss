@@ -94,6 +94,7 @@ $alarm-small: url("../images/alarm.png");
 .ion-home, .ion-alarm {
     height: 45px !important;
     padding-top: 3px;
+    padding-right: 2px;
     &:before {
         background-image: $about-me-small !important;
         background-position: 50%;
@@ -203,6 +204,23 @@ $alarm-small: url("../images/alarm.png");
     z-index: -10;
 }
 
+.smpc {
+    -moz-box-shadow: 0px 0px 0px 3px #1b99d5;
+    -webkit-box-shadow: 0px 0px 0px 3 px #1b99d5;
+    background-color: rgb(66, 160, 204);
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    bottom: 0;
+    border: 1px solid white;
+    border-bottom: none;
+    box-shadow: 0px 0px 0px 3px #1b99d5;
+    color: white;
+    font-size: 150%;
+    position: absolute;
+    text-align: center;
+    // width: 25%;
+}
+
 .blue-star {
     background-image: $blue-star-url;
 }
@@ -225,14 +243,40 @@ $alarm-small: url("../images/alarm.png");
         top: -5px;
         width: 45px;
     }
+    img:nth-of-type(2) {
+        position: relative;
+        float: right;
+        left: -5px;
+    }
     span {
         color: rgb(37, 170, 225);
-        font-size: 20px;
+        font-size: 120%;
         font-weight: bold;
         left: 35px;
         position: relative;
         top: 4px;
     }
+    span:nth-of-type(2) {
+        font-size: 85%;
+        padding-left: 1%;
+    }
+}
+
+// R sign in text exp. Neofen
+.list-button {
+    span:first-of-type:after {
+        content: '®';
+        font-size: 12px;
+        position: relative;
+        top: -4px;
+    }
+} 
+
+.sirup-img {
+  img:nth-of-type(2){
+     top: -26px;
+    width: 12%;
+  }
 }
 
 .back-button-image {
@@ -306,23 +350,6 @@ $alarm-small: url("../images/alarm.png");
             bottom: 0;
             margin-left: 6%;
             padding-bottom: 0;
-            .smpc {
-                -moz-box-shadow: 0px 0px 0px 3px #1b99d5;
-                -webkit-box-shadow: 0px 0px 0px 3 px #1b99d5;
-                background-color: rgb(66, 160, 204);
-                border-top-left-radius: 0.5em;
-                border-top-right-radius: 0.5em;
-                bottom: 0;
-                border: 1px solid white;
-                border-bottom: none;
-                box-shadow: 0px 0px 0px 3px #1b99d5;
-                color: white;
-                font-size: 150%;
-                position: absolute;
-                text-align: center;
-                // width: 25%;
-           
-            }
             .logo-col {
                 .logo {
                     padding-right: 4%;
@@ -478,11 +505,81 @@ $alarm-small: url("../images/alarm.png");
 \*------------------------------------*/
 
 .products {
+    padding-bottom: 0;
+    .scroll {
+        height: 100%;
+        // override default css, because hiding navbar causes height lack
+        min-height: 100%;
+    }
     .title {
         margin: auto;
-        font-size: 16px;
+        margin-right: 0;
+        font-size: 93%;
         font-weight: 500;
         padding-top: 10%;
         width: 84%;
     }
+    .product-menu-item {
+        padding-top: 6%;
+    }
+    .smpc{
+        left: 38%;
+    }
 }
+
+// **** Products list
+.products-list {
+
+}
+
+// **** Products details
+
+.products-details {
+    .list-button{
+        -ms-transform: rotate(-7deg);
+        -webkit-transform: rotate(-7deg);
+        -moz-transform: rotate(-7deg);
+        transform: rotate(-7deg);
+    }
+
+    .details-container {
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 10px;
+        height: 100%;
+        .product-details-title {
+            position: relative;
+            top: -6px;
+            width: 100%;
+        }
+        .details-text-def {
+            color: rgb(173,0,27);
+            font-weight: 600;
+            padding-top: 10%;
+            padding: 5%;
+        }
+        .details-image {
+            float: right;
+            width: 40%;
+        }
+        .details-text-main {
+          font-size: 75%;
+          line-height: 17px;
+          padding-top: 0;
+          padding: 5%;
+        }
+        .foos-note {
+            color: #ad001b;
+            font-size: 55%;
+            font-weight: 400;
+            line-height: 13px;
+            padding-bottom: 0;
+            padding: 20px;
+            text-align: center;
+        }
+    }
+
+}
+
+
+
+
