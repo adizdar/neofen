@@ -1,0 +1,28 @@
+<ion-view view-title="Proizvodi">
+<ion-nav-buttons side="left" class="back-button-cont">
+<img src="images/back.png"
+class="back-button-trigger back-button-image"
+on-tap="$ionicGoBack()">
+</ion-nav-buttons>
+<ion-content class="padding bg-style-products products-details">
+<div class="details-container">
+	<div star-button
+		text={{productDetails.data.title}}
+		subtext={{productDetails.data.subTitle}}
+		bordercolor={{productDetails.data.details.borderColor}}
+		imgurl={{productDetails.data.details.star}}
+		color={{productDetails.data.details.color}}
+		class="product-details-title"
+		contentclass = "rotate-header sirup-img"
+	></div>
+	<img ng-src={{productDetails.data.imgUrl}} class="details-image">
+	<p class="details-text-def">
+		{{::productDetails.data.lessText}}
+	</p>
+	<p class="details-text-main">
+		{{::productDetails.data.fullText}}
+	</p>
+	<p class="foos-note">Prije upotrebe pažljivo pročitati uputu o lijeku. Za obavijesti o indikacijama, mjerama opreza i nuspojavama upitajte svog liječnika ili ljekarnika.</p>
+</div>
+</ion-content>
+</ion-view>
