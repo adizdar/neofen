@@ -14,7 +14,8 @@
 		'neofen.controllers', 
 		'neofen.services',
 		'neofen.directives',
-		'ngCordova'
+		'ngCordova',
+		'ngAnimate'
 	]);
 
 	angular.module('neofen.controllers', []);

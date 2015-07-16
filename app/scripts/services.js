@@ -117,18 +117,24 @@ angular.module('neofen.services')
     function navigationUtil($log, $ionicHistory, $state) {
 
         var service = {
-            navigate: navigate
+            navigate: navigate,
+            storeNavigationParam: storeNavigationParam,
+            getNavigationParam: getNavigationParam
         };
+
+        var params = null;
 
         return service;
 
         /////////////////////////
 
-        function navigate(key) {
+        function navigate(key, param) {
 
-            $ionicHistory.nextViewOptions({
-                disableAnimate: true
-            });
+            if (param) params = param;
+
+            // $ionicHistory.nextViewOptions({
+            //     disableAnimate: true
+            // });
 
             switch (key) {
                 case 'calculator':
@@ -143,8 +149,107 @@ angular.module('neofen.services')
                 case 'products-details':
                     $state.go('tab.details');
                     break;
+                case 'products-dosage':
+                    $state.go('tab.dosage');
+                    break;
             }
 
+        }
+
+        function storeNavigationParam(param) {
+            params = param;
+        }
+
+        function getNavigationParam() {
+            return params;
+        }
+    }
+
+})();
+
+(function() {
+
+    'use strict';
+
+    angular
+        .module('neofen.services')
+        .factory('productDetails', productDetails);
+
+    productDetails.$inject = ['$log', '$http'];
+
+    function productDetails($log, $http) {
+
+        var service = {
+            getFullProductDetails: getFullProductDetails,
+            getProductByKey: getProductByKey
+        };
+
+        var productProperties = {
+            'red': {
+                'color': 'rgb(215,0,9)',
+                'star': 'images/redstar.png',
+                'borderColor': 'rgb(244,171,171)'
+            },
+            'blue': { // directive takes by default blue
+                'color': null,
+                'star': null,
+                'borderColor': null
+            }
+        };
+
+        var product = {
+            neofensirup: {
+                'title': 'NEOFEN',
+                'subTitle': 'sirup 100 mg/5 ml',
+                'lessText': 'NEOFEN sirup je nesteroidni protuupalni lijek koji snižava tjelesnu temperaturu i ublažava bol.',
+                'fullText': 'Neofen sirup namijenjen je za liječenje djece starije od 3 mjeseca. Mogu ga koristiti i odrasli. Namijenjen je za kratkotrajnu upotrebu u sljedećim slučajevima: snižavanje tjelesne temperature kod prehlade, gripe i drugijh upalnih bolesti; kao reakcija na primljenu vakcinu. Ublažavanje blagih do srednje jakih bolova različitog porijekla (glavobolja, uhobolja, grlobolja, zubobolja).',
+                'imgUrl': 'images/neofens.png',
+                'details': productProperties.red
+            },
+            neofencepici60: {
+                'title': 'NEOFEN',
+                'subTitle': 'čepići 60 mg',
+                'lessText': 'NEOFEN 60 mg čepići sadrže ibuprofen koji pripada grupi nesteroidnih protuupalnih lijekova.',
+                'fullText': 'Neofen čepići sadrže ibuprofen koji se primjenjuje kod bolova i vrlo visoke temperature. Neofen čepići se posebno preporučuju ukoliko povišena tjelesna temperatura ne reguje na paracetamol ili u stanjima kada je tjelesna temperatura vrlo visoka i kada njen daljnji rast može ugroziti dijete (dovesti do febrilnih konvulzija) te kada je potrebno brzo sniziti visoku temperaturu. Posebno su pogodni ukoliko djeca osjećaju bolove jer brzo i djelotvorno uklanjaju uhobolju, sinusobolju, grlobolju, glavobolju, bolove tokom rasta zubića, bolove nakon cijepljenja, bolove u mišićima, bolove nakon operativnih zahvata i druge različite blage i umjerene bolove kod djece.',
+                'imgUrl': 'images/cepici.png',
+                'details': productProperties.red
+            },
+            neofencepici125: {
+                'title': 'NEOFEN',
+                'subTitle': 'čepići 125 mg',
+                'lessText': 'NEOFEN 125 mg čepići sadrže ibuprofen koji pripada grupi nesteroidnih protuupalnih lijekova.',
+                'fullText': 'Neofen čepići sadrže ibuprofen koji se primjenjuje kod bolova i vrlo visoke temperature. Neofen čepići se posebno preporučuju ukoliko povišena tjelesna temperatura ne reguje na paracetamol ili u stanjima kada je tjelesna temperatura vrlo visoka i kada njen daljnji rast može ugroziti dijete (dovesti do febrilnih konvulzija) te kada je potrebno brzo sniziti visoku temperaturu. Posebno su pogodni ukoliko djeca osjećaju bolove jer brzo i djelotvorno uklanjaju uhobolju, sinusobolju, grlobolju, glavobolju, bolove tokom rasta zubića, bolove nakon cijepljenja, bolove u mišićima, bolove nakon operativnih zahvata i druge različite blage i umjerene bolove kod djece.',
+                'imgUrl': 'images/cepici125.png',
+                'details': productProperties.red
+            },
+            lupocetsirup: {
+                'title': 'LUPOCET',
+                'subTitle': 'sirup',
+                'lessText': 'LUPOCET je lijek koji sadrži paracetamol i izdaje se bez recepta. Koristi se za snižavanje povišene tjelesne temperature i za ublažavanje boli.',
+                'fullText': 'LUPOCET sirup i Lupocet čepići namijenjeni su djeci. Prikladni su za snižavanje povišene tjelesne temperature koja je povezana s prehladom, gripom, dječjim zaraznim bolestima (npr. vodene kozice, hripavac, ospice, zaušnjaci) ili reakcijom na cijepljenje, kao i za ublažavanje zubobolje, glavobolje, grlobolje, boli pri nicanju zuba, nakon operacija i ozljeda te boli u mišićima i zglobovima.',
+                'imgUrl': 'images/lupocet.png',
+                'details': productProperties.blue
+            },
+            lupocetcepici: {
+                'title': 'LUPOCET',
+                'subTitle': 'čepići',
+                'lessText': 'LUPOCET je lijek koji sadrži paracetamol i izdaje se bez recepta. Koristi se za snižavanje povišene tjelesne temperature i za ublažavanje boli.',
+                'fullText': 'LUPOCET sirup i Lupocet čepići namijenjeni su djeci. Prikladni su za snižavanje povišene tjelesne temperature koja je povezana s prehladom, gripom, dječjim zaraznim bolestima (npr. vodene kozice, hripavac, ospice, zaušnjaci) ili reakcijom na cijepljenje, kao i za ublažavanje zubobolje, glavobolje, grlobolje, boli pri nicanju zuba, nakon operacija i ozljeda te boli u mišićima i zglobovima.',
+                'imgUrl': 'images/lupocetc.png',
+                'details': productProperties.blue
+            }
+        };
+
+        return service;
+
+        /////////////////////////
+
+        function getFullProductDetails() {
+            return product;
+        }
+
+        function getProductByKey(key) {
+            return product[key];
         }
     }
 

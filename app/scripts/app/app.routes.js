@@ -59,7 +59,17 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         views: {
             'tab-products': {
                 templateUrl: 'templates/tab-product-details.html',
-                controller: 'ProductsController as products'
+                controller: 'ProductDetailsController as productDetails'
+            }
+        }
+    })
+
+    .state('tab.dosage', {
+        url: '/dosage',
+        views: {
+            'tab-products': {
+                templateUrl: 'templates/tab-products-dosage.html',
+                controller: 'ProductsController as productDosage'
             }
         }
     })

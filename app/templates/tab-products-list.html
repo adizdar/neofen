@@ -15,7 +15,7 @@ on-tap="$ionicGoBack()">
 	 class="product-menu-item"
 	 contentclass = "list-button sirup-img"
 	 style="padding-top: 15%;"
-	 on-tap="products.navigate('products-details')"
+	 on-tap="products.navigate('products-details', 'neofensirup')"
 	 ></div>
 <div star-button 
 	 text="NEOFEN"
@@ -25,7 +25,8 @@ on-tap="$ionicGoBack()">
 	 subimgurl="images/cepici.png"
 	 color="rgb(215,0,9)"
 	 contentclass = "list-button"
-	 class="product-menu-item"></div>
+	 class="product-menu-item",
+	 on-tap="products.navigate('products-details', 'neofencepici60')"></div>
 <div star-button 
 	 text="NEOFEN"
 	 subtext="cepici 125 mg"
@@ -34,21 +35,24 @@ on-tap="$ionicGoBack()">
 	 subimgurl="images/cepici125.png"
 	 color="rgb(215,0,9)"
 	 contentclass = "list-button"
-	 class="product-menu-item"
+	 class="product-menu-item",
+	 on-tap="products.navigate('products-details', 'neofencepici125')"
 	 ></div>
 <div star-button 
 	 text="LUPOCET"
 	 subtext="sirup"
 	 subimgurl="images/lupocet.png"
 	 contentclass = "list-button sirup-img"
-	 class="product-menu-item"
+	 class="product-menu-item",
+	 on-tap="products.navigate('products-details', 'lupocetsirup')"
 	 ></div>
 <div star-button 
 	 text="LUPOCET"
 	 subtext="cepici"
 	 subimgurl="images/lupocetc.png"
 	 contentclass = "list-button"
-	 class="product-menu-item"
+	 class="product-menu-item",
+	 on-tap="products.navigate('products-details', 'lupocetcepici')"
 	 ></div>
 </ion-content>
 </ion-view>

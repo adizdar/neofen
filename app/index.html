@@ -14,8 +14,7 @@
         <!-- endbuild -->
         
         <link href="styles/ionic.app.css" rel="stylesheet">
-        <!-- <link href="styles/style.css" rel="stylesheet"> -->
-        <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above    -->
+
     </head>
     <body ng-app="neofen">
         <!--
@@ -31,7 +30,7 @@
         Templates are in the /templates folder (but you could also
         have templates inline in this html file if you'd like).
         -->
-        <ion-nav-view animation="none"></ion-nav-view>
+        <ion-nav-view animation="none" class="view-slide-in"></ion-nav-view>
         <!-- ionic/angularjs js -->
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
@@ -60,6 +59,7 @@
         <script src="scripts/controllers/tabs.controller.js" type="text/javascript" charset="utf-8"></script>
         <script src="scripts/controllers/calculator.controller.js" type="text/javascript" charset="utf-8"></script>
         <script src="scripts/controllers/products.controller.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/controllers/productdetails.controller.js" type="text/javascript" charset="utf-8"></script>
         <script src="scripts/directives/directive.abacus.js" type="text/javascript" charset="utf-8"></script>
         <script src="scripts/directives/directive.starbutton.js" type="text/javascript" charset="utf-8"></script>
         <!-- endbuild -->

@@ -18,22 +18,22 @@ function runPlatform($ionicPlatform, $http, $templateCache, $cordovaSplashscreen
         setTimeout(function() {
             $cordovaSplashscreen.hide();
         }, 1000);
-      
 
-        // var templates = [
-        //     // "calculator",
-        //     // "home",
-        //     // "tab-dash",
-        //     "tabs"
-        // ];
 
-        // $templateCache.put('tabs.html');
-        // $templateCache.put('calculator.html');
+        var templates = [
+            "calculator",
+            "home",
+            "tab-products",
+        ];
 
-        // templates.forEach(function(tpl) {
-        //     $http.get('templates/' + tpl + '.html', {
-        //         cache: $templateCache
-        //     });
-        // })
+        for (var i = 0, length = templates.length; i < length; i++) {
+            var template = templates[i];
+            if ($templateCache.get(template)) {
+                return; //prevent the prefetching if the template is already in the cache
+            }
+            $http.get(template).success(function(t) {
+                $templateCache.put(template, t);
+            });
+        }
     });
 }
