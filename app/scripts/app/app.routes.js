@@ -6,7 +6,7 @@ configSetup.$inject = ['$stateProvider', '$urlRouterProvider', '$ionicConfigProv
 function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
     // reomove text from back button on all views
-     $ionicConfigProvider.backButton.previousTitleText(false).text('');
+    $ionicConfigProvider.backButton.previousTitleText(false).text('');
 
     // set tabs position 
     $ionicConfigProvider.tabs.position('bottom');
@@ -16,6 +16,9 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
     // override tabs css so it won appear white on Android
     $ionicConfigProvider.tabs.style('standard');
+
+    // @todo: CHECK THIS
+    $ionicConfigProvider.templates.maxPrefetch(10);
 
     $stateProvider
 
@@ -69,6 +72,16 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         views: {
             'tab-products': {
                 templateUrl: 'templates/tab-products-dosage.html',
+                controller: 'ProductsController as productDosage'
+            }
+        }
+    })
+
+    .state('tab.dosagedetails', {
+        url: '/dosage-details',
+        views: {
+            'tab-products': {
+                templateUrl: 'templates/tab-products-dosage-details.html',
                 controller: 'ProductsController as productDosage'
             }
         }

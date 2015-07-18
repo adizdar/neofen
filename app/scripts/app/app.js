@@ -18,14 +18,24 @@ function runPlatform($ionicPlatform, $http, $templateCache, $cordovaSplashscreen
         setTimeout(function() {
             $cordovaSplashscreen.hide();
         }, 1000);
-
-
+      
+        // templates.forEach(function(tpl) {
+        //     // $http.get('templates/' + tpl + '.html', {
+        //     //     cache: $templateCache
+        //     // });
+        // });
+        
         var templates = [
-            "calculator",
-            "home",
-            "tab-products",
+            "../templates/calculator.html",
+            "../templates/tab-products.html",
+            "../templates/tab-products-details.html"
         ];
-
+        //@todo seems its not working
+        // templates.forEach(function(tpl) {
+        //     $http.get('../templates/' + tpl + '.html', {
+        //         cache: $templateCache
+        //     });
+        // });
         for (var i = 0, length = templates.length; i < length; i++) {
             var template = templates[i];
             if ($templateCache.get(template)) {
@@ -35,5 +45,6 @@ function runPlatform($ionicPlatform, $http, $templateCache, $cordovaSplashscreen
                 $templateCache.put(template, t);
             });
         }
+
     });
 }

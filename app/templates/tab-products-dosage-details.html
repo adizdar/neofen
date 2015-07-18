@@ -1,0 +1,72 @@
+<ion-view view-title="Doziranje-Neofen">
+<ion-nav-buttons side="left" class="back-button-cont">
+<img src="images/back.png"
+class="back-button-trigger back-button-image"
+on-tap="$ionicGoBack()">
+</ion-nav-buttons>
+<ion-content class="padding bg-style-products products-dosage-details">
+<div class="details-container">
+	<!-- Header -->
+	<div star-button
+		text="NEOFEN"
+		bordercolor="rgb(244,171,171)"
+		imgurl="images/redstar.png"
+		color="rgb(215,0,9)"
+		class="product-details-title"
+		contentclass = "rotate-header list-button"
+	></div>
+	<!-- Body -->
+	<!--
+		Cepici
+	-->
+	<div class="row row-header">
+		<div class="col col-left">Čepići 60mg</div>
+		<div class="col col-right">Čepići 125mg</div>
+	</div>
+	<div class="row row-sub-header" style="padding-top: 5px;">
+		<div class="col">Dob(tjelesna masa)</div>
+	</div>
+	<div class="row row-body">
+		<div class="col">3 – 9 mjeseci <br> (6,0 – 8,0 kg)</div>
+		<div class="col">9 mj. – 2 godine <br> (8,0 – 12,0 kg)</div>
+		<div class="col">2 – 4 godine <br> (12,5 – 17 kg)</div>
+		<div class="col">4 – 6 godina <br> (17 – 20,5 kg)</div>
+	</div>
+	<div class="row row-sub-header">
+		<div class="col">Pojedinačna doza</div>
+	</div>
+	<div class="row row-body">
+		<div class="col">1 čepić</div>
+		<div class="col">1 čepić</div>
+		<div class="col">1 čepić</div>
+		<div class="col">1 čepić</div>
+	</div>
+	<div class="row row-sub-header">
+		<div class="col">Dnevna doza</div>
+	</div>
+	<div class="row row-body">
+		<div class="col">3 puta na dan u razmaku od 6 do 8 sati</div>
+		<div class="col">4 puta na dan u razmaku od 6 sati</div>
+		<div class="col">3 puta na dan u razmaku od 6 do 8 satí</div>
+		<div class="col">4 puta na dan u razmaku od 6 sati</div>
+	</div>
+
+	<!--
+	  Sirup
+	-->
+	<div class="row row-sub-header row-white">
+		<div class="col col-left">Sirup 100mg/5ml</div>
+	</div>
+	<div class="row row-sub-header-split">
+		<div class="col-33" style="padding-top: 8px;">Dob (tjelesna masa)</div>
+		<div class="col-33">Kašika <br> NEOFEN sirupa</div>
+		<div class="col-33">pojedinačna doza ibuprofena (mg)</div>
+	</div>
+	<div class="row row-sirup" ng-repeat="item in productDosage.dosageDetails">
+		<div class="col">{{::item.dob}} {{::item.kg}}</div>
+		<div class="col">{{::item.kasika}}</div>
+		<div class="col">{{::item.doza}}</div>
+	</div>
+</div>
+</ion-content>
+</ion-view>

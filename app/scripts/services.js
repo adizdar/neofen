@@ -132,9 +132,9 @@ angular.module('neofen.services')
 
             if (param) params = param;
 
-            // $ionicHistory.nextViewOptions({
-            //     disableAnimate: true
-            // });
+            $ionicHistory.nextViewOptions({
+                disableAnimate: true
+            });
 
             switch (key) {
                 case 'calculator':
@@ -151,6 +151,9 @@ angular.module('neofen.services')
                     break;
                 case 'products-dosage':
                     $state.go('tab.dosage');
+                    break;
+                case 'products-dosage-details':
+                    $state.go('tab.dosagedetails');
                     break;
             }
 
@@ -181,7 +184,8 @@ angular.module('neofen.services')
 
         var service = {
             getFullProductDetails: getFullProductDetails,
-            getProductByKey: getProductByKey
+            getProductByKey: getProductByKey,
+            getDosageDetails: getDosageDetails
         };
 
         var productProperties = {
@@ -240,6 +244,50 @@ angular.module('neofen.services')
             }
         };
 
+        var dosageDetails = [{
+                dob: '3-6 mj.',
+                kg: '> 5 kg',
+                kasika: '1⁄2 - 3⁄4 kašičice',
+                doza: '50 mg'
+            }, {
+                dob: '6 - 11 mj.',
+                kg: '6-8 kg',
+                kasika: '1⁄2 - 3⁄4 kašičice',
+                doza: '50-75 mg'
+            }, {
+                dob: '1-2 god.',
+                kg: '6-8 kg',
+                kasika: '3⁄4 - 1 kašičice',
+                doza: '50-75 mg'
+            }, {
+                dob: '2-3 god.',
+                kg: '11-16 kg',
+                kasika: '3⁄4 - 1 kašičice',
+                doza: '75-100 mg'
+            }, {
+                dob: '4-5 god.',
+                kg: '17-21 kg',
+                kasika: '1 - 1 1⁄4 kašičice',
+                doza: '100-125 mg'
+            }, {
+                dob: '6-8 god.',
+                kg: '22-27 kg',
+                kasika: '1 - 1 1⁄4 kašičice',
+                doza: '125-150 mg'
+            }, {
+                dob: '9-10 god.',
+                kg: '28-32 kg',
+                kasika: '1 1⁄2 -2 kašičice',
+                doza: '150-200 mg'
+            }, {
+                dob: '11-12 god.',
+                kg: '33-43 kg',
+                kasika: '2-3 kašičice',
+                doza: '200-300 mg'
+            },
+
+        ];
+
         return service;
 
         /////////////////////////
@@ -250,6 +298,10 @@ angular.module('neofen.services')
 
         function getProductByKey(key) {
             return product[key];
+        }
+
+        function getDosageDetails() {
+           return dosageDetails;
         }
     }
 

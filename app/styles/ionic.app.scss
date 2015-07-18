@@ -281,7 +281,8 @@ $alarm-small: url("../images/alarm.png");
 
 .sirup-img {
   img:nth-of-type(2){
-     top: -26px;
+    top: -26px;
+    max-width: 39px;
     width: 11%;
   }
 }
@@ -530,7 +531,7 @@ $alarm-small: url("../images/alarm.png");
         padding-top: 6%;
     }
     .smpc{
-        left: 38%;
+        left: 40%;
     }
 }
 
@@ -613,5 +614,118 @@ $alarm-small: url("../images/alarm.png");
   opacity:0;
 }
 
+// **** Products dosage menu
+.products-dosage-menu {
+  .title-star img:nth-of-type(2) {
+    max-width: 100px;
+    top: -24px;
+    width: 36%;
+  }
+  .title-star span {
+    font-size: 150%;
+  }
+  .list-button span:first-of-type:after {
+      top: -7px;
+  }
+}
+
+// **** Products dosage details
+.products-dosage-details {
+  .details-container {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    height: 100%;
+    margin-top: -4%;
+
+    .row-header{
+        padding-top: 10%;
+        .col{
+            background-color: white;
+            border: 2px solid $red-normal;
+            color: $red-normal;
+            text-align: center;
+            padding: 10px;
+        }
+        .col-left {
+            border-top-left-radius: 0.8em;
+            border-bottom-left-radius: 0.8em;
+        }
+        .col-right {
+            border-top-right-radius: 0.8em;
+            border-bottom-right-radius: 0.8em;
+            border-left: 0;
+        }
+    }
+.row-sub-header {
+    padding-top: 0;
+        .col {
+          background-color: $red-normal;
+          border: 2px double white;
+          border-radius: 0.8em;
+          color: white;
+          font-size: 13px;
+          padding: 2px;
+          text-align: center;
+        }
+}
+
+.row-body {
+    .col {
+        border-right: 2px solid white;
+        color: black;
+        font-size: 8px;
+        font-weight: bold;
+        padding-bottom: 10px;
+        text-align: center;
+        &:last-child {
+            border-right: 0;
+        }
+        &:nth-of-type(2) {
+            border-right: 2px solid $red-normal;
+        }
+    }
+}
+
+.row-white {
+    .col {
+          background-color: white;
+          border: 2px double $red-normal;
+          color: $red-normal;
+    }
+}
+
+.row-sub-header-split {
+    background-color: $red-normal;
+    border: 2px double white;
+    border-radius: 0.8em;
+    color: white;
+    font-size: 13px;
+    padding: 2px;
+    text-align: center;
+
+    .col-33 {
+        border-right: 1px solid white;
+        line-height: 1.3em;
+        font-size: 10px;
+        padding: 2px;
+        &:last-child {
+            border-right: 0;
+        }
+    }
+}
+
+.row-sirup {
+    .col {
+      border-right: 2px solid $red-normal;
+      font-size: 9px;
+      font-weight: bold;
+      &:last-child {
+            border-right: 0;
+      }
+    }
+}
+
+  }
+}
 
 
