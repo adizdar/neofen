@@ -379,7 +379,7 @@ $alarm-small: url("../images/alarm.png");
 
 .bar.bar-stable .title {
     color: white;
-    font-size: 26px;
+    font-size: 24px;
 }
 
 // **** Menu *****
@@ -636,6 +636,7 @@ $alarm-small: url("../images/alarm.png");
     border-radius: 10px;
     height: 100%;
     margin-top: -4%;
+    overflow: auto;
 
     .row-header{
         padding-top: 10%;
@@ -669,11 +670,62 @@ $alarm-small: url("../images/alarm.png");
         }
 }
 
+div.row-header-lupocet {
+      background-color: $blue-light;
+      border-radius: 1.2em;
+      margin-top: 10%;
+      padding-bottom: 8px;
+      padding-top: 8px;
+    .col{
+     &:first-child{
+        padding-right: 0;
+        padding-left: 0;
+     }
+     &:nth-of-type(2) {
+        padding-left: 7px;
+        padding-right: 2px;
+     }
+    }
+}
+
+div.row-lupocet {
+    .col {
+      border-right: 2px solid $blue-light;
+      line-height: 1.8em;
+      &:nth-of-type(2) {
+        border-right: 2px solid $blue-light;
+      }
+    }
+}
+
+div.row-stripped {
+    .col {
+        background-color: white;
+        border: 2px solid $blue-light;
+        &:nth-child(2) {
+            border-radius: 0;
+            border-right: 0;
+        }
+        &:last-child {
+            border-top-right-radius: 1.2em;
+            border-bottom-right-radius: 1.2em;
+            border-right: 2px solid #66c0df;
+            padding-left: 3px;
+        }
+        &:first-child {
+          border-top-left-radius: 1.2em;
+          border-bottom-left-radius: 1.2em;
+          border-right: 0;
+          padding-right: 3px;
+        }
+    }
+}
+
 .row-body {
     .col {
         border-right: 2px solid white;
         color: black;
-        font-size: 8px;
+        font-size: 59%;
         font-weight: bold;
         padding-bottom: 10px;
         text-align: center;
@@ -714,18 +766,50 @@ $alarm-small: url("../images/alarm.png");
     }
 }
 
+.sirup-dosage-container {
 .row-sirup {
     .col {
       border-right: 2px solid $red-normal;
+      border-bottom: 1px solid white;
       font-size: 9px;
       font-weight: bold;
       &:last-child {
             border-right: 0;
       }
     }
+    .ro {
+        float: right;
+    }
+    &:first-child {
+    padding-top: 0;
+    }
+    &:last-child {
+        border-bottom: 0;
+        padding-bottom: 15px;
+        .col {
+           border-bottom: 0;
+        }
+    }
+ }
 }
 
-  }
+ .footer {
+      bottom: -28px;
+      max-width: 105px;
+      padding-right: 10px;
+      position: absolute;
+      right: 0;
+      width: 35%;
+        img {
+            width: 100%;
+        } 
+ }
+ .lupocet-footer {
+      float: right;
+      padding-top: 15px;
+      position: initial;
+ }
+ }
 }
 
 

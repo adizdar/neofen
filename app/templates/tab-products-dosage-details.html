@@ -1,11 +1,13 @@
-<ion-view view-title="Doziranje-Neofen">
+<ion-view view-title="Doziranje-{{::productDosage.productKey}}">
 <ion-nav-buttons side="left" class="back-button-cont">
 <img src="images/back.png"
 class="back-button-trigger back-button-image"
 on-tap="$ionicGoBack()">
 </ion-nav-buttons>
 <ion-content class="padding bg-style-products products-dosage-details">
-<div class="details-container">
+
+<!-- Neofen -->
+<div class="details-container" ng-if="productDosage.productKey == 'Neofen'">
 	<!-- Header -->
 	<div star-button
 		text="NEOFEN"
@@ -50,9 +52,8 @@ on-tap="$ionicGoBack()">
 		<div class="col">3 puta na dan u razmaku od 6 do 8 satí</div>
 		<div class="col">4 puta na dan u razmaku od 6 sati</div>
 	</div>
-
 	<!--
-	  Sirup
+	Sirup
 	-->
 	<div class="row row-sub-header row-white">
 		<div class="col col-left">Sirup 100mg/5ml</div>
@@ -62,10 +63,83 @@ on-tap="$ionicGoBack()">
 		<div class="col-33">Kašika <br> NEOFEN sirupa</div>
 		<div class="col-33">pojedinačna doza ibuprofena (mg)</div>
 	</div>
-	<div class="row row-sirup" ng-repeat="item in productDosage.dosageDetails">
-		<div class="col">{{::item.dob}} {{::item.kg}}</div>
-		<div class="col">{{::item.kasika}}</div>
-		<div class="col">{{::item.doza}}</div>
+	<div class="sirup-dosage-container">
+		<div class="row row-sirup" ng-repeat="item in productDosage.dosageDetails">
+			<div class="col"><span class="lo">{{::item.dob}}</span>
+			<span class="ro">{{::item.kg}}</span></div>
+			<div class="col">{{::item.kasika}}</div>
+			<div class="col">{{::item.doza}}</div>
+		</div>
+	</div>
+	<div class="footer">
+		<img src="images/neofencombined.png">
+	</div>
+</div>
+
+<!-- Lupocet -->
+<div class="details-container" ng-if="productDosage.productKey == 'Lupocet'">
+	<!-- Header -->
+	<div star-button
+		text="LUPOCET"
+		imgurl="images/starblue.png"
+		class="product-details-title"
+		contentclass = "rotate-header list-button"
+	></div>
+	<!-- Body -->
+	<div class="row row-header-lupocet row-sub-header-split">
+		<div class="col">Dob</div>
+		<div class="col">Lupocet čepići</div>
+		<div class="col">Lupocet sirup</div>
+	</div>
+	<div class="row row-body row-lupocet" style="padding-top: 5px;">
+		<div class="col">
+			Novorođenčad i dojenčad do 3 mjeseca (tjelesna masa do 5 kg)
+		</div>
+		<div class="col">
+			10 - 15 mg/kg
+			tjelesne mase, odnosno 1⁄2 čepića (60 mg)
+			4 puta na dan
+		</div>
+		<div class="col">
+			10 mg/kg tjelesne mase, odnosno 1⁄2 kašičice 	sirupa (60 mg)
+			4 puta na dan
+		</div>
+	</div>
+	<div class="row row-body row-lupocet row-stripped">
+		<div class="col">
+			Dojenčad od 3 mjeseca do jedne godine (tjelesna masa od 10 - 15 kg)
+		</div>
+		<div class="col">
+			1⁄2 -1 čepić (60- 120 mg) 4 puta na dan
+		</div>
+		<div class="col">
+			1⁄2 -1 kašičica sirupa (60-120 mg) 4 puta na dan
+		</div>
+	</div>
+    <div class="row row-body row-lupocet">
+		<div class="col">
+			Djeca od 1-6 godina (tjelesna masa 10-20 kg)
+		</div>
+		<div class="col">
+			1-2 čepića (120 - 240 mg) 4 puta na dan
+		</div>
+		<div class="col">
+			1-2 kašičice sirupa (120-240 mg) 4 puta na dan
+		</div>
+	</div>
+	<div class="row row-body row-lupocet row-stripped">
+		<div class="col">
+			Djeca od 6-12 godina (tjelesna masa 20-40 kg)
+		</div>
+		<div class="col">
+			
+		</div>
+		<div class="col">
+			2-4 kašičice sirupa (240-480 mg) 4 puta na dan
+		</div>
+	</div>
+	<div class="footer lupocet-footer">
+		<img src="images/lupocetcombined.png">
 	</div>
 </div>
 </ion-content>

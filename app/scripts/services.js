@@ -245,7 +245,7 @@ angular.module('neofen.services')
         };
 
         var dosageDetails = [{
-                dob: '3-6 mj.',
+                dob: '3 - 6 mj.',
                 kg: '> 5 kg',
                 kasika: '1⁄2 - 3⁄4 kašičice',
                 doza: '50 mg'

@@ -12,9 +12,9 @@
 
         var vm = this;
 
+        vm.productKey = navigationUtil.getNavigationParam();
         vm.dosageDetails = productDetails.getDosageDetails();
         vm.navigate = navigationUtil.navigate;
-
 
     }
 
