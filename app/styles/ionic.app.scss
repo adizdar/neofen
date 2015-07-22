@@ -167,6 +167,10 @@ $alarm-small: url("../images/alarm.png");
     }
 }
 
+.tab-smpc {
+    display: none;
+}
+
 .bg-style-main {
     background-image: $bg-url-main;
     background-position: center center;
@@ -379,7 +383,7 @@ $alarm-small: url("../images/alarm.png");
 
 .bar.bar-stable .title {
     color: white;
-    font-size: 24px;
+    font-size: 160%;
 }
 
 // **** Menu *****
@@ -552,6 +556,11 @@ $alarm-small: url("../images/alarm.png");
             top: -6px;
             width: 100%;
         }
+
+    .details-text-def-blue {
+        color: $blue-strong !important;
+    }
+
         .details-text-def {
             color: rgb(173,0,27);
             font-weight: 600;
@@ -809,6 +818,22 @@ div.row-stripped {
       padding-top: 15px;
       position: initial;
  }
+ }
+}
+
+/*------------------------------------*\
+    $SMPC
+\*------------------------------------*/
+
+.smpc-details {
+  
+  pre {
+     font-size: 10px;
+     font-family: sans-serif;
+     font-weight: 500;
+     padding-top: 20px;
+     padding-right: 10px;
+     padding-left: 10px;
  }
 }
 

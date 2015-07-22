@@ -16,7 +16,7 @@ on-tap="$ionicGoBack()">
 		contentclass = "rotate-header sirup-img"
 	></div>
 	<img ng-src={{productDetails.data.imgUrl}} class="details-image">
-	<p class="details-text-def">
+	<p class="details-text-def" ng-class="{'details-text-def-blue': !productDetails.data.details.color}">
 		{{::productDetails.data.lessText}}
 	</p>
 	<p class="details-text-main">

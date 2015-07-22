@@ -1,15 +1,11 @@
 
 <ion-tabs class="tabs-icon-top tabs-color-active-positive" ng-class="{'tabs-item-hide' : $root.hideTabs === null || $root.hideTabs}" ng-controller="TabsController">
   
-  <!-- Used for content that doesnt need a tab bar -->
-<!--   <ion-tab icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong">
-    <ion-nav-view name="tab-home"></ion-nav-view>
-  </ion-tab> -->
-
-    <!-- Used for content that doesnt need a tab bar -->
-<!--   <ion-tab icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/calculator">
-    <ion-nav-view name="tab-calculator"></ion-nav-view>
-  </ion-tab> -->
+  <!-- Hidden SMPC tab -->
+   <ion-tab href="#/tab/smpc" ng-show="false" class="tab-smpc">
+    <ion-nav-view name="tab-smpc"></ion-nav-view>
+  </ion-tab>
+ 
 
   <!-- Dashboard Tab -->
   <ion-tab icon-off="ion-me" icon-on="ion-me" href="#/tab/dash">
@@ -22,12 +18,12 @@
   </ion-tab>
 
   <!-- Account Tab -->
-  <ion-tab icon-off="ion-info" icon-on="ion-info" href="">
+  <ion-tab icon-off="ion-info"  icon-on="ion-info" href="">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
 
   <!-- Products Tab -->
-  <ion-tab icon-off="ion-products" icon-on="ion-products" href="">
+  <ion-tab icon-off="ion-products" icon-on="ion-products" href="#/tab/products">
     <ion-nav-view name="tab-products"></ion-nav-view>
   </ion-tab>
 

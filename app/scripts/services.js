@@ -155,6 +155,12 @@ angular.module('neofen.services')
                 case 'products-dosage-details':
                     $state.go('tab.dosagedetails');
                     break;
+                 case 'smpc':
+                    $state.go('tab.smpc');
+                    break;
+                 case 'smpc-details':
+                    $state.go('tab.smpcdetails');
+                    break;
             }
 
         }

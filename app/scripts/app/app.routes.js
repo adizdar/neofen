@@ -37,6 +37,25 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     })
 
     // Each tab has its own nav history stack:
+    .state('tab.smpc', {
+        url: '/smpc',
+        views: {
+            'tab-smpc': {
+                templateUrl: 'templates/tab-smpc.html',
+                controller: 'ProductsController as smpc'
+            }
+        }
+    })
+
+    .state('tab.smpcdetails', {
+        url: '/smpc-details',
+        views: {
+            'tab-smpc': {
+                templateUrl: 'templates/tab-smpc-details.html',
+                controller: 'ProductDetailsController as smpc'
+            }
+        }
+    })
     .state('tab.products', {
         url: '/products',
         views: {
@@ -84,35 +103,6 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
                 templateUrl: 'templates/tab-products-dosage-details.html',
                 controller: 'ProductsController as productDosage'
             }
-        }
-    })
-
-    .state('tab.chats', {
-        url: '/chats',
-        views: {
-            'tab-chats': {
-                templateUrl: 'templates/tab-chats.html',
-                controller: 'ChatsCtrl'
-            }
-        }
-    })
-        .state('tab.chat-detail', {
-            url: '/chats/:chatId',
-            views: {
-                'tab-chats': {
-                    templateUrl: 'templates/chat-detail.html',
-                    controller: 'ChatDetailCtrl'
-                }
-            }
-        })
-
-    .state('tab.account', {
-        url: '/account',
-        views: {
-            'tab-account': {
-                templateUrl: 'templates/tab-account.html',
-                controller: 'AccountCtrl'   
-            }   
         }
     })
         .state('calculator', {

@@ -28,7 +28,7 @@ function runPlatform($ionicPlatform, $http, $templateCache, $cordovaSplashscreen
         var templates = [
             "../templates/calculator.html",
             "../templates/tab-products.html",
-            "../templates/tab-products-details.html"
+            "../templates/tab-product-details.html"
         ];
         //@todo seems its not working
         // templates.forEach(function(tpl) {

@@ -13,10 +13,12 @@
         var vm = this;
 
         vm.data = null;
+        vm.key = null;
         init();
 
         function init() {
-           vm.data = productDetails.getProductByKey(navigationUtil.getNavigationParam());
+           vm.key = navigationUtil.getNavigationParam();
+           vm.data = productDetails.getProductByKey(vm.key);
         }        
 
     }
