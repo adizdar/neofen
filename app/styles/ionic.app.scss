@@ -33,11 +33,14 @@ $red-strong: rgb(164, 0, 17);
 $blue-light: rgb(102, 192, 223);
 $blue-strong: rgb(76, 151, 180);
 $smpc-color: rgb(27, 153, 213);
+$green: rgb(18,79,45);
 
 // Url
 $bg-url-second: url("../images/bg.png");
 $bg-url-products: url("../images/bgproducts.png");
 $bg-url-main: url("../images/bghome.png");
+$bg-url-info-main: url("../images/bgmaingreen.png");
+$bg-url-info: url("../images/bgtips.png");
 
 $blue-star-url: url("../images/bluestar.png");
 $red-star-url: url("../images/redstar.png");
@@ -180,7 +183,8 @@ $alarm-small: url("../images/alarm.png");
     background-color: white;
 }
 
-.bg-style-second, .bg-style-products {
+.bg-style-second, .bg-style-products,
+.bg-style {
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -194,6 +198,14 @@ $alarm-small: url("../images/alarm.png");
 
 .bg-style-products {
     background-image: $bg-url-products;
+}
+
+.bg-style-info-main {
+   background-image: $bg-url-info-main;
+}
+
+.bg-style-info {
+   background-image: $bg-url-info;
 }
 
 .sub-container {
@@ -273,6 +285,17 @@ $alarm-small: url("../images/alarm.png");
     }
 }
 
+// pre
+
+pre {
+     font-size: 70%;
+     font-family: sans-serif;
+     font-weight: 500;
+     padding-top: 20px;
+     padding-right: 10px;
+     padding-left: 10px;
+ }
+
 // R sign in text exp. Neofen
 .list-button {
     span:first-of-type:after {
@@ -306,7 +329,7 @@ $alarm-small: url("../images/alarm.png");
     width: 100%;
     height: 100%;
     margin-top: 94px;
-    /* this is because of header and subheader which I use */
+    /* this is because of header and sub-header which I use */
     overflow-y: scroll;
 }
 
@@ -824,17 +847,68 @@ div.row-stripped {
 /*------------------------------------*\
     $SMPC
 \*------------------------------------*/
-
-.smpc-details {
   
-  pre {
-     font-size: 10px;
-     font-family: sans-serif;
-     font-weight: 500;
-     padding-top: 20px;
-     padding-right: 10px;
-     padding-left: 10px;
- }
+
+
+
+/*------------------------------------*\
+    $INFO
+\*------------------------------------*/
+
+.info-button {
+    span {
+        font-weight: 500;
+        font-size: 100%;
+    }
 }
 
+.info-details {
+    .details-container {
+        pre {
+            color: $green;
+            font-weight: 600;
+            padding-bottom: 10px;
+            line-height: 18px;
+        }
 
+        ul {
+            color: #124f2d;
+            list-style: dot;
+            font-weight: 600;
+            font-size: 70%;
+            padding: 10px;
+            padding-top: 0;
+            list-style-type: disc;
+            padding-left: 22px;
+            font-style: oblique;
+        }
+        .sub-info-title {
+          color: $red-normal;
+          font-size: 70%;
+          font-weight: bold;
+          line-height: 17px;
+          margin-bottom: 2px;
+          padding-left: 10px;
+          text-align: justify;
+        }
+        .snail-image {
+          position: absolute;
+          right: -40px;
+          top: -26px;
+          z-index: 100;
+          width: 40%; 
+        }
+        .snail-image-no-position {
+          float: right;
+          margin-right: -33px;
+          margin-top: -21px;
+          position: inherit;
+          width: 40%;
+        }
+    }
+
+    .info-title span {
+       font-weight: 500;
+       font-size: 95%; 
+    }
+}  

@@ -6,15 +6,14 @@
         .module('neofen.controllers')
         .controller('ProductsController', ProductsController);
 
-    ProductsController.$inject = ['$scope', '$log', 'navigationUtil', 'productDetails', '$cordovaFileOpener2'];
+    ProductsController.$inject = ['$scope', '$log', 'navigationUtil', 'productDetails'];
 
-    function ProductsController($scope, $log, navigationUtil, productDetails, $cordovaFileOpener2) {
+    function ProductsController($scope, $log, navigationUtil, productDetails) {
 
         var vm = this;
 
         vm.productKey = navigationUtil.getNavigationParam();
         vm.dosageDetails = productDetails.getDosageDetails();
-        vm.data = smpc;
         vm.navigate = navigationUtil.navigate;
 
 

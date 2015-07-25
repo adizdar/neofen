@@ -105,6 +105,26 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             }
         }
     })
+
+    .state('tab.info', {
+        url: '/info',
+        views: {
+            'tab-info': {
+                templateUrl: 'templates/tab-info.html',
+                controller: 'InfoController as info'
+            }
+        }
+    })
+
+    .state('tab.infodetails', {
+        url: '/infodetails',
+        views: {
+            'tab-info': {
+                templateUrl: 'templates/tab-info-details.html',
+                controller: 'InfoController as info'
+            }
+        }
+    })
         .state('calculator', {
             url: '/calculator',
             data: {hideTabsBar:true},
