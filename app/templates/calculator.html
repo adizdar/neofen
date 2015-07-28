@@ -14,47 +14,51 @@
 			<img ng-src="images/starblue.png" alt="">
 			<span>Izaberite lijek</span>
 		</div>
-		<button class="red-normal button button-full button-positive">
+		<ion-radio class="red-normal menu-radio"
+				on-tap="calculator.selectRule('neofen100sirup')">
 		NEOFEN<span>®</span> Sirup
-		</button>
-		<button class="red-normal button button-full button-positive">
+		</ion-radio>
+		<ion-radio class="red-normal menu-radio" 
+				on-tap="calculator.selectRule('neofen60cepici')">
 		NEOFEN<span>®</span> cepici 60 mg
-		</button>
-		<button class="red-strong button button-full button-positive">
+		</ion-radio>
+		<ion-radio class="red-strong menu-radio"
+				on-tap="calculator.selectRule('neofen125cepici')">
 		NEOFEN<span>®</span> cepici 125 mg
-		</button>
-		<button class="blue-light button button-full button-positive">
+		</ion-radio>
+		<ion-radio class="blue-light menu-radio"
+				on-tap="calculator.selectRule('lupocet120sirup')">
 		LUPOCET<span>®</span> sirup
-		</button>
-		<button class="blue-strong button button-full button-positive">
+		</ion-radio>
+		<ion-radio class="blue-strong menu-radio"
+				on-tap="calculator.selectRule('lupocet120cepici')">
 		LUPOCET<span>®</span> cepici
-		</button>
+		</ion-radio>
 	</div>
 	<!--
 		Calculator Section
 	-->
 	<div class="abacus-placeholder">
-		<div class="abacus-container abacus-date">
-			<p>Dob</p>
-			<div abacus abacusColor="abacus-red"></div>
-			<div abacus abacusColor="abacus-green"></div>
-		</div>
 		<div class="abacus-container abacus-weight">
-			<p>Tezina</p>
-			<div abacus abacusColor="abacus-orange"></div>
-			<div abacus abacusColor="abacus-orange-light"></div>
-			<div abacus abacusColor="abacus-yelow"></div>
-			<div abacus abacusColor="abacus-yelow-lite"></div>
+			<p>Težina</p>
+			<div abacus abacusColor="#F28F00"></div>
+			<div abacus abacusColor="rgb(248, 177, 67)"></div>
+			<div abacus abacusColor="rgb(246, 224, 65)"></div>
+			<div abacus abacusColor="rgb(226, 218, 47)"></div>
 		</div>
 	</div>
+	<div class="calculator-button">
+		<button on-tap="calculator.triggerRule()"></button>
+	</div>
+
 	<!--
 		Calculator Result
 	-->
 	<div class="calculator-result card">
-		<img src="" alt="">
-		<img src="" alt="">
-		<p>Test</p>
-		<p>Test</p>
+		<img ng-src="{{calculator.selectedImage.main}}" class="main-image">
+		<img ng-src="{{calculator.selectedImage.sub}}" class="sub-image">
+		<p style="padding-top: 8%;">1-2 kascice</p>
+		<p>3 puta dnevno</p>
 	</div>
 	<!--
 		Disclaimer

@@ -19,7 +19,7 @@
         };
 
         var service = {
-            triggerRule: tirggetRule
+            triggerRule: triggerRule
         };
 
         return service;
@@ -46,9 +46,93 @@
                 return;
             }
 
-            (callback || angular.noop)(params);
+            return (callback || angular.noop)(params);
         }
 
+     function ruleNeofenSirup(value) {
+          var rule = parseInt(value);
+
+          if(rule === undefined) return;
+
+          if(rule < 5) {
+             return {
+              error: "Kilaza ne dovoljna za koristenje datog lijka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
+             };
+          }
+          if(rule === 5) {
+            return {
+              error: false,
+              measure: '½ žličice',
+              dose: '50',
+              daily: '3'
+            };
+          }
+          if(rule > 5 && rule < 11) {
+            return {
+              error: false,
+              measure: '½ -¾ kaščica',
+              dose:  '50-75',
+              daily: '3'
+            };
+          }
+          if(rule >= 11 && rule < 17) {
+            return {
+              error: false,
+              measure: '¾ -1 kaščica',
+              dose:  '75-100',
+              daily: '3'
+            };
+          }
+          if(rule >= 17 && rule < 22) {
+            return {
+              error: false,
+              measure: '1 -1 ¼ kaščica',
+              dose:  '100-125',
+              daily: '3'
+            };
+          }
+          if(rule >= 22 && rule < 28) {
+            return {
+              error: false,
+              measure: '1 ¼ -1 ½ kaščica',
+              dose:  '125-150',
+              daily: '3'
+            };
+          }
+          if(rule >= 28 && rule < 33) {
+            return {
+              error: false,
+              measure: '1 ½ -2 kaščica',
+              dose:  '150-200',
+              daily: '3'
+            };
+          }
+          if(rule >= 33 && rule < 43) {
+            return {
+              error: false,
+              measure: '2 - 3 kaščica',
+              dose:  '200-300',
+              daily: '3'
+            };
+          }
+          if(rule >= 43) {
+            return {
+              error: false,
+              measure: '2 - 3 kaščica',
+              dose:  '200-400',
+              daily: '3'
+            };
+          }
+
+      }
+
+      function ruleLupocetSirup() {}
+
+      function ruleNeofenCepiciSmall() {}
+
+      function ruleNeofenCepici() {}
+
+      function ruleLupocetCepici() {}
     }
 
 })();
