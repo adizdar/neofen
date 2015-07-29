@@ -4,9 +4,9 @@
 		class="back-button-trigger back-button-image"
 		on-tap="$ionicGoBack()">
 	</ion-nav-buttons>
-<ion-content class="bg-style-second">
+<ion-content class="bg-style-second calculator-view">
 <div class="sub-container">
-	<!--
+	<!--s
 		Menu Section
 	-->
 	<div class="menu-container">
@@ -54,11 +54,18 @@
 	<!--
 		Calculator Result
 	-->
-	<div class="calculator-result card">
-		<img ng-src="{{calculator.selectedImage.main}}" class="main-image">
-		<img ng-src="{{calculator.selectedImage.sub}}" class="sub-image">
-		<p style="padding-top: 8%;">1-2 kascice</p>
-		<p>3 puta dnevno</p>
+	<div class="calculator-result card" ng-hide="!calculator.resultData">
+		<div class="row">
+			<div class="col">
+				<img src="{{calculator.selectedImage.main}}" class="main-image-{{calculator.selectedImage.classExt}}">
+			</div>
+			<div class="col" style="flex: 0 0 45%;
+  max-width: 45%;">
+				<img src="{{calculator.selectedImage.sub}}" class="sub-image-{{calculator.selectedImage.classExt}}">
+				<p style="padding-top: 10%;">{{calculator.resultData.measure}}</p>
+				<p>{{calculator.resultData.daily}}</p>
+			</div>
+		</div>
 	</div>
 	<!--
 		Disclaimer

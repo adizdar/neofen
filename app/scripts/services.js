@@ -64,7 +64,7 @@
               error: false,
               measure: '½ žličice',
               dose: '50',
-              daily: '3'
+              daily: '3 puta dnevno'
             };
           }
           if(rule > 5 && rule < 11) {
@@ -72,7 +72,7 @@
               error: false,
               measure: '½ -¾ kaščica',
               dose:  '50-75',
-              daily: '3'
+              daily: '3 puta dnevno'
             };
           }
           if(rule >= 11 && rule < 17) {
@@ -80,15 +80,15 @@
               error: false,
               measure: '¾ -1 kaščica',
               dose:  '75-100',
-              daily: '3'
+              daily: '3 puta dnevno'
             };
-          }
+          } 
           if(rule >= 17 && rule < 22) {
             return {
               error: false,
               measure: '1 -1 ¼ kaščica',
               dose:  '100-125',
-              daily: '3'
+              daily: '3 puta dnevno'
             };
           }
           if(rule >= 22 && rule < 28) {
@@ -96,7 +96,7 @@
               error: false,
               measure: '1 ¼ -1 ½ kaščica',
               dose:  '125-150',
-              daily: '3'
+              daily: '3 puta dnevno'
             };
           }
           if(rule >= 28 && rule < 33) {
@@ -104,7 +104,7 @@
               error: false,
               measure: '1 ½ -2 kaščica',
               dose:  '150-200',
-              daily: '3'
+              daily: '3 puta dnevno'
             };
           }
           if(rule >= 33 && rule < 43) {
@@ -112,7 +112,7 @@
               error: false,
               measure: '2 - 3 kaščica',
               dose:  '200-300',
-              daily: '3'
+              daily: '3 puta dnevno'
             };
           }
           if(rule >= 43) {
@@ -120,19 +120,160 @@
               error: false,
               measure: '2 - 3 kaščica',
               dose:  '200-400',
-              daily: '3'
+              daily: '3 puta dnevno'
             };
           }
 
       }
 
-      function ruleLupocetSirup() {}
+      function ruleLupocetSirup(value) {
+        var rule = parseInt(value);
 
-      function ruleNeofenCepiciSmall() {}
+        if(rule === undefined) return;
 
-      function ruleNeofenCepici() {}
+        if(rule < 5) {
+            return {
+              error: false,
+              measure: '1/2 kaščice',
+              daily: '3 do 4 puta na dan'
+            };
+         }
+        if(rule >= 5 && rule < 10) {
+            return {
+              error: false,
+              measure: '1/2 - 1 kaščica',
+              daily: '3 do 4 puta na dan'
+            };
+         }
+        if(rule >= 10 && rule < 20) {
+            return {
+              error: false,
+              measure: '1 - 2 kaščica',
+              daily: '3 do 4 puta na dan'
+            };
+         }
+        if(rule >= 20 && rule < 40) {
+            return {
+              error: false,
+              measure: '2 - 4 kaščica',
+              daily: '3 do 4 puta na dan'
+            };
+         }
+        if(rule >= 40) {
+            return {
+              error: false,
+              measure: '2 - 4 kaščica',
+              daily: '3 do 4 puta na dan',
+              warning: 'NAPOMENA: lijek je namjenjen za djecu do 12 godina i do 40 kg tjelsne mase!'
+            };
+         }
+      }
 
-      function ruleLupocetCepici() {}
+      function ruleNeofenCepiciSmall(value) {
+         var rule = parseInt(value);
+
+         if(rule === undefined) return;
+
+         if(rule < 6) {
+           return {
+             error: "Kilaza ne dovoljna za koristenje datog lijka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
+           };
+         }
+         if(rule >= 6 && rule < 8) {
+            return {
+              error: false,
+              measure: '1 čepić',
+              daily: '3 puta na dan u razmaku od 6-8 sati'
+            };
+         }
+        if(rule >= 8 && rule <= 12) {
+            return {
+              error: false,
+              measure: '1 čepić',
+              daily: '4 puta na dan u razmaku od 6 sati'
+            };
+         }
+        if(rule > 12) {
+            return {
+              error: false,
+              measure: '1 čepić',
+              daily: '4 puta na dan u razmaku od 6 sati',
+              warning: 'NAPOMENA: lijek je namjenjen za djecu do 2 godine i do 12 kg tjelsne mase!'
+            };
+         }
+
+      }
+
+      function ruleNeofenCepici(value) {
+         var rule = parseInt(value);
+
+         if(rule === undefined) return;
+
+         if(rule < 12) {
+           return {
+             error: "Kilaza ne dovoljna za koristenje datog lijka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
+           };
+         }
+         if(rule > 12 && rule < 17) {
+            return {
+              error: false,
+              measure: '1 čepić',
+              daily: '3 puta na dan u razmaku od 6-8 sati'
+            };
+         }
+        if(rule >= 17 && rule <= 21) {
+            return {
+              error: false,
+              measure: '1 čepić',
+              daily: '4 puta na dan u razmaku od 6 sati'
+            };
+         }
+        if(rule > 21) {
+            return {
+              error: false,
+              measure: '1 čepić',
+              daily: '4 puta na dan u razmaku od 6 sati',
+              warning: 'NAPOMENA: lijek je namjenjen za djecu do 6 godina i do 20,5 kg tjelsne mase!'
+            };
+         }
+      }
+
+      function ruleLupocetCepici(value) {
+         var rule = parseInt(value);
+
+         if(rule === undefined) return;
+
+         if(rule < 5) {
+           return {
+              error: false,
+              measure: '1/2 čepić',
+              daily: '3 - 4 puta na dan u razmaku od 6-8 sati'           
+            };
+         }
+         if(rule > 5 && rule < 10) {
+            return {
+              error: false,
+              measure: '1/2 -1 čepić',
+              daily: '3 - 4 puta na dan u razmaku od 6-8 sati'
+            };
+         }
+        if(rule >= 10 && rule <= 20) {
+            return {
+              error: false,
+              measure: '1 - 2 čepića',
+              daily: '3 - 4 puta na dan u razmaku od 6-8 sati'
+            };
+         }
+        if(rule > 21) {
+            return {
+              error: false,
+              measure: '1 - 2 čepića',
+              daily: '3 - 4 puta na dan u razmaku od 6-8 sati',
+              warning: 'NAPOMENA: lijek je namjenjen za djecu do 5 godina i do 20 kg tjelsne mase!'
+            };
+         }
+
+      }
     }
 
 })();

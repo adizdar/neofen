@@ -17,11 +17,11 @@
     	vm.selectedImage = null;
     	vm.selectedRule = null;
     	vm.imageResult = {
-    		'neofen100sirup': {main: 'images/neofens.png', sub: 'images/kasikared.png'},
-            'neofen60cepici': {main: 'images/cepici.png', sub: 'images/cepicred.png'},
-            'neofen125cepici': {main: 'images/cepici125.png', sub: 'images/cepicred.png'},
-            'lupocet120cepici': {main: 'images/lupocetc.png', sub: 'images/cepiciblue.png' },
-            'lupocet120sirup': {main: 'images/lupocet.png', sub: 'images/sirupblue.png'}
+    		'neofen100sirup': {main: 'images/neofens.png', sub: 'images/kasikared.png', classExt: 'sirup'},
+            'neofen60cepici': {main: 'images/cepici.png', sub: 'images/cepicred.png', classExt: 'cepic'},
+            'neofen125cepici': {main: 'images/cepici125.png', sub: 'images/cepicred.png', classExt: 'cepic'},
+            'lupocet120cepici': {main: 'images/lupocetc.png', sub: 'images/cepicblue.png', classExt: 'cepic'},
+            'lupocet120sirup': {main: 'images/lupocet.png', sub: 'images/kasikablue.png', classExt: 'sirup'}
     	};
 
     	vm.selectRule = selectRule;
@@ -42,6 +42,7 @@
 
         function selectRule(rule) {
         	vm.selectedRule = rule;
+        	vm.resultData = vm.selectedImage = null;
         }
 
         function triggerRule() {
