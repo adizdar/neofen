@@ -56,7 +56,7 @@
 
           if(rule < 5) {
              return {
-              error: "Kilaza ne dovoljna za koristenje datog lijka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
+              error: "Kilaža ne dovoljna za korištenje datog lijka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
              };
           }
           if(rule === 5) {
@@ -176,7 +176,7 @@
 
          if(rule < 6) {
            return {
-             error: "Kilaza ne dovoljna za koristenje datog lijka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
+             error: "Kilaža ne dovoljna za korištenje datog lijka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
            };
          }
          if(rule >= 6 && rule < 8) {
@@ -211,7 +211,7 @@
 
          if(rule < 12) {
            return {
-             error: "Kilaza ne dovoljna za koristenje datog lijka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
+             error: "Kilaža malena za korištenje datog lijeka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
            };
          }
          if(rule > 12 && rule < 17) {
