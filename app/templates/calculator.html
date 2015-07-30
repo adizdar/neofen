@@ -39,7 +39,10 @@
 		Calculator Section
 	-->
 	<div class="abacus-placeholder">
-		<div class="abacus-container abacus-weight">
+		<div class="abacus-container abacus-weight" 
+			 on-touch="calculator.disableScroll($event)"
+			 on-swipe="calculator.disableScroll($event)"
+			 on-release="calculator.enableScroll($event)">
 			<p>Težina</p>
 			<div abacus abacusColor="#F28F00"></div>
 			<div abacus abacusColor="rgb(248, 177, 67)"></div>

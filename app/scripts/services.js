@@ -164,7 +164,7 @@
               error: false,
               measure: '2 - 4 kaščica',
               daily: '3 do 4 puta na dan',
-              warning: 'NAPOMENA: lijek je namjenjen za djecu do 12 godina i do 40 kg tjelsne mase!'
+              warning: 'NAPOMENA: lijek je namjenjen za djecu do 12 godina i do 40 kg tjelsne mase, kontaktirajte lijekara ili apotekara za više informacija!'
             };
          }
       }
@@ -198,7 +198,7 @@
               error: false,
               measure: '1 čepić',
               daily: '4 puta na dan u razmaku od 6 sati',
-              warning: 'NAPOMENA: lijek je namjenjen za djecu do 2 godine i do 12 kg tjelsne mase!'
+              warning: 'NAPOMENA: lijek je namjenjen za djecu do 2 godine i do 12 kg tjelsne mase, kontaktirajte lijekara ili apotekara za više informacija!'
             };
          }
 
@@ -233,7 +233,7 @@
               error: false,
               measure: '1 čepić',
               daily: '4 puta na dan u razmaku od 6 sati',
-              warning: 'NAPOMENA: lijek je namjenjen za djecu do 6 godina i do 20,5 kg tjelsne mase!'
+              warning: 'NAPOMENA: lijek je namjenjen za djecu do 6 godina i do 20,5 kg tjelsne mase, kontaktirajte lijekara ili apotekara za više informacija!'
             };
          }
       }
@@ -269,7 +269,7 @@
               error: false,
               measure: '1 - 2 čepića',
               daily: '3 - 4 puta na dan u razmaku od 6-8 sati',
-              warning: 'NAPOMENA: lijek je namjenjen za djecu do 5 godina i do 20 kg tjelsne mase!'
+              warning: 'NAPOMENA: lijek je namjenjen za djecu do 5 godina i do 20 kg tjelsne mase, kontaktirajte lijekara ili apotekara za više informacija!'
             };
          }
 

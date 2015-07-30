@@ -6,9 +6,9 @@
         .module('neofen.controllers')
         .controller('CalculatorController', CalculatorController);
 
-    CalculatorController.$inject = ['$scope', '$log', 'calculatorRules', '$ionicPopup'];
+    CalculatorController.$inject = ['$scope', '$log', 'calculatorRules', '$ionicPopup', '$ionicScrollDelegate'];
 
-    function CalculatorController($scope, $log, calculatorRules, $ionicPopup) {
+    function CalculatorController($scope, $log, calculatorRules, $ionicPopup, $ionicScrollDelegate) {
 
         var vm = this;
 
@@ -46,6 +46,8 @@
 
         vm.selectRule = selectRule;
         vm.triggerRule = triggerRule;
+        vm.enableScroll = enableScroll;
+        vm.disableScroll = disableScroll;
 
         $scope.$on('abacus:updated', updateListener.bind(this));
 
@@ -66,9 +68,19 @@
         }
 
         function triggerRule() {
-            var result = calculatorRules.triggerRule(vm.selectedRule, vm.calculationResult);;
+            var result;
 
-            if(!result) {
+            if( !vm.calculationResult || !vm.selectedRule ) {
+            	$ionicPopup.alert({
+	                title: 'Unos nije validan',
+	                template: !vm.selectedRule ? 
+	                		  'Molimo vas označite lijek iz menija.' :
+	                		  'Molimo vas unesite kilažu u kalkulator.'
+	            });
+	            return;
+            }
+
+            if( !(result = calculatorRules.triggerRule(vm.selectedRule, vm.calculationResult)) ) {
                 $ionicPopup.alert({
 	                title: 'Unos nije validan',
 	                template: 'Molimo vas označite lijek iz menija i označite kilažu unutar kalkulatora.'
@@ -76,19 +88,26 @@
 	            return;
             }
 
-            if(result.error || result.warning) {
+            if( result.error || result.warning ) {
 	            $ionicPopup.alert({
 	                title: result.error ? 'Unos nije validan' : 'Kontaktirajte ljekara',
 	                template: result.error || result.warning
 	            });
-	            return;
-        	}
+                return;
+            }
 
             vm.selectedImage = vm.imageResult[vm.selectedRule];
-
             vm.resultData = result;
-            $log.log(result);
-        }
-    }
 
+        }
+
+        function enableScroll(event) {
+				$ionicScrollDelegate.getScrollView().options.scrollingY = true;        
+		}
+
+        function disableScroll(event) {
+        	if(event.target.className === 'abacus') 
+				$ionicScrollDelegate.getScrollView().options.scrollingY = false;        
+		}
+    }
 })();
