@@ -40,7 +40,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     .state('tab.smpc', {
         url: '/smpc',
         views: {
-            'tab-smpc': {
+            'tab-hidden': {
                 templateUrl: 'templates/tab-smpc.html',
                 controller: 'ProductsController as smpc'
             }
@@ -50,7 +50,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     .state('tab.smpcdetails', {
         url: '/smpc-details',
         views: {
-            'tab-smpc': {
+            'tab-hidden': {
                 templateUrl: 'templates/tab-smpc-details.html',
                 controller: 'ProductDetailsController as smpc'
             }
@@ -122,6 +122,16 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             'tab-info': {
                 templateUrl: 'templates/tab-info-details.html',
                 controller: 'InfoController as info'
+            }
+        }
+    })
+
+    .state('tab.music', {
+        url: '/music',
+        views: {
+            'tab-hidden': {
+                templateUrl: 'templates/tab-zabava.html',
+                controller: 'MusicController as vm'
             }
         }
     })
