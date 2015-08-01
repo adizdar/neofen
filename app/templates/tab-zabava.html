@@ -1,19 +1,59 @@
 <ion-view view-title="Zabava" class="products-list">
-<ion-nav-buttons side="left" class="back-button-cont">
-<img src="images/back.png"
-class="back-button-trigger back-button-image"
-on-tap="$ionicGoBack()">
-</ion-nav-buttons>
-<ion-content class="padding bg-style bg-style-info-main">
-<div star-button 
-	 text="Šta je povišena temperatura"
-	 bordercolor="rgb(142,196,6)"
-	 imgurl="images/starquestion.png"
-	 color="#124f2d"
-	 class="product-menu-item"
-	 contentclass = "info-button"
-	 style="padding-top: 15%;"
-	 on-tap="vm.play('http://www.stephaniequinn.com/Music/Commercial%20DEMO%20-%2013.mp3')"
-	 ></div>
-</ion-content>
-</ion-view>
+	<ion-nav-buttons side="left" class="back-button-cont">
+		<img src="images/back.png" class="back-button-trigger back-button-image" on-tap="$ionicGoBack()">
+	</ion-nav-buttons>
+	<ion-content class="music bg-style bg-style-music">
+         <div class="header">
+			 Drage mame, sakupili smo za vas i vasu bebu nekoliko pjesmica koje možete zajedno pjevati i slušati...
+		 </div>
+		 <div class="play-list" 
+			  arrow-button 
+			  text="Zeko i potočić"
+			  imgurl="images/arrowred.png"
+			  showSecondImage="true"
+			  on-tap="vm.triggerPlay('data/music/zeko_potocic.mp3')">
+	    </div>
+		<div  class="play-list" 
+			  arrow-button 
+			  text="Tašun, tašun"
+			  imgurl="images/arrowblue.png"
+			  showSecondImage="false"
+			  on-tap="vm.triggerPlay('data/music/tasun.mp3')">
+	    </div>
+		<div  class="play-list" 
+			  arrow-button 
+			  text="Điha, điha konjo"
+			  imgurl="images/arrowred.png"
+			  showSecondImage="false"
+			  on-tap="vm.triggerPlay('data/music/djiha.mp3')">
+	    </div>
+		<div  class="play-list" 
+			  arrow-button 
+			  text="Eci peci pec"
+			  imgurl="images/arrowblue.png"
+			  showSecondImage="false"
+			  on-tap="vm.triggerPlay('data/music/eci.mp3')">
+	    </div>
+		<div  class="play-list" 
+			  arrow-button 
+			  text="Kad si sretan..."
+			  imgurl="images/arrowred.png"
+			  showSecondImage="false"
+			  on-tap="vm.triggerPlay('data/music/kadsi.mp3')">
+	    </div>
+		<div  class="play-list" 
+			  arrow-button 
+			  text="Pačji ples"
+			  imgurl="images/arrowblue.png"
+			  showSecondImage="false"
+			  on-tap="vm.triggerPlay('data/music/paciji.mp3')">
+	    </div>
+		<div  class="play-list" 
+			  arrow-button 
+			  text="Zekini jadi"
+			  imgurl="images/arrowred.png"
+			  showSecondImage="false"
+			  on-tap="vm.triggerPlay('data/music/zekini.mp3')">
+	    </div>
+	</ion-content>
+</ion-view>	

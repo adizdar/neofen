@@ -41,9 +41,12 @@ $bg-url-products: url("../images/bgproducts.png");
 $bg-url-main: url("../images/bghome.png");
 $bg-url-info-main: url("../images/bgmaingreen.png");
 $bg-url-info: url("../images/bgtips.png");
+$bg-url-music: url("../images/bgbrown.png");
 
 $blue-star-url: url("../images/bluestar.png");
 $red-star-url: url("../images/redstar.png");
+$red-arrow-url: url("../images/arrowred.png");
+$blue-arrow-url: url("../images/arrowblue.png");
 
 $about-me-small: url("../images/imp.png");
 $me-small: url("../images/tosamja.png");
@@ -208,6 +211,10 @@ $alarm-small: url("../images/alarm.png");
    background-image: $bg-url-info;
 }
 
+.bg-style-music {
+   background-image: $bg-url-music;
+}
+
 .sub-container {
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 10px;
@@ -331,6 +338,37 @@ pre {
     margin-top: 94px;
     /* this is because of header and sub-header which I use */
     overflow-y: scroll;
+}
+
+// arrow directive
+.arrow-container {
+      background-color: white;
+      border-radius: 20px;
+      border: 1px solid white;
+      position: relative;
+      &:before {
+          content: " ";
+          position: absolute;
+          z-index: 0;
+          top: 2px;
+          left: 0px;
+          right: 5px;
+          border: 1px dashed #d0d0d0;
+          border-radius: 20px;
+          width: 99%;
+          height: 89%;
+       }
+       .arrow-img {
+          width: 15%;
+          position: absolute;
+          left: -2px;
+       }
+       p {
+          padding: 2% 0 2% 16%;
+          margin: 0;
+          font-size: 110%;
+          color: $red-strong;
+       }
 }
 
 /*------------------------------------*\
@@ -1021,3 +1059,25 @@ div.row-stripped {
        font-size: 95%; 
     }
 }  
+
+/*------------------------------------*\
+    $INFO
+\*------------------------------------*/
+
+.music {
+    .play-list{
+          padding-top: 15px;
+          padding-left: 10px;
+          padding-right: 10px;
+    }
+    .header {
+          background-color: rgba(255,255,255,0.7);
+          margin-top: 4%;
+          padding-left: 20%;
+          font-size: 85%;
+          line-height: 18px;
+          padding-bottom: 5%;
+          padding-right: 10px;
+          font-weight: 400;
+    }
+}

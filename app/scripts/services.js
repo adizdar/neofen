@@ -529,6 +529,7 @@
 
 })();
 
+// for developemnt on browser
 if (!window.cordova) {
     window.Media = function(src, mediaSuccess, mediaError, mediaStatus) {
         // src: A URI containing the audio content. (DOMString)
@@ -560,6 +561,9 @@ if (!window.cordova) {
             // Pause playback of an audio file.
             pause: function() {
                 sound.pause();
+            },
+            start: function() {
+                sound.start();
             },
             // Releases the underlying operating system's audio resources. Should be called on a ressource when it's no longer needed !
             release: function() {},
