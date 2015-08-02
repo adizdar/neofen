@@ -42,11 +42,18 @@ $bg-url-main: url("../images/bghome.png");
 $bg-url-info-main: url("../images/bgmaingreen.png");
 $bg-url-info: url("../images/bgtips.png");
 $bg-url-music: url("../images/bgbrown.png");
+$bg-url-calendar: url("../images/bgcalendar.png");
 
 $blue-star-url: url("../images/bluestar.png");
 $red-star-url: url("../images/redstar.png");
 $red-arrow-url: url("../images/arrowred.png");
 $blue-arrow-url: url("../images/arrowblue.png");
+
+$pills-url: url("../images/pills.png");
+$vakcina-url: url("../images/vakcina.png");
+$bord-url: url("../images/bord.png");
+$coladoscope-url: url("../images/coladoscope.png");
+$epruveta-url: url("../images/epruveta.png");
 
 $about-me-small: url("../images/imp.png");
 $me-small: url("../images/tosamja.png");
@@ -213,6 +220,20 @@ $alarm-small: url("../images/alarm.png");
 
 .bg-style-music {
    background-image: $bg-url-music;
+}
+
+.bg-style-music {
+   background-image: $bg-url-music;
+}
+
+.bg-style-calendar {
+   background-image: $bg-url-calendar;
+}
+
+.button-done-nav {
+  width: 55px;
+  height: 31px;
+  top: 2px;
 }
 
 .sub-container {
@@ -1101,3 +1122,89 @@ div.row-stripped {
  
 }
 
+/*------------------------------------*\
+    $CALENDAR
+\*------------------------------------*/
+
+.calendar { 
+   .content {
+        background-color: rgba(255,255,255,0.7);
+        min-height: 100%;
+        height: 100%;   
+        overflow-x: auto; 
+        margin-top: 3%;
+   .calendar-title {
+          margin: auto;
+          width: 100%;
+          background-color: white;
+          padding: 10px;
+          text-align: center;
+          font-size: 120%;
+          span {
+              position: absolute;
+              left: 19px;
+              color: rgb(191, 30, 46);
+              font-weight: bold;
+              font-size: 120%;
+          }
+   }
+   .calendar-options {
+        background-color: rgba(173, 0, 27, 0.3);
+        border: 0;
+        color: #2F2F2F;
+        font-size: 100%;
+        margin-bottom: 1.5%;
+    }
+   .item-radio input:checked ~ .item-content {
+        background-color: rgba(173, 0, 27, 0.3);
+        color: white;
+    }
+    .item-radio .item-content {
+        background-color: transparent;
+        padding: 2%;
+        
+        img {
+              width: 22px;
+              float: left;
+              margin-left: 10px;
+        }
+        span {
+              padding-top: 4px;
+              float: left;
+              padding-left: 10px;
+         }
+        }
+    }
+    .item-radio input:checked ~ .radio-icon {
+        color: white;
+        padding: 1%;
+        padding-right: 4%;
+    }
+    .remeinder-title {
+          background-color: white;
+          text-align: center;
+          position: relative;
+        img {
+          width: 37px;
+          position: absolute;
+          left: 10px;
+        }
+        p {
+          padding: 10px;
+          font-size: 120%;
+        }
+    }
+    .dates {
+        .calendar-picker {
+            background-color: transparent;
+        }
+        .input-label {
+            padding-left: 15px;
+            color: #BF1E2E;
+            font-weight: 500;
+        }
+        .list {
+            margin-bottom: 10px;
+        }
+    }
+ }

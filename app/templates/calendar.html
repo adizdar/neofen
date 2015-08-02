@@ -1,0 +1,62 @@
+<ion-view view-title="Unos">
+	<ion-nav-buttons side="left" class="back-button-cont">
+		<img src="images/back.png" class="back-button-trigger back-button-image" on-tap="$ionicGoBack()">
+	</ion-nav-buttons>
+	<ion-nav-buttons side="right" class="back-button-cont">
+		<img src="images/btndone.png" class="back-button-trigger button-done-nav" on-tap="vm.submitDate()">
+	</ion-nav-buttons>
+	<ion-content class="bg-style bg-style-calendar calendar">
+		<div class="content">
+			<p class="calendar-title">
+				<span class="ion-ios-list"></span>Kategorija</p>
+			<ion-radio class="calendar-options" on-tap="">
+				<img src="images/coladoscope.png" alt="">Pregled kod doktora</ion-radio>
+			<ion-radio class="calendar-options" on-tap="">
+				<img src="images/vakcina.png" alt="">Vakcina</ion-radio>
+			<ion-radio class="calendar-options" on-tap="">
+				<img src="images/pills.png" alt="">Lijekovi</ion-radio>
+			<ion-radio class="calendar-options" on-tap="">
+				<img src="images/epruvete.png" alt="">Nalazi</ion-radio>
+			<ion-radio class="calendar-options" on-tap="" style="margin-bottom:0;">
+				<img src="images/bord.png" alt="">Ostalo</ion-radio>
+			<div class="remeinder-title">
+				<img src="images/clock.png" alt="">
+				<p>Podsjetnik</p>
+			</div>
+			<div class="dates">
+				<div class="list">
+					<div class="input-label">Od:</div>
+					<label class="item item-input item-select">
+						<input type="text" 
+							class="calendar-picker" 
+							pick-a-date="vm.dateFrom"
+							placeholder="Datum" /> 
+					</label>
+					<label class="item item-input item-select">
+						<input type="text" 
+							class="calendar-picker" 
+							pick-a-time="vm.timeFrom" 
+							placeholder="Vrijeme" 
+							pick-a-time-options="{format: 'HH:i'}"/>
+					</label>
+				</div>
+				<div class="list">
+					<div class="input-label">Do:</div>
+					<label class="item item-input item-select">
+						<input type="text" 
+							   class="calendar-picker" 
+							   pick-a-date="vm.dateTo" 
+							   placeholder="Datum" />
+					</label>
+					<label class="item item-input item-select">
+						<input type="text"
+							   class="calendar-picker" 
+							   pick-a-time="vm.timeTo"
+							   placeholder="Vrijeme"
+							   pick-a-time-options="{format: 'HH:i'}"  />
+					</label>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

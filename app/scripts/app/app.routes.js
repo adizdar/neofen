@@ -14,11 +14,11 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     // disable animations
     $ionicConfigProvider.views.transition('none');
 
-    // override tabs css so it won appear white on Android
+    // override tabs css so it wont appear white on Android
     $ionicConfigProvider.tabs.style('standard');
 
     // @todo: CHECK THIS
-    $ionicConfigProvider.templates.maxPrefetch(10);
+    $ionicConfigProvider.templates.maxPrefetch(6);
 
     $stateProvider
 
@@ -140,6 +140,13 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             data: {hideTabsBar:true},
             templateUrl: 'templates/calculator.html',
             controller: 'CalculatorController as calculator'
+        })
+        
+        .state('calendar', {
+            url: '/calendar',
+            data: {hideTabsBar:true},
+            templateUrl: 'templates/calendar.html',
+            controller: 'CalendarController as vm'
         });
 
 

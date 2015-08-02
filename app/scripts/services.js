@@ -306,9 +306,9 @@
 
             if (param) params = param;
 
-            $ionicHistory.nextViewOptions({
-                disableAnimate: true
-            });
+            // $ionicHistory.nextViewOptions({
+            //     disableAnimate: true
+            // });
 
             switch (key) {
                 case 'calculator':
@@ -343,6 +343,9 @@
                     break;
                  case 'music':
                     $state.go('tab.music');
+                    break;
+                 case 'calendar':
+                    $state.go('calendar');
                     break;
 
             }

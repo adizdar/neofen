@@ -11,6 +11,7 @@
 
 	angular.module('neofen', 
 		['ionic', 
+		'angular-datepicker',
 		'neofen.controllers', 
 		'neofen.services',
 		'neofen.directives',

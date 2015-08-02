@@ -17,25 +17,17 @@
         var currentId = null;
 
         vm.triggerPlay = triggerPlay;
-        vm.stop = stop;
-
         vm.playing = false;
-  
+        vm.stop = stop;
+        
         function triggerPlay(src, event) {
             var media;
             
             // quirk for androdi
             if($ionicPlatform.is('android')) {
                 src = '/android_asset/www' + src;
-            }
-
-            // // if reload is tapped
-            // if(event.target.className === 'ion-refresh' && currentSong) {
-            //     currentSong.stop();
-            //     currentSong.play();
-            //     return;
-            // }
-
+            }  
+            
             // if song is playing & it is the same song, resume or stop 
             if (currentSong && currentId === src) {
                 
@@ -49,7 +41,7 @@
                 // toggle play status
                 vm.playing = !vm.playing; 
                 
-            } else §{
+            } else {
                 
                 // stop current song
                 currentSong && currentSong.stop();
