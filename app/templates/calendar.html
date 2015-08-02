@@ -9,16 +9,17 @@
 		<div class="content">
 			<p class="calendar-title">
 				<span class="ion-ios-list"></span>Kategorija</p>
-			<ion-radio class="calendar-options" on-tap="">
+			<ion-radio class="calendar-options" on-tap="vm.calendarEventTitle = 'Pregled kod doktora'">
 				<img src="images/coladoscope.png" alt="">Pregled kod doktora</ion-radio>
-			<ion-radio class="calendar-options" on-tap="">
+			<ion-radio class="calendar-options" on-tap="vm.calendarEventTitle = 'Vakcina'">
 				<img src="images/vakcina.png" alt="">Vakcina</ion-radio>
-			<ion-radio class="calendar-options" on-tap="">
+			<ion-radio class="calendar-options" on-tap="vm.calendarEventTitle = 'Lijekovi'">
 				<img src="images/pills.png" alt="">Lijekovi</ion-radio>
-			<ion-radio class="calendar-options" on-tap="">
+			<ion-radio class="calendar-options" on-tap="vm.calendarEventTitsle = 'Nalazi'">
 				<img src="images/epruvete.png" alt="">Nalazi</ion-radio>
-			<ion-radio class="calendar-options" on-tap="" style="margin-bottom:0;">
+			<ion-radio class="calendar-options" on-tap="vm.calendarEventTitle = 'Ostalo'" style="margin-bottom:0;">
 				<img src="images/bord.png" alt="">Ostalo</ion-radio>
+			
 			<div class="remeinder-title">
 				<img src="images/clock.png" alt="">
 				<p>Podsjetnik</p>
