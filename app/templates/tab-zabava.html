@@ -10,50 +10,57 @@
 			  arrow-button 
 			  text="Zeko i potočić"
 			  imgurl="images/arrowred.png"
-			  showSecondImage="true"
-			  on-tap="vm.triggerPlay('data/music/zeko_potocic.mp3')">
+              secondimageclass="ion-refresh"
+			  toggle="true"
+			  on-tap="vm.triggerPlay('/images/music/zeko_potocic.mp3', $event);">
 	    </div>
 		<div  class="play-list" 
 			  arrow-button 
 			  text="Tašun, tašun"
 			  imgurl="images/arrowblue.png"
-			  showSecondImage="false"
-			  on-tap="vm.triggerPlay('data/music/tasun.mp3')">
+              secondimageclass="ion-refresh"
+			  toggle="true"
+			  on-tap="vm.triggerPlay('/images/music/tasun.mp3', $event);">
 	    </div>
 		<div  class="play-list" 
 			  arrow-button 
 			  text="Điha, điha konjo"
 			  imgurl="images/arrowred.png"
-			  showSecondImage="false"
-			  on-tap="vm.triggerPlay('data/music/djiha.mp3')">
+			  toggle="true"
+			  secondimageclass="ion-refresh"
+			  on-tap="vm.triggerPlay('/images/music/djiha.mp3', $event, data)">
 	    </div>
 		<div  class="play-list" 
 			  arrow-button 
 			  text="Eci peci pec"
 			  imgurl="images/arrowblue.png"
-			  showSecondImage="false"
-			  on-tap="vm.triggerPlay('data/music/eci.mp3')">
+			  toggle="true"
+			  secondimageclass="ion-refresh"
+			  on-tap="vm.triggerPlay('/images/music/eci.mp3', $event, data)">
 	    </div>
 		<div  class="play-list" 
 			  arrow-button 
 			  text="Kad si sretan..."
 			  imgurl="images/arrowred.png"
-			  showSecondImage="false"
-			  on-tap="vm.triggerPlay('data/music/kadsi.mp3')">
+			  toggle="true"
+			  secondimageclass="ion-refresh"
+			  on-tap="vm.triggerPlay('/images/music/kadsi.mp3', $event, data)">
 	    </div>
 		<div  class="play-list" 
 			  arrow-button 
 			  text="Pačji ples"
 			  imgurl="images/arrowblue.png"
-			  showSecondImage="false"
-			  on-tap="vm.triggerPlay('data/music/paciji.mp3')">
+			  toggle="true"
+			  secondimageclass="ion-refresh"
+			  on-tap="vm.triggerPlay('/images/music/paciji.mp3', $event, data)">
 	    </div>
 		<div  class="play-list" 
 			  arrow-button 
 			  text="Zekini jadi"
 			  imgurl="images/arrowred.png"
-			  showSecondImage="false"
-			  on-tap="vm.triggerPlay('data/music/zekini.mp3')">
+			  toggle="true"
+			  secondimageclass="ion-refresh"
+			  on-tap="vm.triggerPlay('/images/music/zekini.mp3', $event, data)">
 	    </div>
 	</ion-content>
 </ion-view>	

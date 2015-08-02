@@ -14,16 +14,6 @@ function runPlatform($ionicPlatform, $http, $templateCache, $cordovaSplashscreen
             // org.apache.cordova.statusbar required
             StatusBar.styleLightContent();
         }
-
-        setTimeout(function() {
-            $cordovaSplashscreen.hide();
-        }, 1000);
-      
-        // templates.forEach(function(tpl) {
-        //     // $http.get('templates/' + tpl + '.html', {
-        //     //     cache: $templateCache
-        //     // });
-        // });
         
         var templates = [
             "../templates/calculator.html",
