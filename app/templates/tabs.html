@@ -1,5 +1,5 @@
 
-<ion-tabs class="tabs-icon-top tabs-color-active-positive" ng-class="{'tabs-item-hide' : $root.hideTabs === null || $root.hideTabs}" ng-controller="TabsController">
+<ion-tabs class="tabs-icon-top tabs-color-active-positive" ng-class="{'tabs-item-hide' : $root.hideTabs === null || $root.hideTabs}" ng-cloak>
   
   <!-- Hidden SMPC tab -->
    <ion-tab href="#/tab/hidden" ng-show="false" class="tab-smpc">
@@ -33,17 +33,17 @@
   </ion-tab>
 
   <!-- Account Tab -->
-  <ion-tab icon-off="ion-calc" icon-on="ion-calc" href="">
+  <ion-tab icon-off="ion-calc" icon-on="ion-calc" href="#/calculator">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
 
   <!-- Account Tab -->
-  <ion-tab icon-off="ion-alarm" icon-on="ion-alarm" href="">
+  <ion-tab icon-off="ion-alarm" icon-on="ion-alarm" href="#/calendar">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
 
   <!-- Account Tab -->
-  <ion-tab icon-off="ion-home" icon-on="ion-home" href="">
+  <ion-tab icon-off="ion-home" icon-on="ion-home" href="#/home">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
   

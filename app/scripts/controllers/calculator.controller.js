@@ -98,6 +98,8 @@
 
             vm.selectedImage = vm.imageResult[vm.selectedRule];
             vm.resultData = result;
+            
+            $ionicScrollDelegate.scrollBottom(true);
 
         }
 

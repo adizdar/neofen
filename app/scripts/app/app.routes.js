@@ -25,7 +25,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     // setup an abstract state for the tabs directive
     .state('tab', {
         url: "/tab",
-        abstract: true,
+        // abstract: true,
         templateUrl: "templates/tabs.html"
     })
 
