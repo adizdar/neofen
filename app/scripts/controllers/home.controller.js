@@ -29,11 +29,11 @@
     		 $rootScope.hideTabs = toState.data && toState.data.hideTabsBar;
         });
         
-        // clear hostory on home
-        $scope.$on("$ionicView.enter", function(){
-               // $ionicHistory.clearCache(); // CHECK PERFORMANCE
-               $ionicHistory.clearHistory();
-        });
+        // // clear hostory on home
+        // $scope.$on("$ionicView.enter", function(){
+        //        // $ionicHistory.clearCache(); // CHECK PERFORMANCE
+        //        $ionicHistory.clearHistory();
+        // });
     }
 
 })();

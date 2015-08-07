@@ -18,15 +18,15 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     $ionicConfigProvider.tabs.style('standard');
 
     // @todo: CHECK THIS
-    $ionicConfigProvider.templates.maxPrefetch(6);
+    $ionicConfigProvider.templates.maxPrefetch(0);
 
     $stateProvider
 
     // setup an abstract state for the tabs directive
     .state('tab', {
         url: "/tab",
-        // abstract: true,
-        templateUrl: "templates/tabs.html"
+        abstract:true,
+        templateUrl: "tabs.html"
     })
 
     .state('home', {
@@ -139,7 +139,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             url: '/calculator',
             data: {hideTabsBar:true},
             templateUrl: 'templates/calculator.html',
-            controller: 'CalculatorController as calculator'
+            controller: 'CalculatorController as calculator',
         })
         
         .state('calendar', {

@@ -302,9 +302,11 @@
 
         /////////////////////////
 
-        function navigate(key, param) {
+        function navigate(key, param, modal) {
 
             if (param) params = param;
+            
+            if(modal) modal.hide();
 
             // $ionicHistory.nextViewOptions({
             //     disableAnimate: true

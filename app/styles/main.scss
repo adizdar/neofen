@@ -70,6 +70,34 @@ $alarm-small: url("../images/alarm.png");
 // Include custom sass files
 //@import "calculator.scss";
 
+// .pane, .view {
+//   -webkit-backface-visibility: hidden;
+//   -webkit-transform-style: preserve-3d;
+//   backface-visibility: hidden;
+//   transform-style: preserve-3d;
+// }
+// .view-container {
+//   -webkit-backface-visibility: hidden;
+//   -webkit-transform-style: preserve-3d;
+//   backface-visibility: hidden;
+//   transform-style: preserve-3d;
+// }
+
+// .platform-android [nav-view-transition][nav-view-direction] {
+// background-color: transparent;
+// }
+
+ 
+// .platform-android [nav-view-transition="ios"] [nav-view="leaving"] {
+//     -webkit-transition: opacity 16ms linear 250ms, transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), box-shadow 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+//     transition: opacity 16ms linear 250ms, transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), box-shadow 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+// }
+
+// .platform-android [nav-view-transition] [nav-view="leaving"] {
+//     -webkit-transition: opacity 16ms linear 250ms, transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), box-shadow 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+//     transition: opacity 16ms linear 250ms, transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), box-shadow 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+// }
+
 /*------------------------------------*\
     $iOS specific class
 \*------------------------------------*/
