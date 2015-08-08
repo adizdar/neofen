@@ -1,5 +1,5 @@
 
-<ion-tabs class="tabs-icon-top tabs-color-active-positive" ng-class="{'tabs-item-hide' : $root.hideTabs === null || $root.hideTabs}" ng-cloak>
+<ion-tabs class="tabs-icon-top tabs-color-active-positive" ng-class="{'tabs-item-hide' : $root.hideTabs === null || $root.hideTabs}" ng-controller="TabsController">
   
   <!-- Hidden SMPC tab -->
    <ion-tab href="#/tab/hidden" ng-show="false" class="tab-smpc">
@@ -8,12 +8,12 @@
  
 
   <!-- Dashboard Tab -->
-  <ion-tab icon-off="ion-me" icon-on="ion-me" href="#/tab/dash">
+  <ion-tab icon-off="ion-me" icon-on="ion-me" href="">
     <ion-nav-view name="tab-dash"></ion-nav-view>
   </ion-tab>
 
   <!-- Chats Tab -->
-  <ion-tab icon-off="ion-me-work" icon-on="ion-me-work" href="#/tab/chats">
+  <ion-tab icon-off="ion-me-work" icon-on="ion-me-work" href="">
     <ion-nav-view name="tab-chats"></ion-nav-view>
   </ion-tab>
 
@@ -29,22 +29,22 @@
 
   <!-- Account Tab -->
   <ion-tab icon-off="ion-about-me" icon-on="ion-about-me" href="">
-    <ion-nav-view name="tab-account"></ion-nav-view>
+    <ion-nav-view name=""></ion-nav-view>
   </ion-tab>
 
   <!-- Account Tab -->
   <ion-tab icon-off="ion-calc" icon-on="ion-calc" href="#/calculator">
-    <ion-nav-view name="tab-account"></ion-nav-view>
+    <ion-nav-view name=""></ion-nav-view>
   </ion-tab>
 
   <!-- Account Tab -->
   <ion-tab icon-off="ion-alarm" icon-on="ion-alarm" href="#/calendar">
-    <ion-nav-view name="tab-account"></ion-nav-view>
+    <ion-nav-view name=""></ion-nav-view>
   </ion-tab>
 
   <!-- Account Tab -->
-  <ion-tab icon-off="ion-home" icon-on="ion-home" href="#/home">
-    <ion-nav-view name="tab-account"></ion-nav-view>
+  <ion-tab icon-off="ion-home" icon-on="ion-home" href="#/test">
+    <ion-nav-view name=""></ion-nav-view>
   </ion-tab>
   
 </ion-tabs>

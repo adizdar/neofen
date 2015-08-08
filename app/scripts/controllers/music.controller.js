@@ -62,7 +62,7 @@
         
         // stop music on page leave
         $rootScope.$on('$stateChangeStart', function(event, toState) {
-    		 currentSong && currentSong.stop();
+    		 currentSong.stop();
         });
         
 
