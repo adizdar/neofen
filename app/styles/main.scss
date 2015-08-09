@@ -151,12 +151,18 @@ $alarm-small: url("../images/alarm.png");
     $SHARED
 \*------------------------------------*/
 
-// override class for android title
-// .platform-android .bar .title{
-//   text-align: center;
-//   z-index: -1;
-//   left: 0 !important;
-// }
+.pane, .view {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.view-container {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
 
 .red-normal {
     background-color: $red-normal !important;
@@ -410,15 +416,23 @@ pre {
         min-height: 100%;
         position: relative;
         .my-picture {
+            .profile {
+                position: absolute;
+                width: 78%;
+                height: 72.2%;
+                border-radius: 100%;
+                right: 0px;
+                top: 6%;
+            }
             a {
                 position: absolute;
-                right: -23%;
+                right: -27%;
                 top: -3%;
                 width: 100%;
                 z-index: -1;
             }
             img {
-                width: 80%;
+                width: 77%;
             }
         }
         .home-menu {

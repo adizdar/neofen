@@ -4,6 +4,7 @@
 <!-- 
     Home Menu Section
  -->
+
 <div class="row-container">
 <div class="row">
 	<div class="col home-menu">
@@ -13,6 +14,7 @@
 	</div>
 	<div class="col my-picture">
 		<a href="">
+			<img class="profile" ng-src="{{home.profilePicture}}" ng-if="home.profilePicture">
 			<img src="images/sun.png" alt="">
 		</a>
 	</div>
@@ -21,7 +23,7 @@
 </div>
 <div class="row">
 	<div class="col home-menu">
-		<a href="" class="button">
+		<a href="" class="button" on-tap="home.getPicture();">
 			<img src="images/tosamja.png" alt="">
 		</a>
 	</div>

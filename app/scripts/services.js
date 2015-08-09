@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
     'use strict';
 
@@ -49,236 +49,236 @@
             return (callback || angular.noop)(params);
         }
 
-     function ruleNeofenSirup(value) {
-          var rule = parseInt(value);
+        function ruleNeofenSirup(value) {
+            var rule = parseInt(value);
 
-          if(rule === undefined) return;
+            if (rule === undefined) return;
 
-          if(rule < 5) {
-             return {
-              error: "Kilaža ne dovoljna za korištenje datog lijka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
-             };
-          }
-          if(rule === 5) {
-            return {
-              error: false,
-              measure: '½ žličice',
-              dose: '50',
-              daily: '3 puta dnevno'
-            };
-          }
-          if(rule > 5 && rule < 11) {
-            return {
-              error: false,
-              measure: '½ -¾ kaščica',
-              dose:  '50-75',
-              daily: '3 puta dnevno'
-            };
-          }
-          if(rule >= 11 && rule < 17) {
-            return {
-              error: false,
-              measure: '¾ -1 kaščica',
-              dose:  '75-100',
-              daily: '3 puta dnevno'
-            };
-          } 
-          if(rule >= 17 && rule < 22) {
-            return {
-              error: false,
-              measure: '1 -1 ¼ kaščica',
-              dose:  '100-125',
-              daily: '3 puta dnevno'
-            };
-          }
-          if(rule >= 22 && rule < 28) {
-            return {
-              error: false,
-              measure: '1 ¼ -1 ½ kaščica',
-              dose:  '125-150',
-              daily: '3 puta dnevno'
-            };
-          }
-          if(rule >= 28 && rule < 33) {
-            return {
-              error: false,
-              measure: '1 ½ -2 kaščica',
-              dose:  '150-200',
-              daily: '3 puta dnevno'
-            };
-          }
-          if(rule >= 33 && rule < 43) {
-            return {
-              error: false,
-              measure: '2 - 3 kaščica',
-              dose:  '200-300',
-              daily: '3 puta dnevno'
-            };
-          }
-          if(rule >= 43) {
-            return {
-              error: false,
-              measure: '2 - 3 kaščica',
-              dose:  '200-400',
-              daily: '3 puta dnevno'
-            };
-          }
+            if (rule < 5) {
+                return {
+                    error: "Kilaža ne dovoljna za korištenje datog lijka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
+                };
+            }
+            if (rule === 5) {
+                return {
+                    error: false,
+                    measure: '½ žličice',
+                    dose: '50',
+                    daily: '3 puta dnevno'
+                };
+            }
+            if (rule > 5 && rule < 11) {
+                return {
+                    error: false,
+                    measure: '½ -¾ kaščica',
+                    dose: '50-75',
+                    daily: '3 puta dnevno'
+                };
+            }
+            if (rule >= 11 && rule < 17) {
+                return {
+                    error: false,
+                    measure: '¾ -1 kaščica',
+                    dose: '75-100',
+                    daily: '3 puta dnevno'
+                };
+            }
+            if (rule >= 17 && rule < 22) {
+                return {
+                    error: false,
+                    measure: '1 -1 ¼ kaščica',
+                    dose: '100-125',
+                    daily: '3 puta dnevno'
+                };
+            }
+            if (rule >= 22 && rule < 28) {
+                return {
+                    error: false,
+                    measure: '1 ¼ -1 ½ kaščica',
+                    dose: '125-150',
+                    daily: '3 puta dnevno'
+                };
+            }
+            if (rule >= 28 && rule < 33) {
+                return {
+                    error: false,
+                    measure: '1 ½ -2 kaščica',
+                    dose: '150-200',
+                    daily: '3 puta dnevno'
+                };
+            }
+            if (rule >= 33 && rule < 43) {
+                return {
+                    error: false,
+                    measure: '2 - 3 kaščica',
+                    dose: '200-300',
+                    daily: '3 puta dnevno'
+                };
+            }
+            if (rule >= 43) {
+                return {
+                    error: false,
+                    measure: '2 - 3 kaščica',
+                    dose: '200-400',
+                    daily: '3 puta dnevno'
+                };
+            }
 
-      }
+        }
 
-      function ruleLupocetSirup(value) {
-        var rule = parseInt(value);
+        function ruleLupocetSirup(value) {
+            var rule = parseInt(value);
 
-        if(rule === undefined) return;
+            if (rule === undefined) return;
 
-        if(rule < 5) {
-            return {
-              error: false,
-              measure: '1/2 kaščice',
-              daily: '3 do 4 puta na dan'
-            };
-         }
-        if(rule >= 5 && rule < 10) {
-            return {
-              error: false,
-              measure: '1/2 - 1 kaščica',
-              daily: '3 do 4 puta na dan'
-            };
-         }
-        if(rule >= 10 && rule < 20) {
-            return {
-              error: false,
-              measure: '1 - 2 kaščica',
-              daily: '3 do 4 puta na dan'
-            };
-         }
-        if(rule >= 20 && rule < 40) {
-            return {
-              error: false,
-              measure: '2 - 4 kaščica',
-              daily: '3 do 4 puta na dan'
-            };
-         }
-        if(rule >= 40) {
-            return {
-              error: false,
-              measure: '2 - 4 kaščica',
-              daily: '3 do 4 puta na dan',
-              warning: 'NAPOMENA: lijek je namjenjen za djecu do 12 godina i do 40 kg tjelsne mase, kontaktirajte lijekara ili apotekara za više informacija!'
-            };
-         }
-      }
+            if (rule < 5) {
+                return {
+                    error: false,
+                    measure: '1/2 kaščice',
+                    daily: '3 do 4 puta na dan'
+                };
+            }
+            if (rule >= 5 && rule < 10) {
+                return {
+                    error: false,
+                    measure: '1/2 - 1 kaščica',
+                    daily: '3 do 4 puta na dan'
+                };
+            }
+            if (rule >= 10 && rule < 20) {
+                return {
+                    error: false,
+                    measure: '1 - 2 kaščica',
+                    daily: '3 do 4 puta na dan'
+                };
+            }
+            if (rule >= 20 && rule < 40) {
+                return {
+                    error: false,
+                    measure: '2 - 4 kaščica',
+                    daily: '3 do 4 puta na dan'
+                };
+            }
+            if (rule >= 40) {
+                return {
+                    error: false,
+                    measure: '2 - 4 kaščica',
+                    daily: '3 do 4 puta na dan',
+                    warning: 'NAPOMENA: lijek je namjenjen za djecu do 12 godina i do 40 kg tjelsne mase, kontaktirajte lijekara ili apotekara za više informacija!'
+                };
+            }
+        }
 
-      function ruleNeofenCepiciSmall(value) {
-         var rule = parseInt(value);
+        function ruleNeofenCepiciSmall(value) {
+            var rule = parseInt(value);
 
-         if(rule === undefined) return;
+            if (rule === undefined) return;
 
-         if(rule < 6) {
-           return {
-             error: "Kilaža ne dovoljna za korištenje datog lijka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
-           };
-         }
-         if(rule >= 6 && rule < 8) {
-            return {
-              error: false,
-              measure: '1 čepić',
-              daily: '3 puta na dan u razmaku od 6-8 sati'
-            };
-         }
-        if(rule >= 8 && rule <= 12) {
-            return {
-              error: false,
-              measure: '1 čepić',
-              daily: '4 puta na dan u razmaku od 6 sati'
-            };
-         }
-        if(rule > 12) {
-            return {
-              error: false,
-              measure: '1 čepić',
-              daily: '4 puta na dan u razmaku od 6 sati',
-              warning: 'NAPOMENA: lijek je namjenjen za djecu do 2 godine i do 12 kg tjelsne mase, kontaktirajte lijekara ili apotekara za više informacija!'
-            };
-         }
+            if (rule < 6) {
+                return {
+                    error: "Kilaža ne dovoljna za korištenje datog lijka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
+                };
+            }
+            if (rule >= 6 && rule < 8) {
+                return {
+                    error: false,
+                    measure: '1 čepić',
+                    daily: '3 puta na dan u razmaku od 6-8 sati'
+                };
+            }
+            if (rule >= 8 && rule <= 12) {
+                return {
+                    error: false,
+                    measure: '1 čepić',
+                    daily: '4 puta na dan u razmaku od 6 sati'
+                };
+            }
+            if (rule > 12) {
+                return {
+                    error: false,
+                    measure: '1 čepić',
+                    daily: '4 puta na dan u razmaku od 6 sati',
+                    warning: 'NAPOMENA: lijek je namjenjen za djecu do 2 godine i do 12 kg tjelsne mase, kontaktirajte lijekara ili apotekara za više informacija!'
+                };
+            }
 
-      }
+        }
 
-      function ruleNeofenCepici(value) {
-         var rule = parseInt(value);
+        function ruleNeofenCepici(value) {
+            var rule = parseInt(value);
 
-         if(rule === undefined) return;
+            if (rule === undefined) return;
 
-         if(rule < 12) {
-           return {
-             error: "Kilaža malena za korištenje datog lijeka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
-           };
-         }
-         if(rule > 12 && rule < 17) {
-            return {
-              error: false,
-              measure: '1 čepić',
-              daily: '3 puta na dan u razmaku od 6-8 sati'
-            };
-         }
-        if(rule >= 17 && rule <= 21) {
-            return {
-              error: false,
-              measure: '1 čepić',
-              daily: '4 puta na dan u razmaku od 6 sati'
-            };
-         }
-        if(rule > 21) {
-            return {
-              error: false,
-              measure: '1 čepić',
-              daily: '4 puta na dan u razmaku od 6 sati',
-              warning: 'NAPOMENA: lijek je namjenjen za djecu do 6 godina i do 20,5 kg tjelsne mase, kontaktirajte lijekara ili apotekara za više informacija!'
-            };
-         }
-      }
+            if (rule < 12) {
+                return {
+                    error: "Kilaža malena za korištenje datog lijeka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
+                };
+            }
+            if (rule > 12 && rule < 17) {
+                return {
+                    error: false,
+                    measure: '1 čepić',
+                    daily: '3 puta na dan u razmaku od 6-8 sati'
+                };
+            }
+            if (rule >= 17 && rule <= 21) {
+                return {
+                    error: false,
+                    measure: '1 čepić',
+                    daily: '4 puta na dan u razmaku od 6 sati'
+                };
+            }
+            if (rule > 21) {
+                return {
+                    error: false,
+                    measure: '1 čepić',
+                    daily: '4 puta na dan u razmaku od 6 sati',
+                    warning: 'NAPOMENA: lijek je namjenjen za djecu do 6 godina i do 20,5 kg tjelsne mase, kontaktirajte lijekara ili apotekara za više informacija!'
+                };
+            }
+        }
 
-      function ruleLupocetCepici(value) {
-         var rule = parseInt(value);
+        function ruleLupocetCepici(value) {
+            var rule = parseInt(value);
 
-         if(rule === undefined) return;
+            if (rule === undefined) return;
 
-         if(rule < 5) {
-           return {
-              error: false,
-              measure: '1/2 čepić',
-              daily: '3 - 4 puta na dan u razmaku od 6-8 sati'           
-            };
-         }
-         if(rule > 5 && rule < 10) {
-            return {
-              error: false,
-              measure: '1/2 -1 čepić',
-              daily: '3 - 4 puta na dan u razmaku od 6-8 sati'
-            };
-         }
-        if(rule >= 10 && rule <= 20) {
-            return {
-              error: false,
-              measure: '1 - 2 čepića',
-              daily: '3 - 4 puta na dan u razmaku od 6-8 sati'
-            };
-         }
-        if(rule > 21) {
-            return {
-              error: false,
-              measure: '1 - 2 čepića',
-              daily: '3 - 4 puta na dan u razmaku od 6-8 sati',
-              warning: 'NAPOMENA: lijek je namjenjen za djecu do 5 godina i do 20 kg tjelsne mase, kontaktirajte lijekara ili apotekara za više informacija!'
-            };
-         }
+            if (rule < 5) {
+                return {
+                    error: false,
+                    measure: '1/2 čepić',
+                    daily: '3 - 4 puta na dan u razmaku od 6-8 sati'
+                };
+            }
+            if (rule > 5 && rule < 10) {
+                return {
+                    error: false,
+                    measure: '1/2 -1 čepić',
+                    daily: '3 - 4 puta na dan u razmaku od 6-8 sati'
+                };
+            }
+            if (rule >= 10 && rule <= 20) {
+                return {
+                    error: false,
+                    measure: '1 - 2 čepića',
+                    daily: '3 - 4 puta na dan u razmaku od 6-8 sati'
+                };
+            }
+            if (rule > 21) {
+                return {
+                    error: false,
+                    measure: '1 - 2 čepića',
+                    daily: '3 - 4 puta na dan u razmaku od 6-8 sati',
+                    warning: 'NAPOMENA: lijek je namjenjen za djecu do 5 godina i do 20 kg tjelsne mase, kontaktirajte lijekara ili apotekara za više informacija!'
+                };
+            }
 
-      }
+        }
     }
 
 })();
 
-(function() {
+(function () {
 
     'use strict';
 
@@ -329,22 +329,22 @@
                 case 'products-dosage-details':
                     $state.go('tab.dosagedetails');
                     break;
-                 case 'smpc':
+                case 'smpc':
                     $state.go('tab.smpc');
                     break;
-                 case 'smpc-details':
+                case 'smpc-details':
                     $state.go('tab.smpcdetails');
                     break;
-                 case 'info':
+                case 'info':
                     $state.go('tab.info');
                     break;
-                 case 'info-details':
+                case 'info-details':
                     $state.go('tab.infodetails');
                     break;
-                 case 'music':
+                case 'music':
                     $state.go('tab.music');
                     break;
-                 case 'calendar':
+                case 'calendar':
                     $state.go('calendar');
                     break;
 
@@ -363,7 +363,7 @@
 
 })();
 
-(function() {
+(function () {
 
     'use strict';
 
@@ -439,11 +439,11 @@
         };
 
         var dosageDetails = [{
-                dob: '3 - 6 mj.',
-                kg: '> 5 kg',
-                kasika: '1⁄2 - 3⁄4 kašičice',
-                doza: '50 mg'
-            }, {
+            dob: '3 - 6 mj.',
+            kg: '> 5 kg',
+            kasika: '1⁄2 - 3⁄4 kašičice',
+            doza: '50 mg'
+        }, {
                 dob: '6 - 11 mj.',
                 kg: '6-8 kg',
                 kasika: '1⁄2 - 3⁄4 kašičice',
@@ -483,30 +483,30 @@
         ];
 
         var infoDetails = {
-          'povisenaTemperatura': { 
-            'title': 'Šta je povišena temperatura'
-          },
-          'najBolesti': { 
-            'title': 'Najčešće bolesti kod djece'
-          },
-          'izmjeritiTemperaturu' : {
-            'title': 'Kako pravilno izmjeriti temperaturu'         
-          },
-          'visokaTemperatura' : {
-            'title': 'Šta učiniti kod visoke temperature'
-          },
-          'snizitiTemperaturu' : {
-            'title': 'Kako sniziti visoku temperaturu'
-          },
-          'fizikalneMjere' : {
-            'title': 'Fizikalne mjere snižavanja temperature'
-          },
-          'bolKodDjece' : {
-            'title': 'Bol kod djece'
-          },
-          'ublazavanjeBola' : {
-            'title': 'Ublažavanje bola kod djece'
-          }
+            'povisenaTemperatura': {
+                'title': 'Šta je povišena temperatura'
+            },
+            'najBolesti': {
+                'title': 'Najčešće bolesti kod djece'
+            },
+            'izmjeritiTemperaturu': {
+                'title': 'Kako pravilno izmjeriti temperaturu'
+            },
+            'visokaTemperatura': {
+                'title': 'Šta učiniti kod visoke temperature'
+            },
+            'snizitiTemperaturu': {
+                'title': 'Kako sniziti visoku temperaturu'
+            },
+            'fizikalneMjere': {
+                'title': 'Fizikalne mjere snižavanja temperature'
+            },
+            'bolKodDjece': {
+                'title': 'Bol kod djece'
+            },
+            'ublazavanjeBola': {
+                'title': 'Ublažavanje bola kod djece'
+            }
         };
 
         return service;
@@ -522,19 +522,19 @@
         }
 
         function getDosageDetails() {
-           return dosageDetails;
+            return dosageDetails;
         }
 
         function getInfoDetails(key) {
-          return infoDetails[key];
+            return infoDetails[key];
         }
     }
 
 })();
 
-// for developemnt on browser
+// for developemnt on browser, to play music
 if (!window.cordova) {
-    window.Media = function(src, mediaSuccess, mediaError, mediaStatus) {
+    window.Media = function (src, mediaSuccess, mediaError, mediaStatus) {
         // src: A URI containing the audio content. (DOMString)
         // mediaSuccess: (Optional) The callback that executes after a Media object has completed the current play, record, or stop action. (Function)
         // mediaError: (Optional) The callback that executes if an error occurs. (Function)
@@ -550,38 +550,38 @@ if (!window.cordova) {
 
         return {
             // Returns the current position within an audio file (in seconds).
-            getCurrentPosition: function(mediaSuccess, mediaError) {
+            getCurrentPosition: function (mediaSuccess, mediaError) {
                 mediaSuccess(sound.currentTime);
             },
             // Returns the duration of an audio file (in seconds) or -1.
-            getDuration: function() {
+            getDuration: function () {
                 return isNaN(sound.duration) ? -1 : sound.duration;
             },
             // Start or resume playing an audio file.
-            play: function() {
+            play: function () {
                 sound.play();
             },
             // Pause playback of an audio file.
-            pause: function() {
+            pause: function () {
                 sound.pause();
             },
-            start: function() {
+            start: function () {
                 sound.start();
             },
             // Releases the underlying operating system's audio resources. Should be called on a ressource when it's no longer needed !
-            release: function() {},
+            release: function () { },
             // Moves the position within the audio file.
-            seekTo: function(milliseconds) {}, // TODO
+            seekTo: function (milliseconds) { }, // TODO
             // Set the volume for audio playback (between 0.0 and 1.0).
-            setVolume: function(volume) {
+            setVolume: function (volume) {
                 sound.volume = volume;
             },
             // Start recording an audio file.
-            startRecord: function() {},
+            startRecord: function () { },
             // Stop recording an audio file.
-            stopRecord: function() {},
+            stopRecord: function () { },
             // Stop playing an audio file.
-            stop: function() {
+            stop: function () {
                 sound.pause();
                 if (mediaSuccess) {
                     mediaSuccess();
@@ -591,3 +591,81 @@ if (!window.cordova) {
     };
 }
 
+
+
+(function () {
+
+    'use strict';
+
+    angular
+        .module('neofen.services')
+        .factory('pictureService', pictureService);
+
+    pictureService.$inject = ['$log', '$cordovaCamera', '$q'];
+
+    function pictureService($log, $cordovaCamera, $q) {
+
+        var service = {
+            getPicture: getPicture
+        };
+
+        return service;
+
+        /////////////////////////
+        
+        function getPicture() {
+            // promise
+             var q = $q.defer();
+             
+            // camera options
+            var options = {
+                destinationType: Camera.DestinationType.FILE_URI,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                allowEdit: false,
+                encodingType: Camera.EncodingType.JPEG,
+                popoverOptions: CameraPopoverOptions,
+            };
+            
+            $cordovaCamera.getPicture(options).then(success, failure);
+            
+            return q.promise;
+            
+            //********
+            function success(imageData) {
+                imageData = ionic.Platform.isAndroid() ? 
+                            // android fix to display image, his technique force the uri to let pass "%3A" as it is, without changing it to ":"
+                            imageData.replace("%", "%25") :
+                            imageData;        
+                q.resolve(imageData);
+            }
+
+            function failure(err) {
+                q.rejected(err);
+            }
+
+        }
+        
+        // function urlForImage(imageName) {
+        //     var name = imageName.substr(imageName.lastIndexOf('/') + 1);
+        //     var trueOrigin = cordova.file.dataDirectory + name;
+        //     return trueOrigin;
+        // }
+
+    }
+
+})();
+
+
+        // function createFileEntry(fileURI) {
+        //     window.resolveLocalFileSystemURL(fileURI, copyFile, fail);
+        // }
+
+        // function makeid() {
+        //     var text = "";
+        //     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        //     for (var i = 0; i < 5; i++) {
+        //         text += possible.charAt(Math.floor(Math.random() * possible.length));
+        //     }
+        //     return text;
+        // }
