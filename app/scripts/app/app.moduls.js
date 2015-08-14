@@ -11,6 +11,7 @@
 
 	angular.module('neofen', 
 		['ionic', 
+        'LocalForageModule',
 		'angular-datepicker',
 		'neofen.controllers', 
 		'neofen.services',

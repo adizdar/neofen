@@ -15,7 +15,7 @@
 			<span>Izaberite lijek</span>
 		</div>
 		<ion-radio class="red-normal menu-radio"
-				on-tap="calculator.selectRule('neofen100sirup')">
+				on-tap="calculator.selectRule('neofen100sirup');">
 		NEOFEN<span>®</span> sirup
 		</ion-radio>
 		<ion-radio class="red-normal menu-radio" 
@@ -49,6 +49,7 @@
 			<div abacus abacusColor="rgb(246, 224, 65)"></div>
 			<div abacus abacusColor="rgb(226, 218, 47)"></div>
 		</div>
+		<div class="sum">Ukupno: <span>{{calculator.calculationResult}}kg</span></div>
 	</div>
 	<div class="calculator-button">
 		<button on-tap="calculator.triggerRule()"></button>

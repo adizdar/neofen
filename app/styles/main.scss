@@ -405,7 +405,7 @@ pre {
 \*------------------------------------*/
 .home {
     .row:first-child {
-        padding-bottom: 32%;
+        padding-bottom: 61%;
     }
     .scroll {
         height: 100%;
@@ -630,6 +630,14 @@ pre {
         }
         .abacus-yelow {
             background-color: rgb(246, 224, 65);
+        }
+    }
+    .sum {
+        color: $red-normal;
+        padding: 10px;
+        font-size: 120%;
+        span {
+            font-weight: 700;
         }
     }
 }

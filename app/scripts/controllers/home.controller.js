@@ -15,35 +15,48 @@
                                 '$ionicHistory', 
                                 '$cordovaCamera',
                                 '$timeout',
-                                'pictureService'  ];
+                                'pictureService',
+                                'localStorageService' ];
 
-    function HomeController($scope, $log, $rootScope, navigationUtil, productDetails, $ionicModal, $ionicHistory, $cordovaCamera, $timeout, pictureService) {
+    function HomeController($scope, 
+                            $log, 
+                            $rootScope, 
+                            navigationUtil,
+                            productDetails, 
+                            $ionicModal, 
+                            $ionicHistory, 
+                            $cordovaCamera,
+                            $timeout, 
+                            pictureService, 
+                            localStorageService ) {
 
         var vm = this;
 
         vm.navigate = navigationUtil.navigate;
-        vm.profilePicture = null;
-        vm.getPicture = getPicture;
-
+        vm.profile = {image: null, name: null};
+        vm.test = test;
         $rootScope.hideTabs = null;
-
+        
+        init();
+        
+        function init() {
+            getPicture();            
+        }
+       
        function getPicture() {
+         var profileData = localStorageService.getDataByKey('profile')
+         if(profileData) vm.profile.image = profileData.picture;
+        }
+        
+               
+        function test() {
            pictureService.getPicture().then(function(imgData){
-               alert(imgData);
-                vm.profilePicture = imgData;
+               if(imgData) localStorageService.syncByKeyValue('profile', { picture: imgData,  name: 'Test Testa'});
+               vm.profile.image = imgData;
            }, function(err) {
                $log.error(err);
            });
         }
-
- 
-        // $ionicModal.fromTemplateUrl('templates/home.html', {
-        //   scope: $scope,
-        //   animation: 'slide-in-up'
-        // }).then(function(modal) {
-        //   vm.modal = modal;
-        //   modal.show();
-        //   });
 
         // using $rootScope to hide tab on some screens
         $rootScope.$on('$stateChangeStart', function (event, toState) {
@@ -54,6 +67,7 @@
         $scope.$on("$ionicView.enter", function () {
             // $ionicHistory.clearCache(); // CHECK PERFORMANCE
             $ionicHistory.clearHistory();
+            getPicture(); // so the image will be refreshed TODO refactor with broadcase
         });
     }
 

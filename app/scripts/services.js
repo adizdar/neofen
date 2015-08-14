@@ -655,6 +655,79 @@ if (!window.cordova) {
 
 })();
 
+(function () {
+
+    'use strict';
+
+    angular
+        .module('neofen.services')
+        .factory('localStorageService', localStorageService);
+
+    localStorageService.$inject = ['$log', '$q', '$localForage'];
+
+    function localStorageService($log, $q, $localForage) {
+
+        var service = {
+            initializeCdmWithLocalStorage: initializeCdmWithLocalStorage,
+            syncByKeyValue: syncByKeyValue, 
+            syncAll: syncAll,
+            getCdm: getCdm,
+            getDataByKey: getDataByKey
+        };
+        
+        var _cdm = {}; // central domain model
+
+        return service;
+
+        /////////////////////////
+        
+        function initializeCdmWithLocalStorage() {
+              // load logic
+              $localForage.getItem('cdm').then(function(data){
+                  _cdm = data || {};    
+              }, function(err) {
+                  $log.error(err);
+              });
+        }
+        
+        function syncByKeyValue(key, value) {
+            if(!key || !value) return;
+            
+             _cdm[key] = value;
+             save();
+        }
+        
+        function syncAll(newCdm) {
+            _cdm = newCdm;
+            save();
+        }
+        
+        function save() {
+           $localForage.setItem('cdm', _cdm);
+        }
+        
+        // should remove this, because all setting should go via this factory
+        function getCdm() {
+            return _cdm;
+        }
+        
+        function getDataByKey(key) {
+            return key && _cdm.hasOwnProperty(key) ? _cdm[key] : undefined;
+        }
+        
+        function remove(key) {
+            $localForage.removeItem(key);
+        }
+        
+        // returns promise
+        function getLength(){
+            return $localForage.length();
+        }
+    }
+
+})();
+
+
 
         // function createFileEntry(fileURI) {
         //     window.resolveLocalFileSystemURL(fileURI, copyFile, fail);

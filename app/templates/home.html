@@ -1,83 +1,70 @@
 <ion-view hide-nav-bar="true">
-<ion-content class="bg-style-main home">
-
-<!-- 
-    Home Menu Section
- -->
-
-<div class="row-container">
-<div class="row">
-	<div class="col home-menu">
-		<a class="button" on-tap="home.navigate('calendar')">
-			<img src="images/alarm.png" alt="">
-		</a>
-	</div>
-	<div class="col my-picture">
-		<a href="">
-			<img class="profile" ng-src="{{home.profilePicture}}" ng-if="home.profilePicture">
-			<img src="images/sun.png" alt="">
-		</a>
-	</div>
-	<div class="col">
-	</div>
-</div>
-<div class="row">
-	<div class="col home-menu">
-		<a href="" class="button" on-tap="home.getPicture();">
-			<img src="images/tosamja.png" alt="">
-		</a>
-	</div>
-	<div class="col">
-	</div>
-	<div class="col">
-	</div>
-</div>
-<div class="row">
-	<div class="col home-menu">
-		<a href="" class="button">
+	<!--<ion-side-menus>
+		<ion-side-menu-content></ion-side-menu-content>
+		<ion-side-menu side="left"></ion-side-menu>
+	</ion-side-menus>-->
+	<ion-content class="bg-style-main home">
+		<!-- Home Menu Section -->
+		<div class="row-container">
+			<div class="row">
+				<div class="col my-picture">
+					<a href="">
+						<img class="profile" ng-src="{{home.profile.image}}" ng-if="home.profile.image">
+						<img src="images/sun.png" alt="">
+					</a>
+				</div>
+				<div class="col"></div>
+			</div>
+			<div class="row">
+			    <div class="col home-menu">
+					<a class="button" on-tap="home.navigate('calendar')">
+						<img src="images/alarm.png" alt="">
+					</a>
+				</div>
+				<div class="col"></div>
+				<div class="col"></div>
+			</div>
+			<div class="row">
+				<div class="col home-menu">
+					<a href="" class="button">
 			<img src="images/toradimsam.png" alt="">
 		</a>
-	</div>
-	<div class="col home-menu">
-		<a on-tap="home.navigate('info')" class="button">
+				</div>
+				<div class="col home-menu">
+					<a on-tap="home.navigate('info')" class="button">
 			<img src="images/savjeti.png" alt="">
-		</a>  	
-	</div>
-	<div class="col home-menu">
-		<a on-tap="home.navigate('products')" class="button">
+		</a>
+				</div>
+				<div class="col home-menu">
+					<a on-tap="home.navigate('products')" class="button">
 			<img src="images/proizvodi.png" alt="">
 		</a>
-	</div>
-</div>
-<div class="row" style="padding-bottom: 56px;">
-	<div class="col home-menu">
-		<a ui-sref="tab.chats" class="button">
+				</div>
+			</div>
+			<div class="row" style="padding-bottom: 56px;">
+				<div class="col home-menu">
+					<a ui-sref="tab.chats" class="button">
 			<img src="images/omeni.png" alt="">
 		</a>
-	</div>
-	<div class="col home-menu">
-		<a on-tap="home.navigate('calculator')" class="button">
+				</div>
+				<div class="col home-menu">
+					<a on-tap="home.navigate('calculator')" class="button">
 			<img src="images/calculator.png" alt="">
 		</a>
-	</div>
-	<div class="col home-menu">
-		<a on-tap="home.navigate('music')" class="button">
+				</div>
+				<div class="col home-menu">
+					<a on-tap="home.navigate('music')" class="button">
 			<img src="images/zabava.png" alt="">
 		</a>
-	</div>
-</div>
-
-<!-- 
-	Footer
- -->
-<div class="row-footer">
-	<button class="smpc" on-tap="home.navigate('smpc')">
-		SMPC
-	</button>
-	<div class="logo-col">
-		<img src="images/logo.png" alt="" class="logo">
-	</div>
-</div>
-</div>
-</ion-content>
+				</div>
+			</div>
+			<!-- Footer -->
+			<div class="row-footer">
+				<button class="smpc" on-tap="home.navigate('smpc')">SMPC</button>
+				<div class="logo-col">
+					<img src="images/logo.png" alt="" class="logo">
+				</div>
+			</div>
+		</div>
+	</ion-content>
 </ion-view>

@@ -6,9 +6,9 @@
         .module('neofen.controllers')
         .controller('CalculatorController', CalculatorController);
 
-    CalculatorController.$inject = ['$scope', '$log', 'calculatorRules', '$ionicPopup', '$ionicScrollDelegate'];
+    CalculatorController.$inject = ['$scope', '$log', 'calculatorRules', '$ionicPopup', '$ionicScrollDelegate', 'pictureService', 'localStorageService'];
 
-    function CalculatorController($scope, $log, calculatorRules, $ionicPopup, $ionicScrollDelegate) {
+    function CalculatorController($scope, $log, calculatorRules, $ionicPopup, $ionicScrollDelegate, pictureService, localStorageService) {
 
         var vm = this;
 
@@ -58,8 +58,6 @@
             }
 
             vm.calculationResult = vm.calculationResult + data.result;
-
-            $log.log(vm.calculationResult);
         }
 
         function selectRule(rule) {
