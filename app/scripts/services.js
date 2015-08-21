@@ -347,6 +347,12 @@
                 case 'calendar':
                     $state.go('calendar');
                     break;
+                case 'about':
+                    $state.go('tab.about');
+                    break;
+                case 'aboutview':
+                    $state.go('tab.aboutview');
+                    break;
 
             }
 
@@ -633,7 +639,7 @@ if (!window.cordova) {
             //********
             function success(imageData) {
                 imageData = ionic.Platform.isAndroid() ? 
-                            // android fix to display image, his technique force the uri to let pass "%3A" as it is, without changing it to ":"
+                            // android fix to display image, this technique force the uri to let pass "%3A" as it is, without changing it to ":"
                             imageData.replace("%", "%25") :
                             imageData;        
                 q.resolve(imageData);

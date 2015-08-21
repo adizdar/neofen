@@ -11,6 +11,9 @@
     function CalendarController($scope, $log, $ionicPopup, $cordovaCalendar) {
 
         var vm = this;
+        var helpDateText = "U sekcijama OD i DO unosite broj dana trajanja podsjetnika u kalendaru ( Npr. od 25.6 do 29.6 će vam stizati notifikacije o podsjetniku). Interval također može biti isti dan.";
+        var helpTimeText = "U sekcijama OD i DO unosite vremenski interval trajanja podsjetnika u kalendaru. U tom intervalu će interni kalendar mobilnog uređaja postaviti podsjetnik aktivnim. (Npr. Od 18:00h do 20:00h )";
+        var helpPillsText = "U početak unosite vrijeme prve tablete, u razmak sekciji unosite koliko svakih sati morate piti tabletu."
         
         vm.dateFrom = null;
         vm.dateTo = null;
@@ -19,6 +22,8 @@
         vm.calendarEventTitle = null;
         
         vm.submitDate = submitDate;
+        vm.help = help;
+       
         // @todo create a one time reminder for repeat days
         function submitDate() {
             var startDate, endDate;
@@ -31,18 +36,10 @@
                 return;
              }
             
-            if(!vm.dateFrom || !vm.timeFrom) {
+            if(!vm.dateFrom || !vm.timeFrom || !vm.dateTo || !vm.timeTo) {
                 $ionicPopup.alert({
 	                title: 'Datum i vrijeme',
-	                template: 'Molimo vas unesite datum i vrijeme u sekciji "OD".'
-	            });
-                return;
-             }
-             
-             if(!vm.dateTo || !vm.timeTo) {
-                $ionicPopup.alert({
-	                title: 'Datum i vrijeme',
-	                template: 'Molimo vas unesite datum i vrijeme u sekciji "DO".'
+	                template: 'Molimo vas unesite datum i vrijeme.'
 	            });
                 return;
              }
@@ -77,6 +74,13 @@
 	                template: 'Došlo je do greške molimo vas pokusajte ponovo!'
 	            });
             });
+        }
+        
+        function help(param) {
+            $ionicPopup.alert({
+	                title: param === 'date' ? 'Datum' : 'Vrijeme',
+	                template: param === 'date' ? helpDateText : helpTimeText
+	        });
         }
         
     }

@@ -1,0 +1,12 @@
+<ion-view view-title="Zabava" class="products-list">
+	<ion-nav-buttons side="left" class="back-button-cont">
+		<img src="images/back.png" class="back-button-trigger back-button-image" on-tap="$ionicGoBack()">
+	</ion-nav-buttons>
+	<ion-content class="about about-view">
+		<ion-list>
+		  <ion-item ng-repeat="item in vm.test">
+		    Hello, {{item}}!
+		  </ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>	

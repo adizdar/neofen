@@ -125,6 +125,26 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             }
         }
     })
+    
+   .state('tab.about', {
+        url: '/about',
+        views: {
+            'tab-about': {
+                templateUrl: 'templates/tab-about.html',
+                controller: 'AboutController as vm'
+            }
+        }
+    })
+    
+    .state('tab.aboutview', {
+        url: '/about/view',
+        views: {
+            'tab-about': {
+                templateUrl: 'templates/tab-about-view.html',
+                controller: 'AboutController as vm'
+            }
+        }
+    })
 
     .state('tab.music', {
         url: '/music',

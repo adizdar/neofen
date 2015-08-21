@@ -1,0 +1,58 @@
+<ion-view view-title="Najvažnije o meni" class="products-list">
+	<ion-nav-buttons side="left" class="back-button-cont">
+		<img src="images/back.png" class="back-button-trigger back-button-image" on-tap="$ionicGoBack()">
+	</ion-nav-buttons>
+	<ion-content class="music about bg-style bg-style-about">
+         <div class="header">
+			 Ovdje imate opciju da unesete sve važne Informacije vezane za Vaše dijete. <br/>Tipa: doktorskih pregleda, alergija, primljenih/predstojećih vakcina...
+		 </div>
+		 <div class="play-list" 
+			  arrow-button 
+			  text="Termini kod doktora"
+			  imgurl="images/arrowblue.png"
+			  on-tap="vm.navigate('aboutview')">
+	    </div>
+		<div  class="play-list" 
+			  arrow-button 
+			  text="Vakcine"
+			  imgurl="images/arrowblue.png"
+			  on-tap="vm.triggerPlay('/images/music/tasun.mp3', $event);">
+	    </div>
+		<div  class="play-list" 
+			  arrow-button 
+			  text="Alergije"
+			  imgurl="images/arrowblue.png"
+			  on-tap="vm.triggerPlay('/images/music/tasun.mp3', $event);">
+	    </div>
+		<div  class="play-list" 
+			  arrow-button 
+			  text="Lijekovi"
+			  imgurl="images/arrowblue.png"
+			  on-tap="vm.triggerPlay('/images/music/tasun.mp3', $event);">
+	    </div>
+		<div  class="play-list" 
+			  arrow-button 
+			  text="Temperatura"
+			  imgurl="images/arrowblue.png"
+			  on-tap="vm.triggerPlay('/images/music/tasun.mp3', $event);">
+	    </div>
+		<div  class="play-list" 
+			  arrow-button 
+			  text="Glavobolja"
+			  imgurl="images/arrowblue.png"
+			  on-tap="vm.triggerPlay('/images/music/tasun.mp3', $event);">
+	    </div>
+		<div  class="play-list" 
+			  arrow-button 
+			  text="Zubi-bolovi"
+			  imgurl="images/arrowblue.png"
+			  on-tap="vm.triggerPlay('/images/music/tasun.mp3', $event);">
+	    </div>
+		<div  class="play-list" 
+			  arrow-button 
+			  text="Ostala oboljenja"
+			  imgurl="images/arrowblue.png"
+			  on-tap="vm.triggerPlay('/images/music/tasun.mp3', $event);">
+	    </div>
+	</ion-content>
+</ion-view>	

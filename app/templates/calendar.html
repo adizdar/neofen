@@ -26,34 +26,34 @@
 			</div>
 			<div class="dates">
 				<div class="list">
-					<div class="input-label">Od:</div>
+					<div class="input-label">Datum: <span class="ion-help-circled" on-tap="vm.help('date')"></span></div>
 					<label class="item item-input item-select">
 						<input type="text" 
 							class="calendar-picker" 
 							pick-a-date="vm.dateFrom"
-							placeholder="Datum" /> 
+							placeholder="Od"/> 
 					</label>
-					<label class="item item-input item-select">
-						<input type="text" 
-							class="calendar-picker" 
-							pick-a-time="vm.timeFrom" 
-							placeholder="Vrijeme" 
-							pick-a-time-options="{format: 'HH:i'}"/>
-					</label>
-				</div>
-				<div class="list">
-					<div class="input-label">Do:</div>
 					<label class="item item-input item-select">
 						<input type="text" 
 							   class="calendar-picker" 
 							   pick-a-date="vm.dateTo" 
-							   placeholder="Datum" />
+							   placeholder="Do"/>
+					</label>
+				</div>
+				<div class="list">
+					<div class="input-label">Vrijeme: <span class="ion-help-circled" on-tap="vm.help('time')"></span></div>
+					<label class="item item-input item-select">
+						<input type="text" 
+							class="calendar-picker" 
+							pick-a-time="vm.timeFrom" 
+							placeholder="Od" 
+							pick-a-time-options="{format: 'HH:i'}"/>
 					</label>
 					<label class="item item-input item-select">
 						<input type="text"
 							   class="calendar-picker" 
 							   pick-a-time="vm.timeTo"
-							   placeholder="Vrijeme"
+							   placeholder="Do"
 							   pick-a-time-options="{format: 'HH:i'}"  />
 					</label>
 				</div>

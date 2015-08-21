@@ -32,7 +32,7 @@ $red-normal: rgb(205, 0, 20);
 $red-strong: rgb(164, 0, 17);
 $blue-light: rgb(102, 192, 223);
 $blue-strong: rgb(76, 151, 180);
-$smpc-color: rgb(27, 153, 213);
+$smpc-color: rgb(208,209,211);
 $green: rgb(18,79,45);
 
 // Url
@@ -43,6 +43,7 @@ $bg-url-info-main: url("../images/bgmaingreen.png");
 $bg-url-info: url("../images/bgtips.png");
 $bg-url-music: url("../images/bgbrown.png");
 $bg-url-calendar: url("../images/bgcalendar.png");
+$bg-url-about: url("../images/bgomeni.png");
 
 $blue-star-url: url("../images/bluestar.png");
 $red-star-url: url("../images/redstar.png");
@@ -228,12 +229,12 @@ $alarm-small: url("../images/alarm.png");
    background-image: $bg-url-music;
 }
 
-.bg-style-music {
-   background-image: $bg-url-music;
-}
-
 .bg-style-calendar {
    background-image: $bg-url-calendar;
+}
+
+.bg-style-about {
+   background-image: $bg-url-about;
 }
 
 .button-done-nav {
@@ -261,16 +262,43 @@ $alarm-small: url("../images/alarm.png");
     transform: rotate(-4deg);
 }
 
+button.button.zoom-in-text, 
+button.button.zoom-out-text {
+    border: 0;
+    padding: 0;
+    padding-top: 4px;
+    img {
+       width: 35px;
+       height: 25px;
+    }
+    &:active {
+       background-color: transparent; 
+    }
+    
+}
+     .button.zoom-in-text.activated,
+     .button.zoom-out-text.activated {
+        background-color: transparent;
+        box-shadow: none;
+        border: 0;
+        opacity: 0.6;
+    }
+
+button.button.zoom-in-text {
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
 .smpc {
     -moz-box-shadow: 0px 0px 0px 3px #1b99d5;
     -webkit-box-shadow: 0px 0px 0px 3 px #1b99d5;
-    background-color: rgb(66, 160, 204);
+    background-color: $smpc-color;
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
     bottom: 0;
     border: 1px solid white;
     border-bottom: none;
-    box-shadow: 0px 0px 0px 3px #1b99d5;
+    box-shadow: 0px 0px 0px 3px $smpc-color;
     color: white;
     font-size: 150%;
     position: absolute;
@@ -405,7 +433,7 @@ pre {
 \*------------------------------------*/
 .home {
     .row:first-child {
-        padding-bottom: 61%;
+        padding-bottom: 108%;
     }
     .scroll {
         height: 100%;
@@ -416,30 +444,49 @@ pre {
         min-height: 100%;
         position: relative;
         .my-picture {
-            .profile {
+            .profile-round-square {
                 position: absolute;
-                width: 78%;
-                height: 72.2%;
-                border-radius: 100%;
-                right: 0px;
-                top: 6%;
+                width: 48.5%;
+                height: 55.2%;
+                border-radius: 23%;
+                right: 25.5%;
+                top: 22%;
             }
             a {
                 position: absolute;
-                right: -27%;
-                top: -3%;
-                width: 100%;
+                right: 0;
+                left: 0;
+                top: 0;
                 z-index: -1;
             }
             img {
-                width: 77%;
+                width: 100%;
             }
+            // OBSOLATE, used for round profile picture
+            // .profile-round {
+            //     position: absolute;
+            //     width: 78%;
+            //     height: 72.2%;
+            //     border-radius: 100%;
+            //     right: 0px;
+            //     top: 6%;
+            // }
+            // a {
+            //     position: absolute;
+            //     right: -27%;
+            //     top: -3%;
+            //     width: 100%;
+            //     z-index: -1;
+            // }
+            // img {
+            //     width: 77%;
+            // }
         }
         .home-menu {
             a {
                 display: block;
                 img {
-                    width: 90%;
+                    width: 100%;
                 }
             }
         }
@@ -1225,9 +1272,29 @@ div.row-stripped {
             padding-left: 15px;
             color: #BF1E2E;
             font-weight: 500;
+            span {
+                position: absolute;
+                right: 4%;
+                color: #207BAD;
+            }
         }
         .list {
             margin-bottom: 10px;
         }
     }
  }
+
+.about {
+    .header {
+       padding-top: 2%;
+       padding-bottom: 3%;
+    }
+    .play-list {
+        padding-top: 8px;
+    }
+    .arrow-container {
+        p {
+            padding: 8px 0 8px 52px;
+        }
+    }
+}

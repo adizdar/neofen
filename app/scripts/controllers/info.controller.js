@@ -15,6 +15,8 @@
         vm.navigate = navigationUtil.navigate;
         vm.key = navigationUtil.getNavigationParam();
         vm.data = productDetails.getInfoDetails(vm.key);
+        
+        
 
     }
 
