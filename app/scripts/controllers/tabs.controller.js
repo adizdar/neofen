@@ -14,10 +14,10 @@
     	var vm = this;
     	//$rootScope.hideTabs = null;
 
-    	// // using $rootScope to hide tab on some screens
+    	// using $rootScope to hide tab on some screens
     	// $rootScope.$on('$stateChangeStart', function(event, toState) {
     	// 	 $rootScope.hideTabs = toState.data && toState.data.hideTabsBar;
-     //    });
+        // });
     }
 
 })();

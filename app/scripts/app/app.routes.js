@@ -33,7 +33,13 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         url: '/home',
         data: {hideTabsBar:true},
         templateUrl: 'templates/home.html',
-        controller: 'HomeController as home'                
+        controller: 'HomeController as home', 
+        resolve: {
+              cdm: function(localStorageService) {
+                // resolving data so it will be loaded before the view appears
+                return localStorageService.initializeCdmWithLocalStorage();
+            }
+        }               
     })
 
     // Each tab has its own nav history stack:
@@ -138,6 +144,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     
     .state('tab.aboutview', {
         url: '/about/view',
+        data: {hideTabsBar:true},
         views: {
             'tab-about': {
                 templateUrl: 'templates/tab-about-view.html',

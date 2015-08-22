@@ -15,9 +15,7 @@ function runPlatform($ionicPlatform, $cordovaSplashscreen, localStorageService) 
             StatusBar.styleLightContent();
         }
         
-        // initialize filesystem
-        localStorageService.initializeCdmWithLocalStorage();
- 
+
         // var templates = [
         //     "../templates/calculator.html",
         //     "../templates/tab-products.html",

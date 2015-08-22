@@ -8,12 +8,13 @@
 		<div class="row-container">
 			<div class="row">
 				<div class="col my-picture">
-					<a href="">
-						<img class="profile-round-square" ng-src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSu_Qn6nvWTBvIlqVSthldXrSK9trXIHeyFU2kN-nC-cU7tvHX_">
-						<img src="images/sunprofile.png" alt="">
+					<a>
+						<img ng-class="{'profile-round-square' : !home.profile.defaultValues, 'profile-camera' : home.profile.defaultValues }" 
+						     ng-src="{{home.profile.image}}"
+							 on-tap="home.choosePicture()">
+						<img src="images/sunprofile.png">
 					</a>
 				</div>
-				<div class="col"></div>
 			</div>
 			<div class="row">
 				<div class="col home-menu">

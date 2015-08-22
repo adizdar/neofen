@@ -689,7 +689,7 @@ if (!window.cordova) {
         
         function initializeCdmWithLocalStorage() {
               // load logic
-              $localForage.getItem('cdm').then(function(data){
+              return $localForage.getItem('cdm').then(function(data){
                   _cdm = data || {};    
               }, function(err) {
                   $log.error(err);

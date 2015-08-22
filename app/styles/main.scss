@@ -444,6 +444,14 @@ pre {
         min-height: 100%;
         position: relative;
         .my-picture {
+            .profile-camera {
+                position: absolute;
+                width: 22%;
+                margin: auto;
+                left: 0;
+                right: 0;
+                top: 42%;
+            }
             .profile-round-square {
                 position: absolute;
                 width: 48.5%;
@@ -457,7 +465,6 @@ pre {
                 right: 0;
                 left: 0;
                 top: 0;
-                z-index: -1;
             }
             img {
                 width: 100%;

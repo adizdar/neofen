@@ -5,17 +5,17 @@
 	on-tap="$ionicGoBack()">
 </ion-nav-buttons>
 <ion-nav-buttons side="right" class="back-button-cont">
-	<button class="button zoom-in-text">
+	<button class="button zoom-in-text" on-tap="info.manipulateFontSize(10, '%', false)">
 		<img src="images/minus.png"
-		class="" on-tap+>
+		class="">
 	</button>
-	<button class="button zoom-out-text">
+	<button class="button zoom-out-text" on-tap="info.manipulateFontSize(10, '%', true)">
 	    <img src="images/plus.png"
 	     class="">
 	</button>
 </ion-nav-buttons>
 <ion-content class="padding bg-style bg-style-info products-details info-details">
-<div class="details-container">
+<div class="details-container" >
 	<div star-button
 		text={{info.data.title}}
 		bordercolor="rgb(142,196,6)"
@@ -27,7 +27,7 @@
 	<img ng-src="images/puz.png" 
 		 class="snail-image"
 		 ng-class="{'snail-image-no-position': info.key === 'fizikalneMjere' || info.key === 'visokaTemperatura' || info.key === 'izmjeritiTemperaturu'}">
-	<div ng-switch on="info.key">
+	<div ng-switch on="info.key" ng-style="info.textSize">
 	<div ng-switch-when="povisenaTemperatura">
 		<pre>
 Povišena tjelesna temperatura (vručica) u dječjoj je dobi vrlo čest simptom i najčešći razlog odlaska ljekaru.

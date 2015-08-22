@@ -13,10 +13,9 @@
                                 'productDetails', 
                                 '$ionicModal', 
                                 '$ionicHistory', 
-                                '$cordovaCamera',
                                 '$timeout',
                                 'pictureService',
-                                'localStorageService' ];
+                                'localStorageService'];
 
     function HomeController($scope, 
                             $log, 
@@ -25,16 +24,20 @@
                             productDetails, 
                             $ionicModal, 
                             $ionicHistory, 
-                            $cordovaCamera,
                             $timeout, 
                             pictureService, 
-                            localStorageService ) {
+                            localStorageService) {
 
         var vm = this;
 
         vm.navigate = navigationUtil.navigate;
-        vm.profile = {image: null, name: null};
-        vm.test = test;
+        vm.choosePicture = choosePicture;
+                
+        vm.profile = { 
+            image: 'images/camera.png', 
+            name: null, 
+            defaultValues: true
+        };
         $rootScope.hideTabs = null;
         
         init();
@@ -44,17 +47,24 @@
         }
        
        function getPicture() {
-         var profileData = localStorageService.getDataByKey('profile')
-         if(profileData) vm.profile.image = profileData.picture;
+         var profileData = localStorageService.getDataByKey('profile');
+         
+         if(profileData) {
+             vm.profile.image = profileData.picture;
+             vm.profile.defaultValues = false;
+         }
         }
-        
-               
-        function test() {
+                   
+        function choosePicture() {
            pictureService.getPicture().then(function(imgData){
-               if(imgData) localStorageService.syncByKeyValue('profile', { picture: imgData,  name: 'Test Testa'});
-               vm.profile.image = imgData;
+               if(imgData) { 
+                    localStorageService.syncByKeyValue('profile', { picture: imgData,  name: 'Test Testa'});
+                    vm.profile.image = imgData;
+                    vm.profile.defaultValues = false;
+               }
            }, function(err) {
                $log.error(err);
+               vm.profile.defaultValues = true;
            });
         }
 
@@ -65,7 +75,7 @@
         
         // clear hostory on home
         $scope.$on("$ionicView.enter", function () {
-            // $ionicHistory.clearCache(); // CHECK PERFORMANCE
+            // $ionicHistory.clearCache(); // @todo: CHECK PERFORMANCE
             $ionicHistory.clearHistory();
             getPicture(); // so the image will be refreshed TODO refactor with broadcase
         });
