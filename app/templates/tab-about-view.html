@@ -1,12 +1,28 @@
-<ion-view view-title="Pregled" class="products-list">
-	<ion-nav-buttons side="left" class="back-button-cont">
+<ion-view view-title="Pregled unosa" class="">
+	<ion-nav-buttons side="left">
 		<img src="images/back.png" class="back-button-trigger back-button-image" on-tap="$ionicGoBack()">
 	</ion-nav-buttons>
+	<ion-nav-buttons side="right"> 
+		 <button class="button delete-button button-icon icon ion-ios-minus-outline"
+          ng-click="vm.showDelete = !vm.showDelete;"></button>
+   </ion-nav-buttons>
 	<ion-content class="about about-view">
-		<ion-list>
-		  <ion-item ng-repeat="item in vm.test">
-		    Hello, {{item}}!
-		  </ion-item>
-		</ion-list>
+	<ion-list show-delete="vm.showDelete">
+        <p ng-if="!vm.data" class="info">Trenutno nema zabilježenih termina.</p>
+        <ion-item ng-repeat="item in vm.data" 
+                  item="item"
+				          href=""
+                  class="item-remove-animate item item-complex item-left-editable item-right-editable">
+          {{item.title}}
+          <ion-delete-button class="ion-minus-circled" 
+                             ng-click="onItemDelete(item)">
+          </ion-delete-button>
+        </ion-item>
+      </ion-list>
+		<div class="bar bar-footer">
+	  		<button class="button button-block button-calm" on-tap="vm.add()">
+  		  	 <i class="ion-ios-checkmark-outline"></i>	Novi unos
+		    </button>
+		</div>
 	</ion-content>
 </ion-view>	
