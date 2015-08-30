@@ -535,7 +535,7 @@ pre {
 
 .bar.bar-stable .title {
     color: white;
-    font-size: 160%;
+    font-size: 150%;
 }
 
 // **** Menu *****
@@ -1294,7 +1294,9 @@ div.row-stripped {
  /*------------------------------------*\
     $ABOUT
 \*------------------------------------*/
-
+ 
+ .about-ion-view {}
+ 
     .right-buttons {
        .ion-ios-minus-outline {
            &:before {
@@ -1344,6 +1346,16 @@ div.row-stripped {
         background-color: $blue-light;
         border-color: $blue-light;
     }
+    .button-date {
+        background-color: transparent;
+        color: #B0B0B0;
+        font-size: 13px;
+        text-align: left;
+        border: 1px solid #DDDDDD;
+        border-right: 0;
+        border-left: 0;
+        padding-left: 9px;
+    }
     .bar-footer {
         padding:0;
         .button {
@@ -1355,6 +1367,17 @@ div.row-stripped {
            &:before {
                font-weight: bolder;   
            }
+        }
+    }
+    .custom-date-icon {
+      &:before {
+        font-size: 16px;
+      }   
+    }
+    .flex-start {
+        align-items: inherit;
+        i {
+            padding-right: 9px;
         }
     }
 }

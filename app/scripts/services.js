@@ -675,10 +675,12 @@ if (!window.cordova) {
 
         var service = {
             initializeCdmWithLocalStorage: initializeCdmWithLocalStorage,
-            syncByKeyValue: syncByKeyValue, 
+            syncCdmByKeyValue: syncCdmByKeyValue, 
+            syncObjectByKeyValue: syncObjectByKeyValue,
             syncAll: syncAll,
             getCdm: getCdm,
-            getDataByKey: getDataByKey
+            getDataByKey: getDataByKey,
+            createObjectByKey: createObjectByKey
         };
         
         var _cdm = {}; // central domain model
@@ -687,19 +689,54 @@ if (!window.cordova) {
 
         /////////////////////////
         
-        function initializeCdmWithLocalStorage() {
+        function initializeCdmWithLocalStorage(initData) {
               // load logic
               return $localForage.getItem('cdm').then(function(data){
-                  _cdm = data || {};    
+                  _cdm = data || {};
+                  if(initData && !data) initializeCdmWithData(data);    
+                  console.log(_cdm); 
               }, function(err) {
                   $log.error(err);
               });
         }
         
-        function syncByKeyValue(key, value) {
+        function initializeCdmWithData(data) {
+            var key = null;
+            
+            if(typeof(data) === 'Array') {
+                for(var i=0, length = data.length; i < length; i++) {
+                    if(typeof(data[i]) === 'Object') {
+                       key = Object.getOwnPropertyNames(data[i])[0];
+                       _cdm[key] = data[i][key];
+                    } else {
+                        _cdm[data[i]] = null;
+                    }       
+                }
+            }
+        }
+        
+        function createObjectByKey(key) {
+            if(!_cdm.hasOwnProperty(key)) _cdm[key] = {};
+            save();
+        }
+        
+        function createArrayByKey(key) {
+            if(!_cdm.hasOwnProperty(key)) _cdm[key] = [];
+            save();
+        }
+        
+        // @todo: think about implementing multiple key & array sync
+        function syncCdmByKeyValue(key, value) {
             if(!key || !value) return;
             
              _cdm[key] = value;
+             save();
+        }
+        
+        function syncObjectByKeyValue(object, key, value) {
+            if(!key || !value || !object) return;
+            
+             object[key] = value;
              save();
         }
         
@@ -721,6 +758,7 @@ if (!window.cordova) {
             return key && _cdm.hasOwnProperty(key) ? _cdm[key] : undefined;
         }
         
+        // @todo: create real remove, right now its just a placeholder
         function remove(key) {
             $localForage.removeItem(key);
         }
@@ -733,6 +771,68 @@ if (!window.cordova) {
 
 })();
 
+(function () {
+
+    'use strict';
+
+    angular
+        .module('neofen.services')
+        .factory('aboutDataContextFactory', aboutDataContextFactory);
+
+    aboutDataContextFactory.$inject = ['$log'];
+
+    function aboutDataContextFactory($log) {
+
+        var service = {
+            getFormData: getFormData
+        };
+        
+        var _formData = {
+            'doktor' : {
+              title : 'Termin kod doktora',
+              form : [{name: 'Naziv', inputType: 'text'},{name: 'Datum', inputType: 'date'}, {name: 'Vrsta pregleda', inputType: 'text'}, {name: 'Terapija', inputType: 'text'}, {name: 'Ponovo pregled', inputType: 'date'}, {name: 'Zaključci', inputType: 'textarea'}]  
+            },
+            'vakcine' : {
+              title : 'Vakcine',
+              form : [ {name: 'Vakcina', inputType: 'text'}, {name: 'Datum', inputType: 'date'}, {name: 'Terapija', inputType: 'text'}, {name: 'Ponovo pregled', inputType: 'date'}, {name: 'Zaključci', inputType: 'textarea'}]  
+            },
+            'alergije' : {
+              title : 'Alergije',
+              form : [ {name: 'Naziv', inputType: 'text'}, {name: 'Vrsta alergije', inputType: 'text'}, {name: 'Terapija', inputType: 'text'}, {name: 'Prestanak', inputType: 'text'}, {name: 'Tegobe', inputType: 'textarea'}]  
+            },
+            'lijekovi' : {
+              title : 'Lijekovi',
+              form : [ {name: 'Naziv lijeka', inputType: 'text'}, {name: 'Početak terapije', inputType: 'date'}, {name: 'Bolest', inputType: 'text'}, {name: 'Trajanje terapije', inputType: 'number'}, {name: 'Podnošljivost', inputType: 'textarea'}]  
+            },
+            'temperatura' : {
+              title : 'Temperatura',
+              form : [ {name: 'Naslov', inputType: 'text'}, {name: 'Početak simtoma', inputType: 'date'}, {name: 'Visina temperature', inputType: 'number'}, {name: 'Trajanje', inputType: 'number'}, {name: 'Prestanak', inputType: 'date'}, {name: 'Terapija', inputType: 'textarea'}]  
+            },
+            'glavobolja' : {
+              title : 'Glavobolja',
+              form : [ {name: 'Naslov', inputType: 'text'}, {name: 'Učestalost', inputType: 'text'}, {name: 'Naziv lijeka', inputType: 'text'}, {name: 'Trajanje terapije', inputType: 'number'}, {name: 'Podnošljivost', inputType: 'textarea'}]  
+            },
+            'zubi' : {
+              title : 'Zubi-bolovi',
+              form : [ {name: 'Naslov', inputType: 'text'}, {name: 'Početak bolova', inputType: 'date'}, {name: 'Koji zub niče', inputType: 'text'}, {name: 'Temperatura', inputType: 'number'}, {name: 'Terapija', inputType: 'text'}, {name: 'Prestanak', inputType: 'date'}]  
+            },
+            'ostalo' : {
+              title : 'Ostale bolesti',
+              form : [ {name: 'Naziv', inputType: 'text'}, {name: 'Datum', inputType: 'date'}, {name: 'Vrsta bolesti', inputType: 'text'}, {name: 'Terapija', inputType: 'text'}, {name: 'Trajanje terapije', inputType: 'number'}, {name: 'Prestanak', inputType: 'date'}]  
+            }
+        };
+        
+        return service;
+
+        /////////////////////////
+        
+        function getFormData(key) {
+            return _formData[key];
+        }
+        
+    }
+
+})();
 
 
         // function createFileEntry(fileURI) {

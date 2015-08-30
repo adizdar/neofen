@@ -1,4 +1,4 @@
-<ion-view view-title="Pregled unosa" class="">
+<ion-view view-title="{{::vm.formData.title}}">
 	<ion-nav-buttons side="left">
 		<img src="images/back.png" class="back-button-trigger back-button-image" on-tap="$ionicGoBack()">
 	</ion-nav-buttons>
@@ -9,18 +9,20 @@
 	<ion-content class="about about-view">
 	<ion-list show-delete="vm.showDelete">
         <p ng-if="!vm.data" class="info">Trenutno nema zabilježenih termina.</p>
-        <ion-item ng-repeat="item in vm.data" 
+        <ion-item ng-repeat="item in vm.data track by $index" 
                   item="item"
 				          href=""
+                  on-tap="vm.editTask(item)"
                   class="item-remove-animate item item-complex item-left-editable item-right-editable">
           {{item.title}}
           <ion-delete-button class="ion-minus-circled" 
-                             ng-click="onItemDelete(item)">
+                             on-tap="vm.deleteTask(item);"
+                             stop-event="click">
           </ion-delete-button>
         </ion-item>
       </ion-list>
 		<div class="bar bar-footer">
-	  		<button class="button button-block button-calm" on-tap="vm.add()">
+	  		<button class="button button-block button-calm" on-tap="vm.addNewTask()">
   		  	 <i class="ion-ios-checkmark-outline"></i>	Novi unos
 		    </button>
 		</div>

@@ -14,7 +14,6 @@ function runPlatform($ionicPlatform, $cordovaSplashscreen, localStorageService) 
             // org.apache.cordova.statusbar required
             StatusBar.styleLightContent();
         }
-        
 
         // var templates = [
         //     "../templates/calculator.html",

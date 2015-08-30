@@ -6,40 +6,54 @@
         .module('neofen.controllers')
         .controller('AboutController', AboutController);
 
-    AboutController.$inject = ['$scope', '$log', 'navigationUtil', 'localStorageService', '$ionicModal'];
+    AboutController.$inject = ['$scope', '$log', 'navigationUtil', 'localStorageService', '$ionicModal', '$ionicPopup', 'aboutDataContextFactory'];
 
-    function AboutController($scope, $log, navigationUtil, localStorageService, $ionicModal) {
+    function AboutController($scope, $log, navigationUtil, localStorageService, $ionicModal, $ionicPopup, aboutDataContextFactory) {
 
         var vm = this;
-
+        var category = navigationUtil.getNavigationParam();
+        
+        // Variables decleraion
         vm.navigate = navigationUtil.navigate;
-        vm.key = navigationUtil.getNavigationParam();
-        vm.test = ['test1', 'test2', 'test3'];
-        vm.category = navigationUtil.getNavigationParam();
-        vm.data = null;
+        vm.formData = aboutDataContextFactory.getFormData(category);
+        vm.data = [];
         vm.showDelete = false;
         vm.modal = null;
-        vm.datepickerObject = {
-              titleLabel: 'Datum',
-              inputDate: new Date(),
-              from: new Date(new Date()-86700000), // day before today
-              callback: function (val) {  
-                 datePickerCallback(val);
-              }     
+        vm.newTask = {};
+
+        vm.datepickerNowObject = {
+            titleLabel: 'Datum',
+            inputDate: null,
+            from: new Date(new Date() - 86700000), // day before today
+            callback: function (val) {
+                datePickerNowCallback(val);
+            }
+        };
+        vm.datepickerNewObject = {
+            titleLabel: 'Ponovo pregled',
+            inputDate: null,
+            from: new Date(new Date() - 86700000), // day before today
+            callback: function (val) {
+                datePickerNewCallback(val);
+            }
         };
         
-        vm.add = add;
+        // Function decleration
+        vm.addNewTask = addNewTask;
+        vm.saveTask = saveTask;
         vm.closeModal = closeModal;
+        vm.deleteTask = deleteTask;
+        vm.editTask = editTask;
 
         init();
 
         function init() {
+            // @todo: create enum for data context keys
             var tempData = localStorageService.getDataByKey('about');
-            var param = navigationUtil.getNavigationParam();
 
-            if (tempData && param) {
-                vm.datas = tempData[param];
-            }
+            if (tempData && category) {
+                vm.data = tempData[category] || [];
+            } 
             
             // modal init
             $ionicModal.fromTemplateUrl('templates/tab-about-modal.html', {
@@ -49,24 +63,71 @@
                 vm.modal = modal;
             });
         }
-
-        function add() {
+        
+        // Modal functions
+        function addNewTask() {
             vm.modal.show();
         }
         
+        function editTask(task) {
+            vm.newTask = task;
+            vm.modal.show();
+        }
+
+        function saveTask() {
+            if (!vm.newTask.title) {
+                $ionicPopup.alert({
+                    title: 'Novi unos',
+                    template: 'Molimo vas unesite naslov'
+                });
+                return;
+            }
+            
+            // merge properties to newTask object
+            vm.newTask.dateNow = vm.datepickerNowObject.inputDate;
+            vm.newTask.dateNew = vm.datepickerNewObject.inputDate;
+
+            vm.data.indexOf(vm.newTask) === -1 && vm.data.push(vm.newTask);
+            localStorageService.syncObjectByKeyValue(localStorageService.getDataByKey('about'), category, vm.data);
+
+            closeModal();
+        }
+
         function closeModal() {
+            // clear data
+            vm.newTask = {};
+            vm.datepickerNowObject.inputDate = null;
+            vm.datepickerNewObject.inputDate = null;
+            
             vm.modal.hide();
         }
-           
-        function datePickerCallback (val) {
-          if (typeof(val) === 'undefined') {
-            console.log('No date selected');
-          } else {
-            vm.datepickerObject.inputDate = val;
-          }
+
+        function deleteTask(task) {
+            var index = vm.data.indexOf(task);
+            
+            vm.data.splice(index, 1);
+            localStorageService.syncObjectByKeyValue(localStorageService.getDataByKey('about'), vm.category, vm.data);
         }
         
-        //Cleanup the modal when we're done with it!
+        // Date picker callbacks   
+        function datePickerNowCallback(val) {
+            setDate(vm.datepickerNowObject, val);
+        }
+
+        function datePickerNewCallback(val) {
+            setDate(vm.datepickerNewObject, val);
+        }
+
+        function setDate(dateObject, val) {
+            if (typeof (val) === 'undefined') {
+                $log.error('No date selected');
+            } else {
+                // sending the whole object ( refference ) and so the digest circle update
+                dateObject.inputDate = val;
+            }
+        }
+        
+        // Cleanup the modal when we're done with it
         $scope.$on('$destroy', function () {
             vm.modal.remove();
         });
