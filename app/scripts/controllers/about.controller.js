@@ -30,7 +30,7 @@
             }
         };
         vm.datepickerNewObject = {
-            titleLabel: 'Ponovo pregled',
+            titleLabel: 'Datum',
             inputDate: null,
             from: new Date(new Date() - 86700000), // day before today
             callback: function (val) {
@@ -71,6 +71,9 @@
         
         function editTask(task) {
             vm.newTask = task;
+            vm.datepickerNowObject.inputDate = task.dateNow;
+            vm.datepickerNewObject.inputDate = task.dateNew;
+            
             vm.modal.show();
         }
 
