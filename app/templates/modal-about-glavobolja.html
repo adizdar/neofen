@@ -1,0 +1,33 @@
+<div class="modal about">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">Novi unos</h1>
+  		  <button class="button delete-button button-icon icon ion-android-close" style="color: white;" on-tap="vm.closeModal()"></button>
+    </ion-header-bar>
+    <ion-content>
+      <div class="list ">
+        <label class="item item-input">
+          <i class="icon ion-ios-star placeholder-icon"></i>
+          <input type="text" placeholder="Naslov" ng-model="vm.newTask.title">
+        </label>      
+        <label class="item item-input">
+          <i class="icon ion-ios-compose placeholder-icon"></i>
+          <input type="text" placeholder="Učestalost" ng-model="vm.newTask.infoOne">
+        </label> 
+        <label class="item item-input">
+          <i class="icon ion-medkit placeholder-icon"></i>
+          <input type="text" placeholder="Naziv lijeka" ng-model="vm.newTask.infoTwo">
+        </label> 
+		<label class="item item-input">
+          <i class="icon ion-compose placeholder-icon"></i>
+          <input type="number" placeholder="Trajanje terapije" ng-model="vm.newTask.infoThree">
+        </label> 
+        <label class="item item-input flex-start">
+          <i class="icon ion-clipboard placeholder-icon"></i>
+          <textarea cols="5" rows="4" placeholder="Podnošljivost" ng-model="vm.newTask.infoFour"></textarea>
+        </label> 
+      </div>
+      <button class="button button-block button-calm" 
+              ng-click="vm.saveTask()"
+              style="width:90%;">Potvrdi</button>
+    </ion-content>
+  </div>

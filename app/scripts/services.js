@@ -790,35 +790,43 @@ if (!window.cordova) {
         var _formData = {
             'doktor' : {
               title : 'Termin kod doktora',
-              form : [{name: 'Naziv', inputType: 'text'},{name: 'Datum', inputType: 'date'}, {name: 'Vrsta pregleda', inputType: 'text'}, {name: 'Terapija', inputType: 'text'}, {name: 'Ponovo pregled', inputType: 'date'}, {name: 'Zaključci', inputType: 'textarea'}]  
+              form : [{name: 'Naziv', inputType: 'text'},{name: 'Datum', inputType: 'date'}, {name: 'Vrsta pregleda', inputType: 'text'}, {name: 'Terapija', inputType: 'text'}, {name: 'Ponovo pregled', inputType: 'date'}, {name: 'Zaključci', inputType: 'textarea'}],
+              templateUrl: 'templates/modal-about-doctor.html'  
             },
             'vakcine' : {
               title : 'Vakcine',
-              form : [ {name: 'Vakcina', inputType: 'text'}, {name: 'Datum', inputType: 'date'}, {name: 'Terapija', inputType: 'text'}, {name: 'Ponovo pregled', inputType: 'date'}, {name: 'Zaključci', inputType: 'textarea'}]  
+              form : [ {name: 'Vakcina', inputType: 'text'}, {name: 'Datum', inputType: 'date'}, {name: 'Terapija', inputType: 'text'}, {name: 'Ponovo pregled', inputType: 'date'}, {name: 'Zaključci', inputType: 'textarea'}],
+              templateUrl: 'templates/modal-about-vakcine.html'   
             },
             'alergije' : {
               title : 'Alergije',
-              form : [ {name: 'Naziv', inputType: 'text'}, {name: 'Vrsta alergije', inputType: 'text'}, {name: 'Terapija', inputType: 'text'}, {name: 'Prestanak', inputType: 'text'}, {name: 'Tegobe', inputType: 'textarea'}]  
+              form : [ {name: 'Naziv', inputType: 'text'}, {name: 'Vrsta alergije', inputType: 'text'}, {name: 'Terapija', inputType: 'text'}, {name: 'Prestanak', inputType: 'text'}, {name: 'Tegobe', inputType: 'textarea'}],  
+              templateUrl: 'templates/modal-about-alergije.html'
             },
             'lijekovi' : {
               title : 'Lijekovi',
-              form : [ {name: 'Naziv lijeka', inputType: 'text'}, {name: 'Početak terapije', inputType: 'date'}, {name: 'Bolest', inputType: 'text'}, {name: 'Trajanje terapije', inputType: 'number'}, {name: 'Podnošljivost', inputType: 'textarea'}]  
+              form : [ {name: 'Naziv lijeka', inputType: 'text'}, {name: 'Početak terapije', inputType: 'date'}, {name: 'Bolest', inputType: 'text'}, {name: 'Trajanje terapije', inputType: 'number'}, {name: 'Podnošljivost', inputType: 'textarea'}],  
+              templateUrl: 'templates/modal-about-lijekovi.html'
             },
             'temperatura' : {
               title : 'Temperatura',
-              form : [ {name: 'Naslov', inputType: 'text'}, {name: 'Početak simtoma', inputType: 'date'}, {name: 'Visina temperature', inputType: 'number'}, {name: 'Trajanje', inputType: 'number'}, {name: 'Prestanak', inputType: 'date'}, {name: 'Terapija', inputType: 'textarea'}]  
+              form : [ {name: 'Naslov', inputType: 'text'}, {name: 'Početak simtoma', inputType: 'date'}, {name: 'Visina temperature', inputType: 'number'}, {name: 'Trajanje', inputType: 'number'}, {name: 'Prestanak', inputType: 'date'}, {name: 'Terapija', inputType: 'textarea'}],  
+              templateUrl: 'templates/modal-about-temperatura.html'
             },
             'glavobolja' : {
               title : 'Glavobolja',
-              form : [ {name: 'Naslov', inputType: 'text'}, {name: 'Učestalost', inputType: 'text'}, {name: 'Naziv lijeka', inputType: 'text'}, {name: 'Trajanje terapije', inputType: 'number'}, {name: 'Podnošljivost', inputType: 'textarea'}]  
+              form : [ {name: 'Naslov', inputType: 'text'}, {name: 'Učestalost', inputType: 'text'}, {name: 'Naziv lijeka', inputType: 'text'}, {name: 'Trajanje terapije', inputType: 'number'}, {name: 'Podnošljivost', inputType: 'textarea'}],  
+              templateUrl: 'templates/modal-about-glavobolja.html'
             },
             'zubi' : {
               title : 'Zubi-bolovi',
-              form : [ {name: 'Naslov', inputType: 'text'}, {name: 'Početak bolova', inputType: 'date'}, {name: 'Koji zub niče', inputType: 'text'}, {name: 'Temperatura', inputType: 'number'}, {name: 'Terapija', inputType: 'text'}, {name: 'Prestanak', inputType: 'date'}]  
+              form : [ {name: 'Naslov', inputType: 'text'}, {name: 'Početak bolova', inputType: 'date'}, {name: 'Koji zub niče', inputType: 'text'}, {name: 'Temperatura', inputType: 'number'}, {name: 'Terapija', inputType: 'text'}, {name: 'Prestanak', inputType: 'date'}],  
+              templateUrl: 'templates/modal-about-zubi.html'
             },
             'ostalo' : {
               title : 'Ostale bolesti',
-              form : [ {name: 'Naziv', inputType: 'text'}, {name: 'Datum', inputType: 'date'}, {name: 'Vrsta bolesti', inputType: 'text'}, {name: 'Terapija', inputType: 'text'}, {name: 'Trajanje terapije', inputType: 'number'}, {name: 'Prestanak', inputType: 'date'}]  
+              form : [ {name: 'Naziv', inputType: 'text'}, {name: 'Datum', inputType: 'date'}, {name: 'Vrsta bolesti', inputType: 'text'}, {name: 'Terapija', inputType: 'text'}, {name: 'Trajanje terapije', inputType: 'number'}, {name: 'Prestanak', inputType: 'date'}],  
+              templateUrl: 'templates/modal-about-ostalo.html'
             }
         };
         

@@ -12,26 +12,26 @@
         <ionic-datepicker input-obj="vm.datepickerNowObject">
           <button class="button button-block button-positive button-date" ng-style="{'color': !vm.datepickerNowObject.inputDate ? '#B0B0B0' : 'black'}"> 
             <i class="icon ion-ios-calendar placeholder-icon custom-date-icon"></i> 
-            {{vm.datepickerNowObject.inputDate || 'Datum' | date:'dd - MMMM - yyyy'}}
+            {{vm.datepickerNowObject.inputDate || 'Početak simtoma' | date:'dd - MMMM - yyyy'}}
           </button>
         </ionic-datepicker>
         <label class="item item-input">
           <i class="icon ion-ios-medkit placeholder-icon"></i>
-          <input type="text" placeholder="Vakcina" ng-model="vm.newTask.infoOne">
+          <input type="number" placeholder="Visina temperature" ng-model="vm.newTask.infoOne">
         </label> 
         <label class="item item-input">
           <i class="icon ion-compose placeholder-icon"></i>
-          <input type="text" placeholder="Terapija" ng-model="vm.newTask.infoTwo">
+          <input type="number" placeholder="Trajanje" ng-model="vm.newTask.infoTwo">
         </label> 
         <ionic-datepicker input-obj="vm.datepickerNewObject">
           <button class="button button-block button-positive button-date" ng-style="{'color': !vm.datepickerNewObject.inputDate ? '#B0B0B0' : 'black'}"> 
             <i class="icon ion-ios-calendar-outline placeholder-icon custom-date-icon"></i> 
-            {{vm.datepickerNewObject.inputDate || 'Ponovo pregled' | date:'dd - MMMM - yyyy'}}
+            {{vm.datepickerNewObject.inputDate || 'Prestanak' | date:'dd - MMMM - yyyy'}}
           </button>
         </ionic-datepicker>
         <label class="item item-input flex-start">
           <i class="icon ion-clipboard placeholder-icon"></i>
-          <textarea cols="5" rows="4" placeholder="Zaključci" ng-model="vm.newTask.infoFour"></textarea>
+          <textarea cols="5" rows="4" placeholder="Terapija" ng-model="vm.newTask.infoFour"></textarea>
         </label> 
       </div>
       <button class="button button-block button-calm" 

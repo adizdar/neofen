@@ -141,7 +141,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             views: {
                 'tab-about': {
                     templateUrl: 'templates/tab-about.html',
-                    controller: 'AboutController as vm'
+                    controller: 'DefaultController as vm'
                 }
             }
         })

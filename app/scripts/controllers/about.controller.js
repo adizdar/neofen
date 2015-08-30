@@ -56,7 +56,7 @@
             } 
             
             // modal init
-            $ionicModal.fromTemplateUrl('templates/tab-about-modal.html', {
+            $ionicModal.fromTemplateUrl(vm.formData.templateUrl, {
                 scope: $scope,
                 animation: 'slide-in-up'
             }).then(function (modal) {
