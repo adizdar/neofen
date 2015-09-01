@@ -35,7 +35,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             resolve: {
                 cdm: function (localStorageService) {
                     // resolving data so it will be loaded before the view appears
-                    return localStorageService.initializeCdmWithLocalStorage([{ key: 'about', value: {} }]);
+                    return localStorageService.initializeCdmWithLocalStorage([{ about: {} }, { myfirst: []}]);
                 }
             }
             })

@@ -1,17 +1,22 @@
 <ion-view view-title="Moj prvi...">
 <ion-nav-buttons side="left" class="back-button-cont">
-<img src="images/back.png"
-class="back-button-trigger back-button-image"
-on-tap="$ionicGoBack()">
+	<img src="images/back.png"
+	class="back-button-trigger back-button-image"
+	on-tap="$ionicGoBack()">
+</ion-nav-buttons>
+<ion-nav-buttons side="right" class="back-button-cont">
+	<img src="images/btndone.png" 
+		class="back-button-trigger button-done-nav" 
+		on-tap="vm.save()">
 </ion-nav-buttons>
 <ion-content class="padding bg-style bg-style-myfirst my-first">
 	<div class="my-image">
 			<img src="images/photoframe.png" alt="">
 			<img src="images/bgmaingreen.png" alt="">    
 	</div>
-		<label class="item item-input">
+		<label class="item item-input" style="margin-top: 8%;">
 			<img src="images/redstar.png" class="input-star">
-			<input type="text" placeholder="Moj prvi...">
+			<input type="text" placeholder="Moj prvi..." ng-model="vm.myfirst.title">
 		</label>
 	    <ionic-datepicker input-obj="vm.datepickerNowObject">
           <button class="button button-block button-positive button-date"> 
@@ -21,7 +26,7 @@ on-tap="$ionicGoBack()">
         </ionic-datepicker>
 		<label class="item item-input placeholder-icon">
 			<img src="images/redstar.png" class="input-star">
-			<input type="text" placeholder="Opis">
+			<input type="text" placeholder="Opis" ng-model="vm.myfirst.description">
 		</label>
 </ion-content>
 </ion-view>

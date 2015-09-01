@@ -699,7 +699,7 @@ if (!window.cordova) {
               // load logic
               return $localForage.getItem('cdm').then(function(data){
                   _cdm = data || {};
-                  if(initData && !data) initializeCdmWithData(data);    
+                  if(initData && !data) initializeCdmWithData(initData);    
                   console.log(_cdm); 
               }, function(err) {
                   $log.error(err);
@@ -709,9 +709,9 @@ if (!window.cordova) {
         function initializeCdmWithData(data) {
             var key = null;
             
-            if(typeof(data) === 'Array') {
+            if(data instanceof Array) {
                 for(var i=0, length = data.length; i < length; i++) {
-                    if(typeof(data[i]) === 'Object') {
+                    if(data[i] && typeof data[i] === 'object') {
                        key = Object.getOwnPropertyNames(data[i])[0];
                        _cdm[key] = data[i][key];
                     } else {
@@ -755,7 +755,7 @@ if (!window.cordova) {
            $localForage.setItem('cdm', _cdm);
         }
         
-        // should remove this, because all setting should go via this factory
+        // @todo: should remove this, because all setting should go via this factory
         function getCdm() {
             return _cdm;
         }
