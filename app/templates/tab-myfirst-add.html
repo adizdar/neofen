@@ -1,0 +1,27 @@
+<ion-view view-title="Moj prvi...">
+<ion-nav-buttons side="left" class="back-button-cont">
+<img src="images/back.png"
+class="back-button-trigger back-button-image"
+on-tap="$ionicGoBack()">
+</ion-nav-buttons>
+<ion-content class="padding bg-style bg-style-myfirst my-first">
+	<div class="my-image">
+			<img src="images/photoframe.png" alt="">
+			<img src="images/bgmaingreen.png" alt="">    
+	</div>
+		<label class="item item-input">
+			<img src="images/redstar.png" class="input-star">
+			<input type="text" placeholder="Moj prvi...">
+		</label>
+	    <ionic-datepicker input-obj="vm.datepickerNowObject">
+          <button class="button button-block button-positive button-date"> 
+			<img src="images/redstar.png" class="input-star">
+		    {{vm.datepickerNowObject.inputDate || 'Datum' | date:'dd - MMMM - yyyy'}}
+          </button>
+        </ionic-datepicker>
+		<label class="item item-input placeholder-icon">
+			<img src="images/redstar.png" class="input-star">
+			<input type="text" placeholder="Opis">
+		</label>
+</ion-content>
+</ion-view>

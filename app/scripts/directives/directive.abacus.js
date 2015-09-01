@@ -1,5 +1,5 @@
 /**
- * Abacus directive
+ * Abacus directive [WAS USED IN A OLDER VERSION OF THE APP so it is OBSOLATE]
  */
 (function() {
 

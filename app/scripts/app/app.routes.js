@@ -145,6 +145,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
                 }
             }
         })
+        
 
         .state('tab.aboutview', {
             url: '/about/view',
@@ -156,6 +157,28 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
                 }
             }
         })
+        
+        .state('tab.myfirst', {
+            url: '/myfirst',
+            views: {
+                'tab-myfirst': {
+                    templateUrl: 'templates/tab-myfirst.html',
+                    controller: 'DefaultController as vm'
+                }
+            }
+        })
+        
+        .state('tab.myfirst-add', {
+            url: '/myfirstadd',
+            data: { hideTabsBar: true },
+            views: {
+                'tab-myfirst': {
+                    templateUrl: 'templates/tab-myfirst-add.html',
+                    controller: 'MyFirstController as vm'
+                }
+            }
+        })
+        
 
         .state('tab.music', {
             url: '/music',

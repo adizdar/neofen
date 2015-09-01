@@ -44,6 +44,7 @@ $bg-url-info: url("../images/bgtips.png");
 $bg-url-music: url("../images/bgbrown.png");
 $bg-url-calendar: url("../images/bgcalendar.png");
 $bg-url-about: url("../images/bgomeni.png");
+$bg-url-myfirst: url("../images/bgmyfirst.png");
 
 $blue-star-url: url("../images/bluestar.png");
 $red-star-url: url("../images/redstar.png");
@@ -58,7 +59,7 @@ $epruveta-url: url("../images/epruveta.png");
 
 $about-me-small: url("../images/imp.png");
 $me-small: url("../images/tosamja.png");
-$me-work-small: url("../images/toradimsam.png");
+$me-work-small: url("../images/myfirst.png");
 $me-info-small: url("../images/savjeti.png");
 $products-small: url("../images/proizvodi.png");
 $calc-small: url("../images/calculator.png");
@@ -70,6 +71,27 @@ $alarm-small: url("../images/alarm.png");
 
 // Include custom sass files
 //@import "calculator.scss";
+
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin rotate($deg) {
+      -webkit-transform: rotate($deg);
+         -moz-transform: rotate($deg);
+          -ms-transform: rotate($deg);
+           -o-transform: rotate($deg);
+              transform: rotate($deg);
+}
+
+
 
 /*------------------------------------*\
     $iOS specific class
@@ -235,6 +257,10 @@ $alarm-small: url("../images/alarm.png");
 
 .bg-style-about {
    background-image: $bg-url-about;
+}
+
+.bg-style-myfirst {
+   background-image: $bg-url-myfirst;
 }
 
 .button-done-nav {
@@ -1291,7 +1317,7 @@ div.row-stripped {
     }
  }
  
- /*------------------------------------*\
+/*------------------------------------*\
     $ABOUT
 \*------------------------------------*/
  
@@ -1381,3 +1407,90 @@ div.row-stripped {
         }
     }
 }
+
+ /*------------------------------------*\
+    $MY-FIRST
+\*------------------------------------*/
+
+.my-first {
+    .my-image {
+          width: 100%;
+          margin-left: 15%;
+          margin-top: -9%;
+          position: relative;
+          
+          img {
+              &:first-child {
+                  width: 100%;
+              }
+              &:nth-of-type(2) {
+                  position: absolute;
+                  top: 11%;
+                  height: 76%;
+                  width: 66%;
+                  left: 17%;
+                  @include rotate(-12deg);
+              }
+          }     
+    }
+     .input-star {
+          position: absolute;
+          width: 14%;
+          left: -8px;
+          top: -4px;
+    }
+    .item-input {
+            border: 4px solid #E49D98;
+            padding: 0px 0 0px 16px;
+            overflow: visible;
+            @include border-radius(15px);
+            input {
+                color: $red-normal;
+                padding-left: 19px;
+            }
+            input::-webkit-input-placeholder {
+                    color: $red-normal;
+             }
+             input::-moz-placeholder {
+                    color: $red-normal;
+             }
+             input::-ms-input-placeholder { /* IE10+ */
+                    color: $red-normal;
+             }
+             textarea::-webkit-input-placeholder {
+                    color: $red-normal;
+             }
+             textarea::-moz-placeholder {
+                    color: $red-normal;
+             }
+             textarea::-ms-input-placeholder { /* IE10+ */
+                    color: $red-normal;
+             }
+    }
+    
+   .button.button-positive.activated,
+   .button.button-positive.active {
+        background-color: #E49D98;
+        border: 0;
+    }
+
+    .button-date {
+                color: $red-normal;
+                background-color: white;
+                text-align: left;
+                font-size: 14px;
+                padding-left: 35px;  
+                border: 4px solid #E49D98;
+                min-height: 30px;
+                height: 43px;
+                line-height: 24px;
+                @include border-radius(15px); 
+      }
+     .custom-date-icon {
+                    &:before {
+                        font-size: 16px;
+                    }   
+      }
+}
+
+// 2px 0 2px 16px

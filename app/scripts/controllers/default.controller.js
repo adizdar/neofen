@@ -13,7 +13,6 @@
         var vm = this;
         
         vm.navigate = navigationUtil.navigate;
-        vm.key = navigationUtil.getNavigationParam();
 
     }
 

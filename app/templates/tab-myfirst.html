@@ -1,0 +1,24 @@
+<ion-view view-title="Moj prvi...">
+<ion-nav-buttons side="left" class="back-button-cont">
+<img src="images/back.png"
+class="back-button-trigger back-button-image"
+on-tap="$ionicGoBack()">
+</ion-nav-buttons>
+<ion-content class="padding bg-style bg-style-myfirst myfirst products" scroll="false">
+<div star-button 
+	 text="Novi unos"
+	 bordercolor="rgb(244,171,171)"
+	 imgurl="images/redstar.png"
+	 color="rgb(215,0,9)"
+	 class="product-menu-item"
+	 style="padding-top: 15%;"
+	 on-tap="vm.navigate('myfirstadd')"></div>
+<div star-button 
+	 text="Pregledaj"
+	 bordercolor="rgb(244,171,171)"
+	 imgurl="images/redstar.png"
+	 color="rgb(215,0,9)"
+	 class="product-menu-item"
+	 on-tap="vm.navigate('products-dosage')"></div>
+</ion-content>
+</ion-view>

@@ -353,6 +353,12 @@
                 case 'aboutview':
                     $state.go('tab.aboutview');
                     break;
+                case 'myfirst':
+                    $state.go('tab.myfirst');
+                    break;
+                case 'myfirstadd':
+                    $state.go('tab.myfirst-add');
+                    break;
 
             }
 
