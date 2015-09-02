@@ -9,8 +9,9 @@
 			<div class="row">  
 				<div class="col my-picture">
 					<a>
+						<!--ON IOS IT SEEMS YOU NEED TO REMOVE BRACKETS FROM NG SRC-->
 						<img ng-class="{'profile-round-square' : !home.profile.defaultValues, 'profile-camera' : home.profile.defaultValues }" 
-						     ng-src="{{home.profile.image}}"
+						     ng-src="{{home.profile.image}}" 
 							 on-tap="home.choosePicture()">
 						<img src="images/sunprofile.png">
 					</a>

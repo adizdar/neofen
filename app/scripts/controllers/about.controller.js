@@ -50,7 +50,11 @@
         function init() {
             // @todo: create enum for data context keys
             var tempData = localStorageService.getDataByKey('about');
-
+            
+            if(!tempData) {
+                localStorageService.createObjectByKey('about');
+            }
+            
             if (tempData && category) {
                 vm.data = tempData[category] || [];
             } 

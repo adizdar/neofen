@@ -2,7 +2,7 @@
 <ion-nav-buttons side="left" class="back-button-cont">
 	<img src="images/back.png"
 	class="back-button-trigger back-button-image"
-	on-tap="$ionicGoBack()">
+	on-tap="vm.goBack()">
 </ion-nav-buttons>
 <ion-nav-buttons side="right" class="back-button-cont">
 	<img src="images/btndone.png" 
@@ -10,9 +10,12 @@
 		on-tap="vm.save()">
 </ion-nav-buttons>
 <ion-content class="padding bg-style bg-style-myfirst my-first">
+	<button class="take-picture" on-tap="vm.choosePicture()">
+		<img src="images/camera.png" alt="">
+	</button>
 	<div class="my-image">
 			<img src="images/photoframe.png" alt="">
-			<img src="images/bgmaingreen.png" alt="">    
+			<img ng-src="{{vm.myfirst.image}}" alt="">    
 	</div>
 		<label class="item item-input" style="margin-top: 8%;">
 			<img src="images/redstar.png" class="input-star">

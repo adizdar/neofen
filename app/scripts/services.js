@@ -304,7 +304,7 @@
 
         function navigate(key, param) {
 
-            if (param) params = param;
+            if (param !== undefined && arguments.length > 1) params = param;
 
             // $ionicHistory.nextViewOptions({
             //     disableAnimate: true
@@ -358,6 +358,9 @@
                     break;
                 case 'myfirstadd':
                     $state.go('tab.myfirst-add');
+                    break;
+                case 'myfirstview':
+                    $state.go('tab.myfirst-view');
                     break;
 
             }
@@ -618,7 +621,8 @@ if (!window.cordova) {
     function pictureService($log, $cordovaCamera, $q) {
 
         var service = {
-            getPicture: getPicture
+            getPicture: getPicture,
+            convertPictureSrcToNativeUrl: convertPictureSrcToNativeUrl
         };
 
         return service;
@@ -627,7 +631,7 @@ if (!window.cordova) {
         
         function getPicture() {
             // promise
-             var q = $q.defer();
+            var q = $q.defer();
              
             // camera options
             var options = {
@@ -637,17 +641,17 @@ if (!window.cordova) {
                 encodingType: Camera.EncodingType.JPEG,
                 popoverOptions: CameraPopoverOptions,
             };
-            
+
             $cordovaCamera.getPicture(options).then(success, failure);
-            
+
             return q.promise;
             
             //********
             function success(imageData) {
                 imageData = ionic.Platform.isAndroid() ? 
-                            // android fix to display image, this technique force the uri to let pass "%3A" as it is, without changing it to ":"
-                            imageData.replace("%", "%25") :
-                            imageData;        
+                    // android fix to display image, this technique force the uri to let pass "%3A" as it is, without changing it to ":"
+                    imageData.replace("%", "%25") :
+                    imageData;
                 q.resolve(imageData);
             }
 
@@ -656,6 +660,26 @@ if (!window.cordova) {
             }
 
         }
+        
+        // resolving string url to native url, so after we save the picture it will show after we load it back
+        function convertPictureSrcToNativeUrl(src) {
+            var q = $q.defer();
+            
+            if(!src) {
+                $log.error('Src is undenfined in pictureService + convertPictureSrcToNativeUrl -> method');
+                return;
+            }
+            
+            window.resolveLocalFileSystemURI(src, resolveCallback);
+
+            function resolveCallback(fileEntry) {
+                 return fileEntry;
+            }
+            
+            return q.promise;
+
+        }
+
         
         // function urlForImage(imageName) {
         //     var name = imageName.substr(imageName.lastIndexOf('/') + 1);
@@ -681,14 +705,14 @@ if (!window.cordova) {
 
         var service = {
             initializeCdmWithLocalStorage: initializeCdmWithLocalStorage,
-            syncCdmByKeyValue: syncCdmByKeyValue, 
+            syncCdmByKeyValue: syncCdmByKeyValue,
             syncObjectByKeyValue: syncObjectByKeyValue,
             syncAll: syncAll,
             getCdm: getCdm,
             getDataByKey: getDataByKey,
             createObjectByKey: createObjectByKey
         };
-        
+
         var _cdm = {}; // central domain model
 
         return service;
@@ -696,70 +720,70 @@ if (!window.cordova) {
         /////////////////////////
         
         function initializeCdmWithLocalStorage(initData) {
-              // load logic
-              return $localForage.getItem('cdm').then(function(data){
-                  _cdm = data || {};
-                  if(initData && !data) initializeCdmWithData(initData);    
-                  console.log(_cdm); 
-              }, function(err) {
-                  $log.error(err);
-              });
+            // load logic
+            return $localForage.getItem('cdm').then(function (data) {
+                _cdm = data || {};
+                if (initData && !data) initializeCdmWithData(initData);
+                console.log(_cdm);
+            }, function (err) {
+                $log.error(err);
+            });
         }
-        
+
         function initializeCdmWithData(data) {
             var key = null;
-            
-            if(data instanceof Array) {
-                for(var i=0, length = data.length; i < length; i++) {
-                    if(data[i] && typeof data[i] === 'object') {
-                       key = Object.getOwnPropertyNames(data[i])[0];
-                       _cdm[key] = data[i][key];
+
+            if (data instanceof Array) {
+                for (var i = 0, length = data.length; i < length; i++) {
+                    if (data[i] && typeof data[i] === 'object') {
+                        key = Object.getOwnPropertyNames(data[i])[0];
+                        _cdm[key] = data[i][key];
                     } else {
                         _cdm[data[i]] = null;
-                    }       
+                    }
                 }
             }
         }
-        
+
         function createObjectByKey(key) {
-            if(!_cdm.hasOwnProperty(key)) _cdm[key] = {};
+            if (!_cdm.hasOwnProperty(key)) _cdm[key] = {};
             save();
         }
-        
+
         function createArrayByKey(key) {
-            if(!_cdm.hasOwnProperty(key)) _cdm[key] = [];
+            if (!_cdm.hasOwnProperty(key)) _cdm[key] = [];
             save();
         }
         
         // @todo: think about implementing multiple key & array sync
         function syncCdmByKeyValue(key, value) {
-            if(!key || !value) return;
-            
-             _cdm[key] = value;
-             save();
+            if (!key || !value) return;
+
+            _cdm[key] = value;
+            save();
         }
-        
+
         function syncObjectByKeyValue(object, key, value) {
-            if(!key || !value || !object) return;
-            
-             object[key] = value;
-             save();
+            if (!key || !value || !object) return;
+
+            object[key] = value;
+            save();
         }
-        
+
         function syncAll(newCdm) {
             _cdm = newCdm;
             save();
         }
-        
+
         function save() {
-           $localForage.setItem('cdm', _cdm);
+            $localForage.setItem('cdm', _cdm);
         }
         
         // @todo: should remove this, because all setting should go via this factory
         function getCdm() {
             return _cdm;
         }
-        
+
         function getDataByKey(key) {
             return key && _cdm.hasOwnProperty(key) ? _cdm[key] : undefined;
         }
@@ -770,7 +794,7 @@ if (!window.cordova) {
         }
         
         // returns promise
-        function getLength(){
+        function getLength() {
             return $localForage.length();
         }
     }
@@ -792,50 +816,50 @@ if (!window.cordova) {
         var service = {
             getFormData: getFormData
         };
-        
+
         var _formData = {
-            'doktor' : {
-              title : 'Termin kod doktora',
-              form : [{name: 'Naziv', inputType: 'text'},{name: 'Datum', inputType: 'date'}, {name: 'Vrsta pregleda', inputType: 'text'}, {name: 'Terapija', inputType: 'text'}, {name: 'Ponovo pregled', inputType: 'date'}, {name: 'Zaključci', inputType: 'textarea'}],
-              templateUrl: 'templates/modal-about-doctor.html'  
+            'doktor': {
+                title: 'Termin kod doktora',
+                form: [{ name: 'Naziv', inputType: 'text' }, { name: 'Datum', inputType: 'date' }, { name: 'Vrsta pregleda', inputType: 'text' }, { name: 'Terapija', inputType: 'text' }, { name: 'Ponovo pregled', inputType: 'date' }, { name: 'Zaključci', inputType: 'textarea' }],
+                templateUrl: 'templates/modal-about-doctor.html'
             },
-            'vakcine' : {
-              title : 'Vakcine',
-              form : [ {name: 'Vakcina', inputType: 'text'}, {name: 'Datum', inputType: 'date'}, {name: 'Terapija', inputType: 'text'}, {name: 'Ponovo pregled', inputType: 'date'}, {name: 'Zaključci', inputType: 'textarea'}],
-              templateUrl: 'templates/modal-about-vakcine.html'   
+            'vakcine': {
+                title: 'Vakcine',
+                form: [{ name: 'Vakcina', inputType: 'text' }, { name: 'Datum', inputType: 'date' }, { name: 'Terapija', inputType: 'text' }, { name: 'Ponovo pregled', inputType: 'date' }, { name: 'Zaključci', inputType: 'textarea' }],
+                templateUrl: 'templates/modal-about-vakcine.html'
             },
-            'alergije' : {
-              title : 'Alergije',
-              form : [ {name: 'Naziv', inputType: 'text'}, {name: 'Vrsta alergije', inputType: 'text'}, {name: 'Terapija', inputType: 'text'}, {name: 'Prestanak', inputType: 'text'}, {name: 'Tegobe', inputType: 'textarea'}],  
-              templateUrl: 'templates/modal-about-alergije.html'
+            'alergije': {
+                title: 'Alergije',
+                form: [{ name: 'Naziv', inputType: 'text' }, { name: 'Vrsta alergije', inputType: 'text' }, { name: 'Terapija', inputType: 'text' }, { name: 'Prestanak', inputType: 'text' }, { name: 'Tegobe', inputType: 'textarea' }],
+                templateUrl: 'templates/modal-about-alergije.html'
             },
-            'lijekovi' : {
-              title : 'Lijekovi',
-              form : [ {name: 'Naziv lijeka', inputType: 'text'}, {name: 'Početak terapije', inputType: 'date'}, {name: 'Bolest', inputType: 'text'}, {name: 'Trajanje terapije', inputType: 'number'}, {name: 'Podnošljivost', inputType: 'textarea'}],  
-              templateUrl: 'templates/modal-about-lijekovi.html'
+            'lijekovi': {
+                title: 'Lijekovi',
+                form: [{ name: 'Naziv lijeka', inputType: 'text' }, { name: 'Početak terapije', inputType: 'date' }, { name: 'Bolest', inputType: 'text' }, { name: 'Trajanje terapije', inputType: 'number' }, { name: 'Podnošljivost', inputType: 'textarea' }],
+                templateUrl: 'templates/modal-about-lijekovi.html'
             },
-            'temperatura' : {
-              title : 'Temperatura',
-              form : [ {name: 'Naslov', inputType: 'text'}, {name: 'Početak simtoma', inputType: 'date'}, {name: 'Visina temperature', inputType: 'number'}, {name: 'Trajanje', inputType: 'number'}, {name: 'Prestanak', inputType: 'date'}, {name: 'Terapija', inputType: 'textarea'}],  
-              templateUrl: 'templates/modal-about-temperatura.html'
+            'temperatura': {
+                title: 'Temperatura',
+                form: [{ name: 'Naslov', inputType: 'text' }, { name: 'Početak simtoma', inputType: 'date' }, { name: 'Visina temperature', inputType: 'number' }, { name: 'Trajanje', inputType: 'number' }, { name: 'Prestanak', inputType: 'date' }, { name: 'Terapija', inputType: 'textarea' }],
+                templateUrl: 'templates/modal-about-temperatura.html'
             },
-            'glavobolja' : {
-              title : 'Glavobolja',
-              form : [ {name: 'Naslov', inputType: 'text'}, {name: 'Učestalost', inputType: 'text'}, {name: 'Naziv lijeka', inputType: 'text'}, {name: 'Trajanje terapije', inputType: 'number'}, {name: 'Podnošljivost', inputType: 'textarea'}],  
-              templateUrl: 'templates/modal-about-glavobolja.html'
+            'glavobolja': {
+                title: 'Glavobolja',
+                form: [{ name: 'Naslov', inputType: 'text' }, { name: 'Učestalost', inputType: 'text' }, { name: 'Naziv lijeka', inputType: 'text' }, { name: 'Trajanje terapije', inputType: 'number' }, { name: 'Podnošljivost', inputType: 'textarea' }],
+                templateUrl: 'templates/modal-about-glavobolja.html'
             },
-            'zubi' : {
-              title : 'Zubi-bolovi',
-              form : [ {name: 'Naslov', inputType: 'text'}, {name: 'Početak bolova', inputType: 'date'}, {name: 'Koji zub niče', inputType: 'text'}, {name: 'Temperatura', inputType: 'number'}, {name: 'Terapija', inputType: 'text'}, {name: 'Prestanak', inputType: 'date'}],  
-              templateUrl: 'templates/modal-about-zubi.html'
+            'zubi': {
+                title: 'Zubi-bolovi',
+                form: [{ name: 'Naslov', inputType: 'text' }, { name: 'Početak bolova', inputType: 'date' }, { name: 'Koji zub niče', inputType: 'text' }, { name: 'Temperatura', inputType: 'number' }, { name: 'Terapija', inputType: 'text' }, { name: 'Prestanak', inputType: 'date' }],
+                templateUrl: 'templates/modal-about-zubi.html'
             },
-            'ostalo' : {
-              title : 'Ostale bolesti',
-              form : [ {name: 'Naziv', inputType: 'text'}, {name: 'Datum', inputType: 'date'}, {name: 'Vrsta bolesti', inputType: 'text'}, {name: 'Terapija', inputType: 'text'}, {name: 'Trajanje terapije', inputType: 'number'}, {name: 'Prestanak', inputType: 'date'}],  
-              templateUrl: 'templates/modal-about-ostalo.html'
+            'ostalo': {
+                title: 'Ostale bolesti',
+                form: [{ name: 'Naziv', inputType: 'text' }, { name: 'Datum', inputType: 'date' }, { name: 'Vrsta bolesti', inputType: 'text' }, { name: 'Terapija', inputType: 'text' }, { name: 'Trajanje terapije', inputType: 'number' }, { name: 'Prestanak', inputType: 'date' }],
+                templateUrl: 'templates/modal-about-ostalo.html'
             }
         };
-        
+
         return service;
 
         /////////////////////////
@@ -843,7 +867,7 @@ if (!window.cordova) {
         function getFormData(key) {
             return _formData[key];
         }
-        
+
     }
 
 })();

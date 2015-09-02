@@ -179,6 +179,17 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             }
         })
         
+        .state('tab.myfirst-view', {
+            url: '/myfirstview',
+            data: { hideTabsBar: true },
+            views: {
+                'tab-myfirst': {
+                    templateUrl: 'templates/tab-myfirst-view.html',
+                    controller: 'MyFirstViewController as vm'
+                }
+            }
+        })
+        
 
         .state('tab.music', {
             url: '/music',

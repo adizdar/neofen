@@ -18,7 +18,8 @@
 		'neofen.directives',
 		'ngCordova',
 		'ngAnimate',
-		'ionic-datepicker'
+		'ionic-datepicker',
+		'templates'
 	]);
 
 	angular.module('neofen.controllers', []);

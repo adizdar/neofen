@@ -43,22 +43,25 @@
         init();
         
         function init() {
-            getPicture();            
+            getPicture();   
         }
        
        function getPicture() {
          var profileData = localStorageService.getDataByKey('profile');
          
          if(profileData) {
-             vm.profile.image = profileData.picture;
-             vm.profile.defaultValues = false;
+             // resolving string url to native url, so after we save the picture it will show after we load it back
+             window.resolveLocalFileSystemURI(profileData.picture, function(fileEntry) {
+                vm.profile.image = fileEntry.nativeURL;
+                vm.profile.defaultValues = false; 
+             });
          }
         }
                    
         function choosePicture() {
            pictureService.getPicture().then(function(imgData){
                if(imgData) { 
-                    localStorageService.syncByKeyValue('profile', { picture: imgData,  name: 'Test Testa'});
+                    localStorageService.syncCdmByKeyValue('profile', { picture: imgData,  name: 'Test Testa'});
                     vm.profile.image = imgData;
                     vm.profile.defaultValues = false;
                }
