@@ -1,0 +1,24 @@
+<ion-view view-title="To Sam Ja" class="products-list">
+<ion-nav-buttons side="left" class="back-button-cont">
+<img src="images/back.png"
+class="back-button-trigger back-button-image"
+on-tap="$ionicGoBack()">
+</ion-nav-buttons>
+<ion-content class="padding bg-style-second bg-style-aboutme products aboutme">
+<div star-button 
+	 text="O meni"
+	 bordercolor="rgb(244,171,171)"
+	 imgurl="images/redstar.png"
+	 color="rgb(215,0,9)"
+	 class="product-menu-item"
+	 style="padding-top: 15%;"
+	 on-tap="vm.navigate('aboutmeinfo')"></div>
+<div star-button 
+	 text="Ja napredujem"
+	 bordercolor="rgb(244,171,171)"
+	 imgurl="images/redstar.png"
+	 color="rgb(215,0,9)"
+	 class="product-menu-item"
+	 on-tap="vm.navigate('myfirstview')"></div>
+</ion-content>
+</ion-view>

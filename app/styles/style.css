@@ -13938,3 +13938,19 @@ pre {
   width: 100%;
   padding-top: 8%;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000031511}}
+.my-first .edit-collection {
+  background-color: transparent;
+  border: 0;
+  margin-top: 5%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000031516}}
+.my-first .item-content {
+  background-color: transparent;
+  padding: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000031520}}
+.my-first .item-delete .button.icon {
+  margin-top: -7%;
+  padding-left: 0;
+}

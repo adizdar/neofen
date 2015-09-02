@@ -45,6 +45,7 @@ $bg-url-music: url("../images/bgbrown.png");
 $bg-url-calendar: url("../images/bgcalendar.png");
 $bg-url-about: url("../images/bgomeni.png");
 $bg-url-myfirst: url("../images/bgmyfirst.png");
+$bg-url-aboutme: url("../images/bgaboutme.jpg");
 
 $blue-star-url: url("../images/bluestar.png");
 $red-star-url: url("../images/redstar.png");
@@ -263,6 +264,10 @@ $alarm-small: url("../images/alarm.png");
    background-image: $bg-url-myfirst;
 }
 
+.bg-style-aboutme {
+   background-image: $bg-url-aboutme;
+}
+
 .button-done-nav {
   width: 55px;
   height: 31px;
@@ -454,21 +459,6 @@ pre {
        }
 }
 
-/*------------------------------------*\
-    $HOME
-\*------------------------------------*/
-.home {
-    .row:first-child {
-        padding-bottom: 108%;
-    }
-    .scroll {
-        height: 100%;
-        // override default css, because hiding navbar causes height lack
-        min-height: 560px;
-    }
-    .row-container {
-        min-height: 100%;
-        position: relative;
         .my-picture {
             .profile-camera {
                 position: absolute;
@@ -515,6 +505,22 @@ pre {
             //     width: 77%;
             // }
         }
+
+/*------------------------------------*\
+    $HOME
+\*------------------------------------*/
+.home {
+    .row:first-child {
+        padding-bottom: 108%;
+    }
+    .scroll {
+        height: 100%;
+        // override default css, because hiding navbar causes height lack
+        min-height: 560px;
+    }
+    .row-container {
+        min-height: 100%;
+        position: relative;
         .home-menu {
             a {
                 display: block;
@@ -1518,9 +1524,52 @@ div.row-stripped {
           padding: 0;
       }
       .item-delete .button.icon  {
-        margin-top: -7%;  
-        padding-left: 0;  
+        margin-top: -4%;
+        padding-left: 0;
+        height: 10%;
       }
 }
 
-// 2px 0 2px 16px
+/*------------------------------------*\
+    $ABOUT_ME
+\*------------------------------------*/
+.about-me {
+    .my-picture {
+        margin-top: -11%;
+    }
+    .list {
+        padding-top:  110%;
+        .item-input {
+                padding: 3px 0 3px 16px;
+                margin-bottom: 3%;
+                border: 1px dashed $red-normal;
+                @include border-radius(20px);
+                input {
+                    color: $red-normal;
+                }
+        }
+        input::-webkit-input-placeholder {
+                    color: $red-normal;
+        }
+        input::-moz-placeholder {
+                    color: $red-normal;
+        }
+        input::-ms-input-placeholder { /* IE10+ */
+                    color: $red-normal;
+        }
+        .button-date {
+                background-color: white;
+                color: $red-normal;
+                text-align: left;
+                @include border-radius(20px);
+                border: 1px dashed $red-normal;
+                font-size: 14px;
+                padding-left: 15px;
+                min-height: 30px;
+                height: 43px;
+        }
+        .btn-done {
+            margin-top: 10%;
+        }
+    }
+}

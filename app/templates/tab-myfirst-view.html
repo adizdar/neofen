@@ -10,21 +10,20 @@
    </ion-nav-buttons>
 <ion-content class="padding bg-style bg-style-myfirst my-first">
 		<ion-list show-delete="vm.showDelete">
-		<ion-item collection-repeat="item in vm.data" 
-				  item-height="10%" 
-				  class="edit-collection item-remove-animate item item-complex item-left-editable item-right-editable">
-	        <ion-delete-button class="ion-minus-circled" 
-                             on-tap="vm.deleteItem(item);"
-                             stop-event="click">
-            </ion-delete-button>
-			<div class="play-list"
-				arrow-button 
-				text="{{item.title}}"
-				imgurl="images/arrowred.png"
-				on-tap="vm.editItem(item)">
-			</div>
-			
-		</ion-item>
+			<ion-item collection-repeat="item in vm.data" 
+					item-height="10%" 
+					class="edit-collection item-remove-animate item item-complex item-left-editable item-right-editable">
+				<ion-delete-button class="ion-minus-circled" 
+								on-tap="vm.deleteItem(item);"
+								stop-event="click">
+				</ion-delete-button>
+				<div class="play-list"
+					arrow-button 
+					text="{{item.title}}"
+					imgurl="images/arrowred.png"
+					on-tap="vm.editItem(item)">
+				</div>
+			</ion-item>
 		</ion-list>
 </ion-content>
 </ion-view>

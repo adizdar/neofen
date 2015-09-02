@@ -1,0 +1,52 @@
+<ion-view view-title="O meni" class="products-list">
+	<ion-nav-buttons side="left" class="back-button-cont">
+		<img src="images/back.png" class="back-button-trigger back-button-image" on-tap="$ionicGoBack()">
+	</ion-nav-buttons>
+    <ion-nav-buttons side="right" class="back-button-cont">
+		<img src="images/btndone.png" class="back-button-trigger button-done-nav" on-tap="vm.save()">
+	</ion-nav-buttons>
+	<ion-content class="padding bg-style-second bg-style-aboutme products about-me">
+		<!--@todo this should be a directive-->
+		<div class="my-picture">
+			<a>
+				<img ng-class="{'profile-round-square' : !vm.profile.defaultValues, 'profile-camera' : vm.profile.defaultValues }" ng-src="{{vm.profile.image}}"
+				on-tap="home.choosePicture()">
+				<img src="images/sunprofile.png">
+			</a>
+		</div>
+		<div class="list">
+			<label class="item item-input">
+				<input type="text" placeholder="Zovem se" ng-model="vm.profile.name">
+			</label>
+			<ionic-datepicker input-obj="vm.datepickerNowObject">
+				<button class="button button-block button-positive button-date">
+					{{vm.datepickerNowObject.inputDate || 'Rođen/a sam na dan' | date:'dd - MMMM - yyyy'}}
+				</button>
+			</ionic-datepicker>
+			<label class="item item-input">
+				<input type="text" placeholder="U gradu" ng-model="vm.profile.city">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Težina" ng-model="vm.profile.weight">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Dužina" ng-model="vm.profile.measure">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Moj doktor" ng-model="vm.profile.doctor">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Moja mama se zove" ng-model="vm.profile.mother">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Moj tata se zove" ng-model="vm.profile.father">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Dočekali su me" ng-model="vm.profile.arrival">
+			</label>
+			<button class="button button-block button-assertive btn-done" on-tap="vm.save()">
+  				Snimi profil
+			</button>
+		</div>
+	</ion-content>
+</ion-view>

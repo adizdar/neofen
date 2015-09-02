@@ -35,7 +35,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             resolve: {
                 cdm: function (localStorageService) {
                     // resolving data so it will be loaded before the view appears
-                    return localStorageService.initializeCdmWithLocalStorage([{ about: {} }, { myfirst: []}]);
+                    return localStorageService.initializeCdmWithLocalStorage([{ about: {} }, { myfirst: []}, { aboutme: {} }]);
                 }
             }
             })
@@ -56,12 +56,34 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
                 }
             }
         })
-
+        
+        .state('tab.aboutme', {
+            url: '/me',
+            data: { hideTabsBar: true },
+            views: {
+                'tab-aboutme': {
+                    templateUrl: 'templates/tab-about-me.html',
+                    controller: 'DefaultController as vm'
+                }
+            }
+        })
+        
+        .state('tab.aboutmeinfo', {
+            url: '/meinfo',
+            data: { hideTabsBar: true },
+            views: {
+                'tab-aboutme': {
+                    templateUrl: 'templates/tab-about-me-info.html',
+                    controller: 'AboutMeInfoController as vm'
+                }
+            }
+        })
+        
         .state('tab.smpcdetails', {
             url: '/smpc-details',
             views: {
                 'tab-hidden': {
-                    templateUrl: 'templates/tab-smpc-details.html',
+                    templateUrl: 'tab-smpc-details.html',
                     controller: 'ProductDetailsController as smpc'
                 }
             }

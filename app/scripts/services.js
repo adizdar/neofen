@@ -362,7 +362,12 @@
                 case 'myfirstview':
                     $state.go('tab.myfirst-view');
                     break;
-
+                case 'aboutme':
+                    $state.go('tab.aboutme');
+                    break;
+                case 'aboutmeinfo':
+                    $state.go('tab.aboutmeinfo');
+                    break;
             }
 
         }
