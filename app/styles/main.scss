@@ -513,6 +513,16 @@ pre {
     .row:first-child {
         padding-bottom: 108%;
     }
+    .myname {
+        position: absolute;
+        bottom: 38%;
+        right: 0;
+        left: 0;
+        margin: auto;
+        text-align: center;
+        color: #4C4C4C;
+        font-weight: bold;
+    }
     .scroll {
         height: 100%;
         // override default css, because hiding navbar causes height lack
@@ -1536,11 +1546,14 @@ div.row-stripped {
 .about-me {
     .my-picture {
         margin-top: -11%;
+        .profile-round-square {
+            z-index: 10;
+        }
     }
-    .list {
+    .list-info {
         padding-top:  110%;
         .item-input {
-                padding: 3px 0 3px 16px;
+                padding: 4px 0 3px 16px;
                 margin-bottom: 3%;
                 border: 1px dashed $red-normal;
                 @include border-radius(20px);
@@ -1572,4 +1585,30 @@ div.row-stripped {
             margin-top: 10%;
         }
     }
+    .add {
+        margin-top: 5%;
+    }
+    .button-date-add {   
+        margin-top: 15%;
+    }
+    .btn-add {
+        width: 95%;
+        margin: 10% auto;
+    }
 }
+
+    .about-me-footer {   
+            background-color: #66c0df;
+            border-color: #66c0df;
+            .button {
+                background-color: #66c0df;
+                border-color: #66c0df;
+                margin: 0;
+                font-size: 130%;
+            }
+            .button.button-positive.activated {
+                background-color: transparent;
+                border: 0;
+                opacity: 0.6;
+            }
+    }

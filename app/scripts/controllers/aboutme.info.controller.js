@@ -34,36 +34,23 @@
         init();
         
         function init() {
-            var tempData = localStorageService.getDataByKey('aboutme');
+            var tempData = localStorageService.getDataByKey('profile');
             
             if (!tempData) {
-                localStorageService.createObjectByKey('aboutme');
+                localStorageService.createObjectByKey('profile');
             }
             
             if (tempData && Object.keys(tempData).length) {
                 vm.profile = tempData;
                 vm.datepickerNowObject.inputDate = tempData.date ? new Date(tempData.date) : null;
+                getPicture(tempData);
             }
-            
-            
-            //getPicture();   
-        }
-       
-       function getPicture() {
-         var profileData = localStorageService.getDataByKey('profile');
-         
-         if(profileData) {
-             // resolving string url to native url, so after we save the picture it will show after we load it back
-             window.resolveLocalFileSystemURI(profileData.picture, function(fileEntry) {
-                vm.profile.image = fileEntry.nativeURL;
-                vm.profile.defaultValues = false; 
-             });
-         }
+              
         }
         
         function save() {
             vm.profile.date = vm.datepickerNowObject.inputDate;
-            localStorageService.syncCdmByKeyValue('aboutme', vm.profile);
+            localStorageService.syncCdmByKeyValue('profile', vm.profile);
             
             $ionicPopup.alert({
                     title: 'O meni',
@@ -82,6 +69,17 @@
                vm.profile.defaultValues = true;
            });
         }
+        
+        function getPicture(data) {
+            if(!data.image || !window.resolveLocalFileSystemURL) return;
+            
+             // resolving string url to native url, so after we save the picture it will show after we load it back
+             window.resolveLocalFileSystemURL(data.image, function(fileEntry) {
+                vm.profile.image = fileEntry.nativeURL;
+                vm.profile.defaultValues = false; 
+             });
+         }
+        
         
         function datePickerNowCallback(val) {
             if (typeof (val) === 'undefined') {

@@ -15,7 +15,8 @@
 							 on-tap="home.choosePicture()">
 						<img src="images/sunprofile.png">
 					</a>
-				</div>        
+				</div>   
+				<h3 class="myname" ng-if="home.profile.name">{{home.profile.name}}</h3>     
 			</div>      
 			<div class="row">
 				<div class="col home-menu">
@@ -39,7 +40,7 @@
 					</a>  
 				</div>
 			</div>
-			<div class="row" style="padding-bottom: 56px;">
+			<div class="row" style="padding-bottom: 15%;">
 		        <div class="col home-menu">
 					<a class="button" on-tap="home.navigate('calendar')">
 						<img src="images/alarm.png" alt="">

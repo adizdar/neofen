@@ -1,0 +1,25 @@
+<ion-view view-title="Ja napredujem" class="products-list">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">Novi unos</h1>
+  		  <button class="button delete-button button-icon icon ion-android-close" style="color: white;" on-tap="vm.closeModal()"></button>
+    </ion-header-bar>
+<ion-content class="padding bg-style-second bg-style-aboutme my-first about-me">
+	    <ionic-datepicker input-obj="vm.datepickerNowObject">
+          <button class="button button-block button-positive button-date button-date-add"> 
+			<img src="images/redstar.png" class="input-star">
+		    {{vm.datepickerNowObject.inputDate || 'Datum' | date:'dd - MMMM - yyyy'}}
+          </button>
+        </ionic-datepicker>
+		<label class="item item-input add">
+			<img src="images/redstar.png" class="input-star">
+			<input type="text" placeholder="Težina" ng-model="vm.item.weight">
+		</label>
+		<label class="item item-input placeholder-icon add">
+			<img src="images/redstar.png" class="input-star">
+			<input type="text" placeholder="Visina" ng-model="vm.item.measure">
+		</label>
+		<button class="button button-block button-assertive btn-done btn-add" on-tap="vm.save()">
+  		     Snimi podatke
+	    </button>
+</ion-content>
+</ion-view>

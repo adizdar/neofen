@@ -368,6 +368,9 @@
                 case 'aboutmeinfo':
                     $state.go('tab.aboutmeinfo');
                     break;
+                case 'aboutmeedit':
+                    $state.go('tab.aboutmeedit');
+                    break;
             }
 
         }
@@ -715,7 +718,8 @@ if (!window.cordova) {
             syncAll: syncAll,
             getCdm: getCdm,
             getDataByKey: getDataByKey,
-            createObjectByKey: createObjectByKey
+            createObjectByKey: createObjectByKey,
+            createArrayByKey: createArrayByKey
         };
 
         var _cdm = {}; // central domain model

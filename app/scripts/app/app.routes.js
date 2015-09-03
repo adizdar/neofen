@@ -35,7 +35,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             resolve: {
                 cdm: function (localStorageService) {
                     // resolving data so it will be loaded before the view appears
-                    return localStorageService.initializeCdmWithLocalStorage([{ about: {} }, { myfirst: []}, { aboutme: {} }]);
+                    return localStorageService.initializeCdmWithLocalStorage([{ about: {} }, { myfirst: []}, { aboutMe: [] }]);
                 }
             }
             })
@@ -75,6 +75,17 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
                 'tab-aboutme': {
                     templateUrl: 'templates/tab-about-me-info.html',
                     controller: 'AboutMeInfoController as vm'
+                }
+            }
+        })
+        
+        .state('tab.aboutmeedit', {
+            url: '/meedit',
+            data: { hideTabsBar: true },
+            views: {
+                'tab-aboutme': {
+                    templateUrl: 'templates/tab-about-me-edit.html',
+                    controller: 'AboutMeAddEditController as vm'
                 }
             }
         })

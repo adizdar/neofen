@@ -22,6 +22,7 @@
 		
         init();
         
+        // @todo param sholud be sent from previous view, so we can make this controller reausuble
         function init() {
             var data = localStorageService.getDataByKey('myfirst');
             vm.data = (data && data instanceof Array) ? data : [];

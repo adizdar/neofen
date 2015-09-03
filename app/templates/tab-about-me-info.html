@@ -10,11 +10,11 @@
 		<div class="my-picture">
 			<a>
 				<img ng-class="{'profile-round-square' : !vm.profile.defaultValues, 'profile-camera' : vm.profile.defaultValues }" ng-src="{{vm.profile.image}}"
-				on-tap="home.choosePicture()">
+				on-tap="vm.choosePicture()">
 				<img src="images/sunprofile.png">
 			</a>
 		</div>
-		<div class="list">
+		<div class="list list-info">
 			<label class="item item-input">
 				<input type="text" placeholder="Zovem se" ng-model="vm.profile.name">
 			</label>
@@ -44,7 +44,7 @@
 			<label class="item item-input">
 				<input type="text" placeholder="Dočekali su me" ng-model="vm.profile.arrival">
 			</label>
-			<button class="button button-block button-assertive btn-done" on-tap="vm.save()">
+			<button class="button button-block button-assertive btn-done btn-add" on-tap="vm.save()">
   				Snimi profil
 			</button>
 		</div>
