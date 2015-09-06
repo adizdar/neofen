@@ -214,7 +214,7 @@
                     error: "Kilaža malena za korištenje datog lijeka, molim vas kontaktirajte ljekara ili apotekara za dodatne informacije."
                 };
             }
-            if (rule > 12 && rule < 17) {
+            if (rule >= 12 && rule < 17) {
                 return {
                     error: false,
                     measure: '1 čepić',
@@ -250,7 +250,7 @@
                     daily: '3 - 4 puta na dan u razmaku od 6-8 sati'
                 };
             }
-            if (rule > 5 && rule < 10) {
+            if (rule >= 5 && rule < 10) {
                 return {
                     error: false,
                     measure: '1/2 -1 čepić',

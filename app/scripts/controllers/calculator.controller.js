@@ -13,11 +13,11 @@
         var vm = this;
 
         vm.resultData = null;
-        vm.calculatorRange = 0;
         vm.selectedImage = null;
         vm.selectedRule = 'neofen60cepici';
         vm.max = 12;
         vm.min = 6;
+        vm.calculatorRange = vm.min;
         // @todo: move this to be part of model
         vm.imageResult = {
             'neofen100sirup': {
