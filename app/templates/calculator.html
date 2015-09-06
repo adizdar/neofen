@@ -15,26 +15,31 @@
 			<span>Izaberite lijek</span>
 		</div>
 		<ion-radio class="red-normal menu-radio" 
-				on-tap="calculator.selectRule('neofen60cepici')">
+				on-tap="calculator.selectRule('neofen60cepici')"
+				ng-value="neofen60cepici"
+				ng-model="neofen60cepici">
 		NEOFEN<span>®</span> cepici 60 mg
 		</ion-radio>
 		<ion-radio class="red-strong menu-radio"
-				on-tap="calculator.selectRule('neofen125cepici')">
+				on-tap="calculator.selectRule('neofen125cepici')"
+				ng-value="neofen125cepici">
 		NEOFEN<span>®</span> cepici 125 mg
 		</ion-radio>
 		<ion-radio class="blue-light menu-radio"
-				on-tap="calculator.selectRule('lupocet120sirup')">
+				on-tap="calculator.selectRule('lupocet120sirup')"
+				ng-value="lupocet120sirup">
 		LUPOCET<span>®</span> sirup
 		</ion-radio>
 		<ion-radio class="blue-strong menu-radio"
-				on-tap="calculator.selectRule('lupocet120cepici')">
+				on-tap="calculator.selectRule('lupocet120cepici')"
+				ng-value="lupocet120cepici">
 		LUPOCET<span>®</span> cepici
 		</ion-radio>
 	</div>
 	<!--
 		Calculator Section
 	-->
-	<div class="abacus-placeholder">
+	<!--<div class="abacus-placeholder">
 		<div class="abacus-container abacus-weight" 
 			 on-touch="calculator.disableScroll($event)"
 			 on-swipe="calculator.disableScroll($event)"
@@ -46,11 +51,61 @@
 			<div abacus abacusColor="rgb(226, 218, 47)"></div>
 		</div>
 		<div class="sum">Ukupno: <span>{{calculator.calculationResult}}kg</span></div>
-	</div>
-	<div class="calculator-button">
-		<button on-tap="calculator.triggerRule()"></button>
+	</div>-->
+	
+	<div class="list">
+		<div class="item">
+			<span>Težina</span>
+			<span>&#931; {{calculator.calculatorRange}} kg</span>
+		</div>
+		<div class="item range range-positive">
+			<!--<i class="icon ion-ios-sunny-outline"></i>-->
+			<input type="range" name="volume" min="{{calculator.min}}" max="{{calculator.max}}" value="0" ng-model="calculator.calculatorRange">
+		</div>
+		<div class="item ruler-container">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="item">
+			<p>{{calculator.min}} kg</p>
+			<p>{{calculator.max}} kg</p>
+		</div>
+		<div class="item">
+		 <button class="button button-block button-assertive calculate" on-tap="calculator.triggerRule()">
+			<i class="icon ion-android-done"></i>
+  			Izračunaj
+		 </button>
+		</div>
 	</div>
 
+	<!--<div class="calculator-button">
+		<button on-tap="calculator.triggerRule()"></button>
+	</div>-->
 	<!--
 		Calculator Result
 	-->

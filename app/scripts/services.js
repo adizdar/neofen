@@ -159,7 +159,7 @@
                     daily: '3 do 4 puta na dan'
                 };
             }
-            if (rule >= 40) {
+            if (rule >= 43) {
                 return {
                     error: false,
                     measure: '2 - 4 kaščica',
@@ -257,14 +257,14 @@
                     daily: '3 - 4 puta na dan u razmaku od 6-8 sati'
                 };
             }
-            if (rule >= 10 && rule <= 20) {
+            if (rule >= 10 && rule <= 21) {
                 return {
                     error: false,
                     measure: '1 - 2 čepića',
                     daily: '3 - 4 puta na dan u razmaku od 6-8 sati'
                 };
             }
-            if (rule > 21) {
+            if (rule > 22) {
                 return {
                     error: false,
                     measure: '1 - 2 čepića',

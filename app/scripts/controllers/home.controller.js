@@ -43,6 +43,7 @@
         init();
 
         function init() {
+            if(navigator && navigator.splashscreen) navigator.splashscreen.hide();
             getData();
         }
 
@@ -65,9 +66,9 @@
         function choosePicture() {
             pictureService.getPicture().then(function (imgData) {
                 if (imgData) {
-                    localStorageService.syncCdmByKeyValue('profile', vm.profile);
                     vm.profile.image = imgData;
                     vm.profile.defaultValues = false;
+                    localStorageService.syncCdmByKeyValue('profile', vm.profile);
                 }
             }, function (err) {
                 $log.error(err);

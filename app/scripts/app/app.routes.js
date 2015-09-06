@@ -1,9 +1,9 @@
 angular.module('neofen')
     .config(configSetup);
 
-configSetup.$inject = ['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider'];
+configSetup.$inject = ['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider', '$compileProvider'];
 
-function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $compileProvider) {
 
     // reomove text from back button on all views
     $ionicConfigProvider.backButton.previousTitleText(false).text('');
@@ -19,6 +19,12 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
     // @todo: CHECK THIS
     $ionicConfigProvider.templates.maxPrefetch(6);
+    
+    // white listning pictures
+    $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|cdvfile|content):|data:image\//);
+    
+    // center title
+    $ionicConfigProvider.navBar.alignTitle('center');
 
     $stateProvider
 
