@@ -11,10 +11,12 @@
     function MyFirstViewController($scope, $log, navigationUtil, localStorageService) {
 
         var vm = this;
-        
+
         // variables
         vm.data = [];
         vm.showDelete = false;
+        vm.isAddMode = navigationUtil.getNavigationParam();
+        vm.navigate = navigationUtil.navigate;
 		
         // functions
         vm.editItem = editItem;
@@ -25,7 +27,13 @@
         // @todo param sholud be sent from previous view, so we can make this controller reausuble
         function init() {
             var data = localStorageService.getDataByKey('myfirst');
-            vm.data = (data && data instanceof Array) ? data : [];
+            
+            // Case add item
+            if(vm.isAddMode) {
+                vm.data = [{title: 'Moj prvi izlazak...'}, {title: 'Moja prva riječ...'}, {title: 'Moj prvi rođendan...'}, {title: 'Moj prvi izlazak...'}, {title: 'Moj prvi osmijeh...'}];
+            } else {
+                vm.data = (data && data instanceof Array) ? data : vm.data;
+            }
         }
         
 		function editItem(item){

@@ -30,7 +30,7 @@
         vm.save = save;
         vm.goBack = goBack;
         vm.choosePicture = choosePicture;
-        
+
         init();
 
         function init() {
@@ -61,6 +61,12 @@
             vm.data.indexOf(vm.myfirst) === -1 && vm.data.push(vm.myfirst);
 
             localStorageService.syncCdmByKeyValue('myfirst', vm.data);
+
+            $ionicPopup.alert({
+                title: 'Moj prvi...',
+                template: 'Novi unos zapisan. Na stranici "Pregledaj", možete ga pogledati i mjenjati.'
+            });
+
             $ionicHistory.goBack();
         }
 
@@ -78,7 +84,6 @@
             if (typeof (val) === 'undefined') {
                 $log.error('No date selected');
             } else {
-                // sending the whole object ( refference ) and so the digest circle update
                 vm.datepickerNowObject.inputDate = val;
             }
         }

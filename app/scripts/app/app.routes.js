@@ -18,7 +18,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
     $ionicConfigProvider.tabs.style('standard');
 
     // @todo: CHECK THIS
-    $ionicConfigProvider.templates.maxPrefetch(6);
+    $ionicConfigProvider.templates.maxPrefetch(0);
     
     // white listning pictures
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|cdvfile|content):|data:image\//);
