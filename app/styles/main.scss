@@ -26,7 +26,9 @@ $font-size-140: 140%;
 $font-size-140: 100%;
 
 // Media queries
-$bp-small: 22.500em;
+$bp-small: 20.000em;
+$bp-small-2: 22.500em;
+$bp-small-3: 30.000em;
 $bp-med: 46.8em;
 $bp-large: 50em;
 $bp-xl: 73em;
@@ -129,7 +131,12 @@ $alarm-small: url("../images/alarm.png");
 // Breakpoint mixins
 @mixin bp($point) {
   @if $point == small {
-    @media all and (min-width: $bp-small) { @content; }
+    @media all 
+           and (max-width: $bp-small)
+           and (max-height: 34.500em) { @content; }
+  }
+  @else if $point == small2 {
+    @media all and (min-width: $bp-small-2) { @content; }
   }
   @else if $point == medium {
     @media all and (min-width: $bp-med) { @content; }
@@ -145,29 +152,6 @@ $alarm-small: url("../images/alarm.png");
   @else if $point == iphone { // an iPhone 5
     @media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) { @content }
   }
-}
-
-@mixin bp_height($point) {
-  @if $point == small { // 360px & 536px - 600px
-    @media all and (min-width: $bp-small) 
-               and (max-height: 37.50em) 
-               and (min-height:33.50em) { @content; }
-  }
-  // @todo if necesery include new height base
-  // @else if $point == medium {
-    // @media all and (max-height: 46.8em) { @content; }
-  // }
-  // @else if $point == large { 
-    // @media all and (max-height: 50em) { @content; }
-  // }
-  @else if $point == retina {
-    @media all and (-webkit-min-device-pixel-ratio: 1.5),
-           all and (min--moz-device-pixel-ratio: 1.5),
-           all and (min-device-pixel-ratio: 1.5) { @content; }
-  }
-  @else if $point == iphone5 { // an iPhone 5
-    @media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) { @content }
-  }
   @else if $point == iphone4 {
       @media all 
             and (min-device-width : 20.0em) 
@@ -175,6 +159,30 @@ $alarm-small: url("../images/alarm.png");
             and (-webkit-device-pixel-ratio: 2) 
             and (device-aspect-ratio: 2/3)  
             and (orientation : portrait) { @content}
+  }
+}
+  
+@mixin bp_height($point) {
+  @if $point == small { // w:360px & h:536px - 600px
+    @media all and (min-width: $bp-small-2)
+               and (max-height: 37.50em) 
+               and (min-height: 33.50em) { @content }
+  }
+  @else if $point == small2x {
+          @media all 
+               and (min-width: $bp-small-2)
+               and (max-height: 37.50em) 
+               and (min-height: 33.50em) 
+               and (-webkit-device-pixel-ratio: 2)
+               and (orientation: portrait) { @content }
+  }
+  @else if $point == iphone4 {
+      @media all 
+            and (min-device-width : $bp-small) 
+            and (max-device-width : $bp-small-3) 
+            and (-webkit-device-pixel-ratio: 2) 
+            and (device-aspect-ratio: 2/3)  
+            and (orientation : portrait) { @content }
   }
 }
 
@@ -418,7 +426,9 @@ button.button.zoom-in-text {
     font-size: 150%;
     position: absolute;
     text-align: center;
-    // width: 25%;
+    @include bp_height(iphone4) {
+        font-size: 110%;
+    }
 }
 
 .blue-star {
@@ -566,13 +576,26 @@ pre {
                 width: 48.5%;
                 height: 55.2%;
                 border-radius: 23%;
-                right: 25.5%;
+                right: 0;
                 top: 22%;
+                @include bp(small) {
+                    width: 42.5%;
+                    right: 0;
+                }
                 @include bp_height(small) {
                     width: 39.5%;
-                    right: 30.5%;
+                    right: 0;
                 }
-            }
+                @include bp_height(iphone4) {
+                    width: 39.5%;
+                    right: 0;
+                }
+                @include bp_height(small2x) {
+                    width: 37.5%;
+                    right: 0;
+                }
+            }    
+            
             a {
                 position: absolute;
                 right: 0;
@@ -584,8 +607,14 @@ pre {
             }
             img {
                 width: 100%;
+                @include bp(small) {
+                    width: 90%;
+                }
                 @include bp_height(small) {
                     width: 80%;
+                }
+                @include bp_height(small2x) {
+                    width: 78%;
                 }
                 @include bp_height(iphone4) {
                     width: 80%;
@@ -648,6 +677,9 @@ pre {
                     @include bp_height(iphone4) {
                       width: 85%;
                     }
+                    @include bp_height(small2x) {
+                     width: 92%;
+                    }
                 }
             }
         }
@@ -675,6 +707,9 @@ pre {
                     position: absolute;
                     right: 0;
                     bottom: 1%;
+                    @include bp_height(iphone4) {
+                      width: 40%;
+                    }
                 }
             }
         }

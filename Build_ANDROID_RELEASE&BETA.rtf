@@ -12,15 +12,15 @@
 1. First generate app via grunt build:android \'97 release\
 2. Generate key store if you didn\'92t (in the link is the command)  NOTE: don\'92t lose this key.store and also don\'92t forget the password and alias name, if zoo forget the alias name zoo can get the info via this command 
 \fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 keytool -keystore KEY_STORE_NAME.keystore -list -v\
+keytool -keystore KEY_STORE_NAME.keystore -list -v\
 \cb1 3. Go to the build apt location and enter the command from the link to build the app (
 \fs28 \cf4 \cb5 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec4 arsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore HelloWorld-release-unsigned.apk alias_name
+arsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore HelloWorld-release-unsigned.apk alias_name
 \fs26 \cf2 \cb1 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 )\
+)\
 4. After that run the zip align tool: first go to location (described above in the link). Copy the file to this folder and run 
 \fs28 \cf6 \cb7 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec6 zipalign -v 4 myApp.apk myApp-final.apk\
+zipalign -v 4 myApp.apk myApp-final.apk\
 \cb1 If a error shows up \'93Command not found\'94 add \'93./\'93 before zipalign\
 \
 
@@ -29,14 +29,15 @@
 1. We are using crosswalk, that why yoo will need to upload a multiple apk app to Google play. There is good link: {\field{\*\fldinst{HYPERLINK "https://software.intel.com/en-us/xdk/docs/submitting-multiple-crosswalk-apk-to-google-play-store"}}{\fldrslt https://software.intel.com/en-us/xdk/docs/submitting-multiple-crosswalk-apk-to-google-play-store}}\
 \
 The steps in short: \
-first upload the x86 version after that armv7. Also a version for the API 19+ need to be build. Because for this version we don\'92t want to use crosswalk. \
+first upload the arm version after that x86. Also a version for the API 19+ need to be build. Because for this version we don\'92t want to use crosswalk. \
 1. Go to config.xml (in the main ionic folder), change min sdk version to 14, and target to 18 (4.0 - 4.3) ***YOU NEED TO INSTALL SDK API 18 \
 2. After that do the signing process above, and upload the app to the store (x86 and arm-v7)\
 3. remove crosswalk: 
 \f1\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec8 ionic browser rm crosswalk
+ionic browser rm crosswalk
 \f0\fs28 \cf6 \cb1 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec6 ({\field{\*\fldinst{HYPERLINK "http://ionicframework.com/docs/cli/browsers.html"}}{\fldrslt http://ionicframework.com/docs/cli/browsers.html}})\
+({\field{\*\fldinst{HYPERLINK "http://ionicframework.com/docs/cli/browsers.html"}}{\fldrslt \expnd0\expndtw0\kerning0
+http://ionicframework.com/docs/cli/browsers.html}})\
 4. In config.xml change the version from min 19 to target the latest version (also install this sdks version)\
 5. to the signing process and upload the app\
 \
