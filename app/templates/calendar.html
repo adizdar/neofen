@@ -5,59 +5,101 @@
 	<ion-nav-buttons side="right" class="back-button-cont">
 		<img src="images/btndone.png" class="back-button-trigger button-done-nav" on-tap="vm.submitDate()">
 	</ion-nav-buttons>
-	<ion-content class="bg-style bg-style-calendar calendar">
+	<ion-content class="calendar" scrollbar-x="false">
 		<div class="content">
-			<p class="calendar-title">
-				<span class="ion-ios-list"></span>Kategorija</p>
-			<ion-radio class="calendar-options" on-tap="vm.calendarEventTitle = 'Pregled kod doktora'">
-				<img src="images/coladoscope.png" alt="">Pregled kod doktora</ion-radio>
-			<ion-radio class="calendar-options" on-tap="vm.calendarEventTitle = 'Vakcina'">
-				<img src="images/vakcina.png" alt="">Vakcina</ion-radio>
-			<ion-radio class="calendar-options" on-tap="vm.calendarEventTitle = 'Lijekovi'">
-				<img src="images/pills.png" alt="">Lijekovi</ion-radio>
-			<ion-radio class="calendar-options" on-tap="vm.calendarEventTitsle = 'Nalazi'">
-				<img src="images/epruvete.png" alt="">Nalazi</ion-radio>
-			<ion-radio class="calendar-options" on-tap="vm.calendarEventTitle = 'Ostalo'" style="margin-bottom:0;">
-				<img src="images/bord.png" alt="">Ostalo</ion-radio>
-			
+		<div class="header-info animated slideInDown" ng-if="vm.showHeader">
 			<div class="remeinder-title">
-				<img src="images/clock.png" alt="">
-				<p>Podsjetnik</p>
+				<label class="item item-input">
+    				<input type="text" placeholder="Podsjeti me ..." ng-model="vm.calendarData.title">
+  				</label>
 			</div>
 			<div class="dates">
 				<div class="list">
-					<div class="input-label">Datum: <span class="ion-help-circled" on-tap="vm.help('date')"></span></div>
-					<label class="item item-input item-select">
-						<input type="text" 
-							class="calendar-picker" 
-							pick-a-date="vm.dateFrom"
-							placeholder="Od"/> 
+					<label class="item item-input calendar-label">
+						<i class="icon ion-calendar"></i>
+						<input type="text"
+							class="calendar-picker"
+							pick-a-date="vm.calendarData.date"
+							pick-a-date-options="vm.options"
+							placeholder="{{vm.isMedicineCategory ? 'Datum od' : 'Datum'}}"/>
 					</label>
-					<label class="item item-input item-select">
-						<input type="text" 
-							   class="calendar-picker" 
-							   pick-a-date="vm.dateTo" 
-							   placeholder="Do"/>
+					<label class="item item-input calendar-label" ng-show="vm.isMedicineCategory">
+					<i class="icon ion-android-calendar"></i>
+						<input type="text"
+							class="calendar-picker"
+							pick-a-date="vm.calendarData.dateTo"
+							pick-a-date-options="vm.options"
+							placeholder="Datum do"/>
 					</label>
-				</div>
-				<div class="list">
-					<div class="input-label">Vrijeme: <span class="ion-help-circled" on-tap="vm.help('time')"></span></div>
-					<label class="item item-input item-select">
-						<input type="text" 
-							class="calendar-picker" 
-							pick-a-time="vm.timeFrom" 
-							placeholder="Od" 
+					<label class="item item-input calendar-label">
+						<i class="icon ion-clock"></i>
+						<input type="text"
+							class="calendar-picker"
+							pick-a-time="vm.calendarData.time"
+							placeholder="{{vm.isMedicineCategory ? 'Vrijeme prve tablete' : 'Vrijeme'}}"
 							pick-a-time-options="{format: 'HH:i'}"/>
 					</label>
-					<label class="item item-input item-select">
-						<input type="text"
-							   class="calendar-picker" 
-							   pick-a-time="vm.timeTo"
-							   placeholder="Do"
-							   pick-a-time-options="{format: 'HH:i'}"  />
+					<label class="item item-input item-select calendar-label" ng-show="vm.isMedicineCategory">
+						<i class="icon ion-ios-calculator"></i>
+						<select ng-model="vm.calendarData.repeat">
+					      <option value="" disabled selected>Tablete po danu</option>
+					      <option value="1">x1</option>
+					      <option value="2">x2</option>
+					      <option value="3">x3</option>
+					      <option value="4">x4</option>
+					    </select>
+					</label>
+					<label class="item item-input calendar-label">
+						<i class="icon ion-android-alarm-clock"></i>
+						<div class="row">
+							<div class="col">
+								<ion-radio class="calendar-options calendar-alarm"
+								icon="null" ng-model="vm.calendarData.alarm"
+								ng-value="15"
+								> 15 min</ion-radio>
+							</div>
+							<div class="col">
+								<ion-radio class="calendar-options calendar-alarm"
+								icon="null" ng-model="vm.calendarData.alarm"
+								ng-value="30"
+								> 30 min</ion-radio>
+							</div>
+							<div class="col">
+								<ion-radio class="calendar-options calendar-alarm"
+								icon="null" ng-model="vm.calendarData.alarm"
+								ng-value="60"
+								> 60 min</ion-radio>
+							</div>
+						</div>
 					</label>
 				</div>
 			</div>
-		</div>
+			</div>
+			<!-- <p class="calendar-title">Kategorija</p> -->
+			<div class="list">
+				<ion-radio class="calendar-options"
+				on-tap="vm.chooseCategory('Pregled kod doktora')" name="catrgory">
+					<i class="category-icon icon ion-ios-search-strong"></i>Pregled kod doktora
+				</ion-radio>
+				<ion-radio class="calendar-options" on-tap="vm.chooseCategory('Vakcina')" name="catrgory">
+					<i class="category-icon icon ion-android-create"></i>Vakcina
+				</ion-radio>
+				<ion-radio class="calendar-options" on-tap="vm.chooseCategory('Lijekovi')"
+				name="catrgory">
+					<i class="category-icon icon ion-ios-medkit-outline"></i>Lijekovi
+				</ion-radio>
+				<ion-radio class="calendar-options" on-tap="vm.chooseCategory('Nalazi')"
+				name="catrgory">
+					<i class="category-icon icon ion-erlenmeyer-flask"></i>Nalazi
+				</ion-radio>
+				<ion-radio class="calendar-options" on-tap="vm.chooseCategory('Ostalo')" style="margin-bottom:0;"
+				name="catrgory">
+					<i class="category-icon icon ion-clipboard"></i>Ostalo
+				</ion-radio>
+			</div>
+			<button class="button button-block button-positive calendar-button" on-tap="vm.submitDate()">
+ 			 	Spasi
+			</button>
+			</div>
 	</ion-content>
 </ion-view>
