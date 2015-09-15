@@ -152,7 +152,7 @@
                     daily: '3 do 4 puta na dan'
                 };
             }
-            if (rule >= 20 && rule < 40) {
+            if (rule >= 20 && rule <= 40) {
                 return {
                     error: false,
                     measure: '2 - 4 kaščica',
@@ -636,11 +636,11 @@ if (!window.cordova) {
         return service;
 
         /////////////////////////
-        
+
         function getPicture() {
             // promise
             var q = $q.defer();
-             
+
             // camera options
             var options = {
                 destinationType: Camera.DestinationType.FILE_URI,
@@ -653,10 +653,10 @@ if (!window.cordova) {
             $cordovaCamera.getPicture(options).then(success, failure);
 
             return q.promise;
-            
+
             //********
             function success(imageData) {
-                imageData = ionic.Platform.isAndroid() ? 
+                imageData = ionic.Platform.isAndroid() ?
                     // android fix to display image, this technique force the uri to let pass "%3A" as it is, without changing it to ":"
                     imageData.replace("%", "%25") :
                     imageData;
@@ -668,27 +668,27 @@ if (!window.cordova) {
             }
 
         }
-        
+
         // resolving string url to native url, so after we save the picture it will show after we load it back
         function convertPictureSrcToNativeUrl(src) {
             var q = $q.defer();
-            
+
             if(!src) {
                 $log.error('Src is undenfined in pictureService + convertPictureSrcToNativeUrl -> method');
                 return;
             }
-            
+
             window.resolveLocalFileSystemURI(src, resolveCallback);
 
             function resolveCallback(fileEntry) {
                  return fileEntry;
             }
-            
+
             return q.promise;
 
         }
 
-        
+
         // function urlForImage(imageName) {
         //     var name = imageName.substr(imageName.lastIndexOf('/') + 1);
         //     var trueOrigin = cordova.file.dataDirectory + name;
@@ -727,7 +727,7 @@ if (!window.cordova) {
         return service;
 
         /////////////////////////
-        
+
         function initializeCdmWithLocalStorage(initData) {
             // load logic
             return $localForage.getItem('cdm').then(function (data) {
@@ -763,7 +763,7 @@ if (!window.cordova) {
             if (!_cdm.hasOwnProperty(key)) _cdm[key] = [];
             save();
         }
-        
+
         // @todo: think about implementing multiple key & array sync
         function syncCdmByKeyValue(key, value) {
             if (!key || !value) return;
@@ -787,7 +787,7 @@ if (!window.cordova) {
         function save() {
             $localForage.setItem('cdm', _cdm);
         }
-        
+
         // @todo: should remove this, because all setting should go via this factory
         function getCdm() {
             return _cdm;
@@ -796,12 +796,12 @@ if (!window.cordova) {
         function getDataByKey(key) {
             return key && _cdm.hasOwnProperty(key) ? _cdm[key] : undefined;
         }
-        
+
         // @todo: create real remove, right now its just a placeholder
         function remove(key) {
             $localForage.removeItem(key);
         }
-        
+
         // returns promise
         function getLength() {
             return $localForage.length();
@@ -872,7 +872,7 @@ if (!window.cordova) {
         return service;
 
         /////////////////////////
-        
+
         function getFormData(key) {
             return _formData[key];
         }

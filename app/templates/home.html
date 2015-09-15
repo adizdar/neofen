@@ -6,28 +6,32 @@
 	<ion-content class="bg-style-main home">
 		<!-- Home Menu Section -->
 		<div class="row-container">
-			<div class="row">  
+			<div class="row" style="padding-bottom:0;">
 				<div class="col my-picture">
 						<!--??ON IOS IT SEEMS YOU NEED TO REMOVE BRACKETS FROM NG SRC-->
-<!-- 						<img class="profile-round-square profile-camera" src="images/bg.png"> -->
-						<img ng-class="{'profile-round-square' : !home.profile.defaultValues, 'profile-camera' : home.profile.defaultValues }" 
-						     ng-src="{{home.profile.image}}" 
-							 on-tap="home.choosePicture()">
+						<!-- <img class="profile-round-square profile-camera"> -->
+						<div ng-class="{'profile-round-square' : !home.profile.defaultValues, 'profile-camera' : home.profile.defaultValues }"
+								 style="background-image:url('{{home.profile.image}}')"
+							   on-tap="home.choosePicture()"></div>
 						<img src="images/sunprofile.png">
-				</div>   
-				<h3 class="myname" ng-if="home.profile.name">{{home.profile.name}}</h3>     
-			</div>      
+				</div>
+			</div>
+			<div class="row name-row" ng-if="home.profile.name">
+				<div class="col">
+					<h3 class="myname">{{home.profile.name}}</h3>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col home-menu">
 					<a on-tap="home.navigate('aboutme')" class="button">
 						<img src="images/tosamja.png" alt="">
 					</a>
-				</div>				
+				</div>
 				<div class="col home-menu">
 					<a on-tap="home.navigate('myfirst')" class="button">
 						<img src="images/myfirst.png" alt="">
 					</a>
-				</div> 
+				</div>
 				<div class="col home-menu">
 					<a on-tap="home.navigate('info')" class="button">
 						<img src="images/savjeti.png" alt="">
@@ -36,7 +40,7 @@
 				<div class="col home-menu">
 					<a on-tap="home.navigate('products')" class="button">
 						<img src="images/proizvodi.png" alt="">
-					</a>  
+					</a>
 				</div>
 			</div>
 			<div class="row" style="padding-bottom: 15%;">

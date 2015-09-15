@@ -9,8 +9,9 @@
 		<!--@todo this should be a directive-->
 		<div class="my-picture">
 			<a>
-				<img ng-class="{'profile-round-square' : !vm.profile.defaultValues, 'profile-camera' : vm.profile.defaultValues }" ng-src="{{vm.profile.image}}"
-				on-tap="vm.choosePicture()">
+				<div ng-class="{'profile-round-square' : !vm.profile.defaultValues, 'profile-camera' : vm.profile.defaultValues }"
+						 style="background-image:url('{{vm.profile.image}}')"
+						 on-tap="vm.choosePicture()"></div>
 				<img src="images/sunprofile.png">
 			</a>
 		</div>

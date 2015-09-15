@@ -569,10 +569,15 @@ pre {
     .profile-camera {
         position: absolute;
         width: 22%;
+        height: 15%;
         margin: auto;
         left: 0;
         right: 0;
-        top: 42%;
+        top: 43%;
+        background-image: url('images/camera.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     .profile-round-square {
         position: absolute;
@@ -583,6 +588,10 @@ pre {
         top: 22%;
         margin: auto;
         left: 0;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: white;
     }
     a {
         position: absolute;
@@ -619,14 +628,26 @@ pre {
 \*------------------------------------*/
 .home {
     .my-picture {
+      padding-bottom: 0;
         .profile-camera {
             @include bp(small) {
-                top: 40%;
                 width: 20%;
+                height: 17%;
             }
 
             @include bp_height(iphone4) {
                 width: 20%;
+                height: 17%;
+            }
+
+            @include bp_height(small) {
+                width: 20%;
+                height: 17%;
+            }
+
+            @include bp_height(small2x) {
+                width: 20%;
+                height: 17%;
             }
         }
         .profile-round-square {
@@ -676,15 +697,18 @@ pre {
         // }
 
     }
-    .myname {
-        position: absolute;
-        bottom: 38%;
-        right: 0;
-        left: 0;
-        margin: auto;
-        text-align: center;
-        color: #4C4C4C;
-        font-weight: bold;
+    .name-row {
+        margin-top: -6%;
+        .col {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+        .myname {
+            margin: auto;
+            text-align: center;
+            color: #4C4C4C;
+            font-weight: bold;
+        }
     }
     .scroll {
         height: 100%;
@@ -854,6 +878,10 @@ pre {
                     color: $red-normal;
                     &:first-child {
                         float: left;
+                        width: 32%;
+                        word-wrap: break-word;
+                        white-space: normal;
+                        text-align: left;
                     }
                     &:last-child {
                         float: right;
@@ -1910,6 +1938,9 @@ pre {
         margin-top: -11%;
         .profile-round-square {
             z-index: 10;
+        }
+        .profile-camera {
+            z-index: 9;
         }
     }
     .list-info {

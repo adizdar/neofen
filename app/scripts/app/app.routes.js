@@ -8,7 +8,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
     // reomove text from back button on all views
     $ionicConfigProvider.backButton.previousTitleText(false).text('');
 
-    // set tabs position 
+    // set tabs position
     $ionicConfigProvider.tabs.position('bottom');
 
     // disable animations
@@ -19,10 +19,10 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
 
     // @todo: CHECK THIS
     $ionicConfigProvider.templates.maxPrefetch(0);
-    
+
     // white listning pictures
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|cdvfile|content):|data:image\//);
-    
+
     // center title
     $ionicConfigProvider.navBar.alignTitle('center');
 
@@ -45,7 +45,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
                 }
             }
             })
-    
+
         .state('tab', {
             url: "/tab",
             abstract: true,
@@ -73,7 +73,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
                 }
             }
         })
-        
+
         .state('tab.aboutmeinfo', {
             url: '/meinfo',
             data: { hideTabsBar: true },
@@ -84,7 +84,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
                 }
             }
         })
-        
+
         .state('tab.aboutmeedit', {
             url: '/meedit',
             data: { hideTabsBar: true },
@@ -95,7 +95,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
                 }
             }
         })
-        
+
         .state('tab.smpcdetails', {
             url: '/smpc-details',
             views: {
@@ -184,7 +184,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
                 }
             }
         })
-        
+
 
         .state('tab.aboutview', {
             url: '/about/view',
@@ -196,7 +196,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
                 }
             }
         })
-        
+
         .state('tab.myfirst', {
             url: '/myfirst',
             views: {
@@ -206,7 +206,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
                 }
             }
         })
-        
+
         .state('tab.myfirst-add', {
             url: '/myfirstadd',
             data: { hideTabsBar: true },
@@ -217,7 +217,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
                 }
             }
         })
-        
+
         .state('tab.myfirst-view', {
             url: '/myfirstview',
             data: { hideTabsBar: true },
@@ -228,7 +228,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
                 }
             }
         })
-        
+
 
         .state('tab.music', {
             url: '/music',

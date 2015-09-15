@@ -21,7 +21,7 @@
 							class="calendar-picker"
 							pick-a-date="vm.calendarData.date"
 							pick-a-date-options="vm.options"
-							placeholder="{{vm.isMedicineCategory ? 'Datum od' : 'Datum'}}"/>
+							placeholder="{{vm.isMedicineCategory ? 'Datum od*' : 'Datum*'}}"/>
 					</label>
 					<label class="item item-input calendar-label" ng-show="vm.isMedicineCategory">
 					<i class="icon ion-android-calendar"></i>
@@ -29,20 +29,20 @@
 							class="calendar-picker"
 							pick-a-date="vm.calendarData.dateTo"
 							pick-a-date-options="vm.options"
-							placeholder="Datum do"/>
+							placeholder="Datum do*"/>
 					</label>
 					<label class="item item-input calendar-label">
 						<i class="icon ion-clock"></i>
 						<input type="text"
 							class="calendar-picker"
 							pick-a-time="vm.calendarData.time"
-							placeholder="{{vm.isMedicineCategory ? 'Vrijeme prve tablete' : 'Vrijeme'}}"
+							placeholder="{{vm.isMedicineCategory ? 'Vrijeme prve tablete*' : 'Vrijeme*'}}"
 							pick-a-time-options="{format: 'HH:i'}"/>
 					</label>
 					<label class="item item-input item-select calendar-label" ng-show="vm.isMedicineCategory">
 						<i class="icon ion-ios-calculator"></i>
 						<select ng-model="vm.calendarData.repeat">
-					      <option value="" disabled selected>Tablete po danu</option>
+					      <option value="" disabled selected>Tablete po danu*</option>
 					      <option value="1">x1</option>
 					      <option value="2">x2</option>
 					      <option value="3">x3</option>

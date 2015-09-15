@@ -21,7 +21,7 @@
       time: null,
       repeat: '',
       calendarEventTitle: null,
-      alarm: null,
+      alarm: 30,
       title: null
     };
     vm.options = {
@@ -45,6 +45,14 @@
         $ionicPopup.alert({
           title: 'Kategorija',
           template: 'Molimo vas označite kategoriju iz menija.'
+        });
+        return;
+      }
+
+      if (!validate(vm.calendarData)) {
+        $ionicPopup.alert({
+          title: 'Kalendar',
+          template: 'Popunite sva polja označene sa zvjecdicom.'
         });
         return;
       }
@@ -103,6 +111,17 @@
     }
 
     function setDate(date, calendarOptions) {
+  //     $cordovaCalendar.createEventInteractively({
+  //   title: 'Space Race',
+  //   location: 'The Moon',
+  //   notes: 'Bring sandwiches',
+  //   startDate: new Date(2015, 5, 5, 18, 30, 0, 0, 0),
+  //   endDate: new Date(2015, 5, 6, 19, 0, 0, 0, 0)
+  // }).then(function (result) {
+  //   // success
+  // }, function (err) {
+  //   // error
+  // });
       var options = {
         title: vm.calendarData.calendarEventTitle + ' ' + vm.calendarData.title,
         location: '',
@@ -147,6 +166,13 @@
 
     function daysBetween(timeOne, timeTwo) {
       return Math.round(Math.abs(timeOne - timeTwo) / 8.64e7);
+    }
+
+    function validate(object) {
+      for(var key in object) {
+        if(object.hasOwnProperty(key) && !object[key]) return false;
+      }
+      return true;
     }
   }
 

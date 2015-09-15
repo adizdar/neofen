@@ -36,22 +36,22 @@
                 main: 'images/cepici125.png',
                 sub: 'images/cepicred.png',
                 classExt: 'cepic',
-                min: 12,
-                max: 21
+                min: 12.5,
+                max: 20.5
             },
             'lupocet120cepici': {
                 main: 'images/lupocetc.png',
                 sub: 'images/cepicblue.png',
                 classExt: 'cepic',
-                min: 5,
-                max: 21
+                min: 0,
+                max: 20
             },
             'lupocet120sirup': {
                 main: 'images/lupocet.png',
                 sub: 'images/kasikablue.png',
                 classExt: 'sirup',
                 min: 5,
-                max: 43
+                max: 40
             }
         };
 
@@ -73,12 +73,12 @@
 
         function selectRule(rule) {
             vm.selectedRule = rule;
-            
+
             vm.max = vm.imageResult[rule].max;
             vm.min = vm.imageResult[rule].min;
-            
+
             $timeout(function(){vm.calculatorRange = vm.min;}, 0);
-            
+
             vm.resultData = vm.selectedImage = null;
         }
 
@@ -111,18 +111,18 @@
 
             vm.selectedImage = vm.imageResult[vm.selectedRule];
             vm.resultData = result;
-            
+
             $ionicScrollDelegate.scrollBottom(true);
 
         }
 
         function enableScroll(event) {
-				$ionicScrollDelegate.getScrollView().options.scrollingY = true;        
+				$ionicScrollDelegate.getScrollView().options.scrollingY = true;
 		}
 
         function disableScroll(event) {
-        	if(event.target.className === 'abacus') 
-				$ionicScrollDelegate.getScrollView().options.scrollingY = false;        
+        	if(event.target.className === 'abacus')
+				$ionicScrollDelegate.getScrollView().options.scrollingY = false;
 		}
     }
 })();

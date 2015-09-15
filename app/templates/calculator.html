@@ -14,7 +14,7 @@
 			<img ng-src="images/starblue.png" alt="">
 			<span>Izaberite lijek</span>
 		</div>
-		<ion-radio class="red-normal menu-radio" 
+		<ion-radio class="red-normal menu-radio"
 				on-tap="calculator.selectRule('neofen60cepici')"
 				ng-value="neofen60cepici"
 				ng-model="neofen60cepici">
@@ -40,7 +40,7 @@
 		Calculator Section
 	-->
 	<!--<div class="abacus-placeholder">
-		<div class="abacus-container abacus-weight" 
+		<div class="abacus-container abacus-weight"
 			 on-touch="calculator.disableScroll($event)"
 			 on-swipe="calculator.disableScroll($event)"
 			 on-release="calculator.enableScroll($event)">
@@ -52,7 +52,7 @@
 		</div>
 		<div class="sum">Ukupno: <span>{{calculator.calculationResult}}kg</span></div>
 	</div>-->
-	
+
 	<div class="list">
 		<div class="item">
 			<span>Težina</span>
@@ -92,7 +92,7 @@
 			<span></span>
 		</div>
 		<div class="item">
-			<p>{{calculator.min}} kg</p>
+			<p>{{calculator.min || 'Masa novorođenčeta u'}} kg</p>
 			<p>{{calculator.max}} kg</p>
 		</div>
 		<div class="item">
@@ -125,7 +125,7 @@
 	<!--
 		Disclaimer
 	-->
-	<p class="disclaimer">Prije upotrebe pazljivo procitati uputu o lijeku. Za obavijesti o indikacijama, mjerama opreza i nuspojavama upitajte svog doktora ili farmaceuta.</p>
+	<p class="disclaimer">Prije upotrebe pazljivo procitati uputu o lijeku. Za obavijesti o indikacijama, mjerama opreza i nuspojavama upitajte svog doktora ili farmaceuta. Više detalja o proizvodu u SMPC.</p>
 
 </div>
 </ion-content>
