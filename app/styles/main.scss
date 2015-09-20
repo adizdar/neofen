@@ -276,6 +276,26 @@ $alarm-small: url("../images/alarm.png");
     $SHARED
 \*------------------------------------*/
 
+.fade-in-out.ng-enter, .fade-in-out .ng-enter {
+  -webkit-animation: fadeIn 0.3s;
+  -moz-animation: fadeIn 0.3s;
+  animation: fadeIn 0.3s;
+  position: absolute;
+}
+.fade-in-out.ng-leave, .fade-in-out .ng-leave {
+  -webkit-animation: fadeOut 0.3s;
+  -moz-animation: fadeOut 0.3s;
+  animation: fadeOut 0.3s;
+  position: absolute;
+}
+
+.slide-left-right.ng-enter, .slide-left-right .ng-enter {
+  -webkit-animation: fadeIn 0.3s;
+  -moz-animation: fadeIn 0.3s;
+  animation: fadeIn 0.3s;
+  position: absolute;
+}
+
 .pane, .view {
     -webkit-backface-visibility: hidden;
     -webkit-transform-style: preserve-3d;
@@ -320,7 +340,7 @@ $alarm-small: url("../images/alarm.png");
     background-image: $bg-url-main;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    // background-attachment: fixed;
     background-size: cover;
     background-color: white;
 }
@@ -329,7 +349,7 @@ $alarm-small: url("../images/alarm.png");
 .bg-style {
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    // background-attachment: fixed;
     background-size: cover;
     background-color: white;
 }
@@ -372,6 +392,12 @@ $alarm-small: url("../images/alarm.png");
 
 .button-done-nav {
     width: 55px;
+    height: 31px;
+    top: 2px;
+}
+
+.button-archiv-nav {
+    width: 41px;
     height: 31px;
     top: 2px;
 }
@@ -581,11 +607,11 @@ pre {
     }
     .profile-round-square {
         position: absolute;
-        width: 48.5%;
-        height: 55.2%;
+        width: 47.5%;
+        height: 54.4%;
         border-radius: 23%;
         right: 0;
-        top: 22%;
+        top: 23%;
         margin: auto;
         left: 0;
         background-position: center center;
@@ -803,7 +829,8 @@ pre {
         text-align: left;
         width: 100%;
     }
-    .item-radio input:checked ~ .item-content {
+    .item-radio input:checked + .radio-content .item-content,
+    .item-radio input:checked + .item-content {
         background-color: transparent;
     }
     .item-radio .item-content {
@@ -1558,7 +1585,7 @@ pre {
             font-size: 140%;
             padding-left: 11px;
         }
-        .item-radio .item-content {
+        .item-radio .radio-content .item-content {
             background-color: transparent;
             padding: 2%;
             img {
@@ -1572,12 +1599,13 @@ pre {
             }
         }
     }
-    .item-radio input:checked ~ .radio-icon {
+
+    .item-radio input:checked + .radio-content .radio-icon {
         color: #147499;
         padding: 1%;
         padding-right: 4%;
     }
-    .item-radio input:checked ~ .item-content {
+    .item-radio input:checked + .radio-content .item-content {
         color: #147499;
         span {
             padding-left: 12px;
@@ -1634,6 +1662,7 @@ pre {
                 }
                 &:nth-child(2) {
                     padding-right: 14px;
+                    display: none;
                 }
             }
             .ion-ios-time-outline {
@@ -2005,4 +2034,12 @@ pre {
         border: 0;
         opacity: 0.6;
     }
+}
+
+.calendar-archive {
+  .item-repeat-sub {
+    font-size: 12px;
+    word-spacing: normal;
+    white-space: normal;
+  }
 }

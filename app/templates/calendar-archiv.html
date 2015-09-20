@@ -1,0 +1,17 @@
+<ion-view view-title="Arhiva">
+	<ion-nav-buttons side="left">
+		<img src="images/back.png" class="back-button-trigger back-button-image" on-tap="$ionicGoBack()">
+	</ion-nav-buttons>
+	<ion-content class="about calendar-archive">
+	<ion-list>
+        <p ng-if="!vm.data.length" class="info">Trenutno nema zabilježenih termina.</p>
+        <ion-item ng-repeat="item in vm.data track by $index"
+                  item="item"
+				          href=""
+                  class="animated fadeInLeft item-remove-animate item item-complex item-left-editable item-right-editable">
+				    {{::item.title}} - {{::item.calendarEventTitle}}
+					<p class="item-repeat-sub">Datum: {{::vm.getFormatedDate(item.date, item.dateTo, item.isMedicineCategory)}}, Vrijeme: {{::vm.getFormatedTime(item.time)}} {{::vm.getRepeater(item.repeat)}}</p>
+        </ion-item>
+      </ion-list>
+	</ion-content>
+</ion-view>

@@ -12,7 +12,9 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
     $ionicConfigProvider.tabs.position('bottom');
 
     // disable animations
-    $ionicConfigProvider.views.transition('none');
+    if(ionic.Platform.isAndroid()) {
+        $ionicConfigProvider.views.transition('none');
+    }
 
     // override tabs css so it wont appear white on Android
     $ionicConfigProvider.tabs.style('standard');
@@ -41,7 +43,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             resolve: {
                 cdm: function (localStorageService) {
                     // resolving data so it will be loaded before the view appears
-                    return localStorageService.initializeCdmWithLocalStorage([{ about: {} }, { myfirst: []}, { aboutMe: [] }]);
+                    // return localStorageService.initializeCdmWithLocalStorage([{ about: {} }, { myfirst: []}, { aboutMe: [] }]);
                 }
             }
             })
@@ -62,7 +64,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
                 }
             }
         })
-        
+
         .state('tab.aboutme', {
             url: '/me',
             data: { hideTabsBar: true },
@@ -100,7 +102,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             url: '/smpc-details',
             views: {
                 'tab-hidden': {
-                    templateUrl: 'tab-smpc-details.html',
+                    templateUrl: 'templates/tab-smpc-details.html',
                     controller: 'ProductDetailsController as smpc'
                 }
             }
@@ -229,7 +231,6 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             }
         })
 
-
         .state('tab.music', {
             url: '/music',
             views: {
@@ -246,12 +247,44 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             controller: 'CalculatorController as calculator'
         })
 
-        .state('calendar', {
+        .state('tab.calendar', {
             url: '/calendar',
             data: { hideTabsBar: true },
-            templateUrl: 'templates/calendar.html',
-            controller: 'CalendarController as vm'
+            views: {
+              'tab-calendar': {
+                templateUrl: 'templates/calendar.html',
+                controller: 'CalendarController as vm'
+              }
+            }
+        })
+
+        .state('tab.calendarArchive', {
+            url: '/archive',
+            data: { hideTabsBar: true },
+            views: {
+              'tab-calendar': {
+                templateUrl: 'templates/calendar-archiv.html',
+                controller: 'CalendarArchivController as vm'
+              }
+            }
         });
+
+        // // SECOND SOLUTION
+        // .state({
+        //     name: 'calendarArchive',
+        //     parent: 'tab',
+        //     url: '/archive',
+        //     data: { hideTabsBar: true },
+        //     views: {
+        //       'tab-calendar': {
+        //         templateUrl: 'templates/calendar-archiv.html',
+        //         controller: 'CalendarArchivController as vm'
+        //       }
+        //       }
+        //
+        // })
+
+
 
 
     // if none of the above states are matched, use this as the fallback

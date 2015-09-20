@@ -15,7 +15,8 @@
         '$ionicHistory',
         '$timeout',
         'pictureService',
-        'localStorageService'];
+        'localStorageService',
+        '$cordovaSplashscreen'];
 
     function HomeController($scope,
         $log,
@@ -26,7 +27,8 @@
         $ionicHistory,
         $timeout,
         pictureService,
-        localStorageService) {
+        localStorageService,
+        $cordovaSplashscreen) {
 
         var vm = this;
 
@@ -43,7 +45,6 @@
         init();
 
         function init() {
-            if(navigator && navigator.splashscreen) navigator.splashscreen.hide();
             getData();
         }
 
@@ -80,13 +81,22 @@
         $rootScope.$on('$stateChangeStart', function (event, toState) {
             $rootScope.hideTabs = toState.data && toState.data.hideTabsBar;
         });
-        
+
         // clear hostory on home
         $scope.$on("$ionicView.enter", function () {
             // $ionicHistory.clearCache(); // @todo: CHECK PERFORMANCE
             $ionicHistory.clearHistory();
             getData(); // so the image and data will be refreshed TODO refactor with broadcase
         });
+
+        $scope.$on('$ionicView.loaded', function() {
+          $timeout(function(){
+            console.log('SPLASH');
+            ionic.Platform.ready( function() {
+              $cordovaSplashscreen.hide();
+            });
+          }, 1000);
+      });
     }
 
 })();

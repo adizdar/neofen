@@ -4,28 +4,30 @@
 	class="back-button-trigger back-button-image"
 	on-tap="$ionicGoBack()">
 </ion-nav-buttons>
-	<ion-nav-buttons side="right"> 
+	<ion-nav-buttons side="right">
 		 <button ng-if="!vm.isAddMode"
 			 	 class="button delete-button button-icon icon ion-ios-minus-outline"
           		 ng-click="vm.showDelete = !vm.showDelete;"></button>
    </ion-nav-buttons>
 <ion-content class="padding bg-style bg-style-myfirst my-first">
 			<ion-list show-delete="vm.showDelete">
-				<ion-item collection-repeat="item in vm.data" 
-						item-height="10%" 
-						class="edit-collection item-remove-animate item item-complex item-left-editable item-right-editable">
-					<ion-delete-button  ng-if="!vm.isAddMode"
-										class="ion-minus-circled" 
-										on-tap="vm.deleteItem(item);"
-										stop-event="click">
-					</ion-delete-button>
-					<div class="play-list"
-						arrow-button 
-						text="{{item.title}}"
-						imgurl="images/arrowred.png"
-						on-tap="vm.editItem(item)">
-					</div>
-				</ion-item>
+				<div class="animated fadeInLeft ">
+					<ion-item collection-repeat="item in vm.data"
+							item-height="10%"
+							class="edit-collection item-remove-animate item item-complex item-left-editable item-right-editable">
+						<ion-delete-button  ng-if="!vm.isAddMode"
+											class="ion-minus-circled"
+											on-tap="vm.deleteItem(item);"
+											stop-event="click">
+						</ion-delete-button>
+						<div class="play-list"
+							arrow-button
+							text="{{item.title}}"
+							imgurl="images/arrowred.png"
+							on-tap="vm.editItem(item)">
+						</div>
+					</ion-item>
+			</div>
 			</ion-list>
 </ion-content>
         <div ng-if="vm.isAddMode" class="bar bar-footer about-me-footer">

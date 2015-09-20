@@ -2,20 +2,20 @@
 	<ion-nav-buttons side="left">
 		<img src="images/back.png" class="back-button-trigger back-button-image" on-tap="$ionicGoBack()">
 	</ion-nav-buttons>
-	<ion-nav-buttons side="right"> 
+	<ion-nav-buttons side="right">
 		 <button class="button delete-button button-icon icon ion-ios-minus-outline"
           ng-click="vm.showDelete = !vm.showDelete;"></button>
    </ion-nav-buttons>
 	<ion-content class="about about-view">
 	<ion-list show-delete="vm.showDelete">
-        <p ng-if="!vm.data" class="info">Trenutno nema zabilježenih termina.</p>
-        <ion-item ng-repeat="item in vm.data track by $index" 
+        <p ng-if="!vm.data.length" class="info">Trenutno nema zabilježenih termina.</p>
+        <ion-item ng-repeat="item in vm.data track by $index"
                   item="item"
 				          href=""
                   on-tap="vm.editTask(item)"
-                  class="item-remove-animate item item-complex item-left-editable item-right-editable">
+                  class="animated fadeInLeft item-remove-animate item item-complex item-left-editable item-right-editable">
           {{item.title}}
-          <ion-delete-button class="ion-minus-circled" 
+          <ion-delete-button class="ion-minus-circled"
                              on-tap="vm.deleteTask(item);"
                              stop-event="click">
           </ion-delete-button>
@@ -27,4 +27,4 @@
 		    </button>
 		</div>
 	</ion-content>
-</ion-view>	
+</ion-view>

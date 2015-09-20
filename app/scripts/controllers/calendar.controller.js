@@ -6,15 +6,14 @@
     .module('neofen.controllers')
     .controller('CalendarController', CalendarController);
 
-  CalendarController.$inject = ['$scope', '$log', '$ionicPopup', '$cordovaCalendar', '$window', '$timeout'];
+  CalendarController.$inject = ['$scope', '$log', '$ionicPopup', '$cordovaCalendar', '$window', '$timeout', 'navigationUtil', 'localStorageService'];
 
-  function CalendarController($scope, $log, $ionicPopup, $cordovaCalendar, $window, $timeout) {
+  function CalendarController($scope, $log, $ionicPopup, $cordovaCalendar, $window, $timeout, navigationUtil, localStorageService) {
 
     var vm = this;
 
     vm.repeat = vm.repeatInterval = null;
     vm.showHeader = false;
-    vm.isMedicineCategory = false;
     vm.calendarData = {
       date: null,
       dateTo: null,
@@ -22,7 +21,8 @@
       repeat: '',
       calendarEventTitle: null,
       alarm: 30,
-      title: null
+      title: null,
+      isMedicineCategory: false
     };
     vm.options = {
       disable: [{
@@ -32,6 +32,7 @@
     };
 
     vm.formatDateForCalendarApi = formatDateForCalendarApi;
+    vm.navigate = navigationUtil.navigate;
     vm.chooseCategory = chooseCategory;
     vm.submitDate = submitDate;
     vm.setDate = setDate;
@@ -60,9 +61,10 @@
       if (window.plugins && window.plugins.calendar) {
         calendarOptions = window.plugins.calendar.getCalendarOptions();
         calendarOptions.firstReminderMinutes = +vm.calendarData.alarm;
+        calendarOptions.firstReminderMinutes = 5;
       }
 
-      if (vm.isMedicineCategory) {
+      if (vm.calendarData.isMedicineCategory) {
         vm.repeatInterval = +vm.calendarData.repeat - 1; // because we already save the first entry
         vm.calculateIntervalForRepeat = calculateIntervalForRepeat(); // every time we want a new temp value
 
@@ -91,11 +93,11 @@
     function chooseCategory(title) {
       vm.calendarData.calendarEventTitle = title;
       vm.showHeader = true;
-      vm.isMedicineCategory = (title === 'Lijekovi');
+      vm.calendarData.isMedicineCategory = (title === 'Lijekovi');
     }
 
     function callbackSuccess(result) {
-      if (this.isMedicineCategory && this.repeatInterval) {
+      if (this.calendarData.isMedicineCategory && this.repeatInterval) {
         this.setDate(this.formatDateForCalendarApi(this.calendarData.date, this.calendarData.time, this.calculateIntervalForRepeat()), {
           recurrence: 'daily',
           recurrenceInterval: 1,
@@ -107,21 +109,12 @@
           title: 'Podsjetnik',
           template: 'Podsjetnik je generisan i spašen u kalendar, sve izmjene nad njim možete učiniti iz kalendara mobilnog uređaja.'
         });
+
+        localStorageService.addData('calendarArchiv', angular.copy(vm.calendarData), []);
       }
     }
 
     function setDate(date, calendarOptions) {
-  //     $cordovaCalendar.createEventInteractively({
-  //   title: 'Space Race',
-  //   location: 'The Moon',
-  //   notes: 'Bring sandwiches',
-  //   startDate: new Date(2015, 5, 5, 18, 30, 0, 0, 0),
-  //   endDate: new Date(2015, 5, 6, 19, 0, 0, 0, 0)
-  // }).then(function (result) {
-  //   // success
-  // }, function (err) {
-  //   // error
-  // });
       var options = {
         title: vm.calendarData.calendarEventTitle + ' ' + vm.calendarData.title,
         location: '',
@@ -133,6 +126,7 @@
           date.getHours() + 1,
           date.getMinutes(), 0, 0, 0),
         firstReminderMinutes: +vm.calendarData.alarm,
+        secondReminderMinutes: 5//+vm.calendarData.alarm,
       };
 
       if (calendarOptions instanceof Object) {
@@ -169,8 +163,18 @@
     }
 
     function validate(object) {
-      for(var key in object) {
-        if(object.hasOwnProperty(key) && !object[key]) return false;
+      var tempObject = angular.copy(object);
+
+      if(!vm.calendarData.isMedicineCategory) {
+        delete tempObject['dateTo'];
+        delete tempObject['repeat'];
+        delete tempObject['isMedicineCategory'];
+      }
+
+      for(var key in tempObject) {
+        if(tempObject.hasOwnProperty(key) && !tempObject[key]) {
+          return false;
+        }
       }
       return true;
     }

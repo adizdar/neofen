@@ -11,17 +11,17 @@
     function AboutMeAddEditController($scope, $log, navigationUtil, localStorageService, $ionicPopup, $ionicHistory, $ionicModal) {
 
         var vm = this;
-        
+
         // Variables decleraion
         vm.item = {};
         vm.data = [];
-        
-        vm.profile = { 
-            image: 'images/camera.png', 
-            name: null, 
+
+        vm.profile = {
+            image: 'images/camera.png',
+            name: null,
             defaultValues: true
         };
-        
+
         vm.datepickerNowObject = {
             titleLabel: 'Datum',
             inputDate: null,
@@ -29,7 +29,7 @@
                 datePickerNowCallback(val);
             }
         };
-        
+
         // Functions
         vm.navigate = navigationUtil.navigate;
         vm.closeModal = closeModal;
@@ -37,17 +37,17 @@
         vm.add = add;
         vm.edit = edit;
         vm.deleteItem = deleteItem;
-        
+
         init();
-        
+
         function init() {
             var tempData = localStorageService.getDataByKey('aboutMe');
-            
+
             if(!(vm.data = tempData)) {
                  vm.data = [];
                  localStorageService.createArrayByKey('aboutMe');
             }
-            
+
             // modal init
             $ionicModal.fromTemplateUrl('templates/modal-about-me-add.html', {
                 scope: $scope,
@@ -55,23 +55,23 @@
             }).then(function (modal) {
                 vm.modal = modal;
             });
-            
+
         }
-        
+
         function add() {
             vm.item = {};
             vm.datepickerNowObject.inputDate = null;
-            
+
             vm.modal.show();
         }
-        
+
         function closeModal() {
             vm.modal.hide();
         }
-        
+
         function save() {
             vm.item.date = vm.datepickerNowObject.inputDate;
-            
+
             if (!vm.item.date) {
                 $ionicPopup.alert({
                     title: 'Novi unos',
@@ -79,13 +79,13 @@
                 });
                 return;
             }
-            
+
             vm.data.indexOf(vm.item) === -1 && vm.data.push(vm.item);
             localStorageService.syncCdmByKeyValue('aboutMe', vm.data);
 
             closeModal();
         }
-        
+
         function datePickerNowCallback(val) {
             if (typeof (val) === 'undefined') {
                 $log.error('No date selected');
@@ -93,30 +93,30 @@
                 vm.datepickerNowObject.inputDate = val;
             }
         }
-        
+
         function edit(item) {
             vm.item = item;
             vm.datepickerNowObject.inputDate = item.date;
             vm.modal.show();
         }
-        
+
         function deleteItem(item) {
             var index = null;
-            
+
             if(!vm.data) {
                 $log.error('vm.data is not defined in aboutme.addedit.controller -> deleteItem');
                 return;
             }
-           
+
             if((index = vm.data.indexOf(item)) === -1) {
                 $log.error('index is not defined in aboutme.addedit.controller -> deleteItem');
-                return; 
+                return;
             }
-            
-            vm.data.splice(index,1); 
+
+            vm.data.splice(index,1);
             localStorageService.syncCdmByKeyValue('aboutMe', vm.data);
         }
-        
+
         // Cleanup the modal when we're done with it
         $scope.$on('$destroy', function () {
             vm.modal.remove();
