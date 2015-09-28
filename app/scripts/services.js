@@ -640,13 +640,13 @@ if (!window.cordova) {
 
     /////////////////////////
 
-    function getPicture() {
+      function getPicture() {
       // promise
       var q = $q.defer();
 
       // camera options
       var options = {
-        destinationType: Camera.DestinationType.FILE_URI,
+        destinationType: Camera.DestinationType.DATA_URL,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
         allowEdit: false,
         encodingType: Camera.EncodingType.JPEG,
@@ -739,7 +739,7 @@ if (!window.cordova) {
         if (initData && !data) initializeCdmWithData(initData);
         console.log(_cdm);
       }, function(err) {
-        $log.error(err);
+        console.error(err);
       });
     }
 

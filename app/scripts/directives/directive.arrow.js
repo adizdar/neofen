@@ -8,7 +8,9 @@
     angular
         .module('neofen.directives')
         .directive('arrowButton', arrowButton);
-
+    // @ - for strings
+    // = - for two way binding with parent scope
+    // & - for passing a method to a directive 
     function arrowButton() {
         var directive = {
         	scope: {

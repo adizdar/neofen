@@ -6,7 +6,7 @@
 	</ion-nav-buttons>
 <ion-content class="bg-style-second calculator-view">
 <div class="sub-container">
-	<!--s
+	<!--
 		Menu Section
 	-->
 	<div class="menu-container">
@@ -17,12 +17,11 @@
 		<ion-radio class="red-normal menu-radio"
 				on-tap="calculator.selectRule('neofen60cepici')"
 				ng-value="neofen60cepici"
-				ng-model="calulcator.selectedRule">
+				ng-model="neofen60cepici">
 		NEOFEN<span>®</span> cepici 60 mg
 		</ion-radio>
 		<ion-radio class="red-strong menu-radio"
-				on-tap="calculator.selectRule('neofen125cepici')"
-				ng-value="neofen125cepici">
+				on-tap="calculator.selectRule('neofen125cepici')">
 		NEOFEN<span>®</span> cepici 125 mg
 		</ion-radio>
 		<ion-radio class="blue-light menu-radio"
@@ -60,7 +59,7 @@
 		</div>
 		<div class="item range range-positive">
 			<!--<i class="icon ion-ios-sunny-outline"></i>-->
-			<input type="range" name="volume" min="{{calculator.min}}" max="{{calculator.max}}" value="0" ng-model="calculator.calculatorRange">
+			<input type="range" name="volume" min="{{calculator.min}}" max="{{calculator.max}}" value="0" step="{{calculator.step}}" ng-model="calculator.calculatorRange">
 		</div>
 		<div class="item ruler-container">
 			<span></span>

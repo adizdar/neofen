@@ -11,7 +11,7 @@ function runPlatform($ionicPlatform, $cordovaSplashscreen, localStorageService) 
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         }
 
-        localStorageService.initializeCdmWithLocalStorage([{ about: {} }, { myfirst: []}, { aboutMe: [] }]);
+        // localStorageService.initializeCdmWithLocalStorage([{ about: {} }, { myfirst: []}, { aboutMe: [] }]);
 
         // var templates = [
         //     "../templates/calculator.html",

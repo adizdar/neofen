@@ -58,9 +58,12 @@
         return;
       }
 
+      if(compareDates(vm.calendarData.dateTo, vm.calendarData.date))
+         vm.calendarData.dateTo.setHours(vm.calendarData.dateTo.getHours() + 24);
+
       if (window.plugins && window.plugins.calendar) {
         calendarOptions = window.plugins.calendar.getCalendarOptions();
-        calendarOptions.firstReminderMinutes = +vm.calendarData.alarm;
+        calendarOptions.firstReminderMinutes = 30;//+vm.calendarData.alarm;
         calendarOptions.firstReminderMinutes = 5;
       }
 
@@ -125,7 +128,7 @@
           date.getDate(),
           date.getHours() + 1,
           date.getMinutes(), 0, 0, 0),
-        firstReminderMinutes: +vm.calendarData.alarm,
+        firstReminderMinutes: 30, // +vm.calendarData.alarm,
         secondReminderMinutes: 5//+vm.calendarData.alarm,
       };
 
@@ -177,6 +180,12 @@
         }
       }
       return true;
+    }
+
+    function compareDates(dateOne, dateTwo) {
+      return dateOne.getFullYear() === dateTwo.getFullYear() &&
+             dateOne.getMonth() === dateTwo.getMonth() &&
+             dateOne.getDate() === dateTwo.getDate();
     }
   }
 

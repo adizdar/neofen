@@ -9,11 +9,12 @@
 
   'use strict';
 
-	angular.module('neofen', 
-		['ionic', 
-        'LocalForageModule',
+	angular.module('neofen',
+		['ngIOS9UIWebViewPatch',
+    'ionic',
+    'LocalForageModule',
 		'angular-datepicker',
-		'neofen.controllers', 
+		'neofen.controllers',
 		'neofen.services',
 		'neofen.directives',
 		'ngCordova',
@@ -27,4 +28,3 @@
 	angular.module('neofen.directives', []);
 
 })();
-

@@ -45,7 +45,7 @@
                 vm.datepickerNowObject.inputDate = tempData.date ? new Date(tempData.date) : null;
                 getPicture(tempData);
             }
-              
+
         }
 
         function save() {
@@ -63,8 +63,18 @@
                if(imgData) {
                     vm.profile.image = imgData;
                     vm.profile.defaultValues = false;
+
+                    $ionicPopup.alert({
+                      title: 'Slika',
+                      template: 'Ukoliko postavja slika ne odgovara molimo pokušajte odabrati neku drugu iz vase galerije!'
+                    });
                }
            }, function(err) {
+               $ionicPopup.alert({
+                 title: 'Slika',
+                 template: 'Doslo je do greske molimo vas pokusajte ponovo!'
+               });
+
                $log.error(err);
                vm.profile.defaultValues = true;
            });

@@ -20,7 +20,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
     $ionicConfigProvider.tabs.style('standard');
 
     // @todo: CHECK THIS
-    $ionicConfigProvider.templates.maxPrefetch(0);
+    $ionicConfigProvider.views.maxCache(1);
 
     // white listning pictures
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|cdvfile|content):|data:image\//);
@@ -43,7 +43,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             resolve: {
                 cdm: function (localStorageService) {
                     // resolving data so it will be loaded before the view appears
-                    // return localStorageService.initializeCdmWithLocalStorage([{ about: {} }, { myfirst: []}, { aboutMe: [] }]);
+                    return localStorageService.initializeCdmWithLocalStorage([{ about: {} }, { myfirst: []}, { aboutMe: [] }]);
                 }
             }
             })
@@ -277,7 +277,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
         //     data: { hideTabsBar: true },
         //     views: {
         //       'tab-calendar': {
-        //         templateUrl: 'templates/calendar-archiv.html',
+        //         templateUrl: 'calendar-archiv.html',
         //         controller: 'CalendarArchivController as vm'
         //       }
         //       }

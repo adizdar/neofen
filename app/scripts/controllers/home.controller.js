@@ -16,7 +16,8 @@
         '$timeout',
         'pictureService',
         'localStorageService',
-        '$cordovaSplashscreen'];
+        '$cordovaSplashscreen',
+        '$ionicPopup'];
 
     function HomeController($scope,
         $log,
@@ -28,7 +29,8 @@
         $timeout,
         pictureService,
         localStorageService,
-        $cordovaSplashscreen) {
+        $cordovaSplashscreen,
+        $ionicPopup) {
 
         var vm = this;
 
@@ -50,7 +52,7 @@
 
         function getData() {
             var profileData = localStorageService.getDataByKey('profile');
-
+            $log.log(localStorageService.getCdm());
             if (profileData && Object.keys(profileData).length > 0) {
                 vm.profile = profileData;
 
@@ -59,19 +61,28 @@
                     window.resolveLocalFileSystemURL(profileData.image, function (fileEntry) {
                         vm.profile.image = fileEntry.nativeURL;
                         vm.profile.defaultValues = false;
+                    }, function(err) {
+                      console.log(err);
                     });
                 }
             }
         }
-
         function choosePicture() {
             pictureService.getPicture().then(function (imgData) {
                 if (imgData) {
                     vm.profile.image = imgData;
                     vm.profile.defaultValues = false;
                     localStorageService.syncCdmByKeyValue('profile', vm.profile);
+                    $ionicPopup.alert({
+                      title: 'Slika',
+                      template: 'Ukoliko postavja slika ne odgovara molimo pokušajte odabrati neku drugu iz vase galerije!'
+                    });
                 }
             }, function (err) {
+                $ionicPopup.alert({
+                  title: 'Slika',
+                  template: 'Doslo je do greske molimo vas pokusajte ponovo!'
+                });
                 $log.error(err);
                 vm.profile.defaultValues = true;
             });

@@ -21,7 +21,8 @@
         init();
 
         function init() {
-          vm.data = localStorageService.getDataByKey('calendarArchiv').reverse();
+          var tempData = localStorageService.getDataByKey('calendarArchiv');
+          vm.data = tempData ? tempData.reverse() : tempData;
         }
 
         function getFormatedDate(date, dateTo, isMedicineCategory) {

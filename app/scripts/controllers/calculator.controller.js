@@ -18,6 +18,7 @@
         vm.max = 12;
         vm.min = 6;
         vm.calculatorRange = vm.min;
+        vm.step = 1;
         // @todo: move this to be part of model
         vm.imageResult = {
             'neofen100sirup': {
@@ -50,15 +51,18 @@
                 main: 'images/lupocet.png',
                 sub: 'images/kasikablue.png',
                 classExt: 'sirup',
-                min: 5,
+                min: 0,
                 max: 40
             }
         };
 
         vm.selectRule = selectRule;
         vm.triggerRule = triggerRule;
+        vm.changeRange = changeRange;
         vm.enableScroll = enableScroll;
         vm.disableScroll = disableScroll;
+
+        // $ionicViewSwitcher.nextTransition('none');
 
         // $scope.$on('abacus:updated', updateListener.bind(this));
 
@@ -80,6 +84,7 @@
             $timeout(function(){vm.calculatorRange = vm.min;}, 0);
 
             vm.resultData = vm.selectedImage = null;
+            vm.step = (rule === 'neofen125cepici') ? 0.5 : 1;
         }
 
         function triggerRule() {
@@ -116,13 +121,17 @@
 
         }
 
-        function enableScroll(event) {
+    function enableScroll(event) {
 				$ionicScrollDelegate.getScrollView().options.scrollingY = true;
 		}
 
-        function disableScroll(event) {
+    function disableScroll(event) {
         	if(event.target.className === 'abacus')
 				$ionicScrollDelegate.getScrollView().options.scrollingY = false;
 		}
+
+    function changeRange() {
+
+    }
     }
 })();
