@@ -52,7 +52,7 @@
 
         function getData() {
             var profileData = localStorageService.getDataByKey('profile');
-            $log.log(localStorageService.getCdm());
+
             if (profileData && Object.keys(profileData).length > 0) {
                 vm.profile = profileData;
 

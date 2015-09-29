@@ -14438,44 +14438,45 @@ pre {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000031989}}
 .about-me .my-picture .profile-round-square {
   z-index: 10;
+  top: 22%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000031992}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000031993}}
 .about-me .my-picture .profile-camera {
   z-index: 9;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000031995}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000031996}}
 .about-me .my-picture img {
   width: 98%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000031999}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032000}}
 .about-me .list-info {
   padding-top: 110%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032001}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032002}}
 .about-me .list-info .item-input {
   padding: 4px 0 3px 16px;
   margin-bottom: 3%;
   border: 1px dashed #cd0014;
   border-radius: 20px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032006}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032007}}
 .about-me .list-info .item-input input {
   color: #cd0014;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032010}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032011}}
 .about-me .list-info input::-webkit-input-placeholder {
   color: #cd0014;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032013}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032014}}
 .about-me .list-info input::-moz-placeholder {
   color: #cd0014;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032016}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032017}}
 .about-me .list-info input::-ms-input-placeholder {
   /* IE10+ */
   color: #cd0014;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032020}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032021}}
 .about-me .list-info .button-date {
   background-color: white;
   color: #cd0014;
@@ -14487,44 +14488,44 @@ pre {
   min-height: 30px;
   height: 43px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032031}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032032}}
 .about-me .list-info .btn-done {
   margin-top: 10%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032035}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032036}}
 .about-me .add {
   margin-top: 5%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032038}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032039}}
 .about-me .button-date-add {
   margin-top: 15%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032041}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032042}}
 .about-me .btn-add {
   width: 95%;
   margin: 10% auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032047}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032048}}
 .about-me-footer {
   background-color: #66c0df;
   border-color: #66c0df;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032050}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032051}}
 .about-me-footer .button {
   background-color: #66c0df;
   border-color: #66c0df;
   margin: 0;
   font-size: 130%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032056}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032057}}
 .about-me-footer .button.button-positive.activated {
   background-color: transparent;
   border: 0;
   opacity: 0.6;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032064}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/adizdar1\/Documents\/git\/neofen_gen\/app\/styles\/main\.scss}line{font-family:\000032065}}
 .calendar-archive .item-repeat-sub {
   font-size: 12px;
   word-spacing: normal;

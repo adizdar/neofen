@@ -58,16 +58,16 @@
         return;
       }
 
-      if(compareDates(vm.calendarData.dateTo, vm.calendarData.date))
-         vm.calendarData.dateTo.setHours(vm.calendarData.dateTo.getHours() + 24);
-
       if (window.plugins && window.plugins.calendar) {
         calendarOptions = window.plugins.calendar.getCalendarOptions();
         calendarOptions.firstReminderMinutes = 30;//+vm.calendarData.alarm;
-        calendarOptions.firstReminderMinutes = 5;
+        calendarOptions.secondReminderMinutes = 5;
       }
 
       if (vm.calendarData.isMedicineCategory) {
+        if(compareDates(vm.calendarData.dateTo, vm.calendarData.date))
+           vm.calendarData.dateTo.setHours(vm.calendarData.dateTo.getHours() + 24);
+
         vm.repeatInterval = +vm.calendarData.repeat - 1; // because we already save the first entry
         vm.calculateIntervalForRepeat = calculateIntervalForRepeat(); // every time we want a new temp value
 
@@ -104,7 +104,9 @@
         this.setDate(this.formatDateForCalendarApi(this.calendarData.date, this.calendarData.time, this.calculateIntervalForRepeat()), {
           recurrence: 'daily',
           recurrenceInterval: 1,
-          recurrenceEndDate: this.formatDateForCalendarApi(this.calendarData.dateTo)
+          recurrenceEndDate: this.formatDateForCalendarApi(this.calendarData.dateTo),
+          firstReminderMinutes: 30,
+          secondReminderMinutes: 5
         });
         this.repeatInterval--;
       } else {
@@ -127,9 +129,7 @@
           date.getMonth(),
           date.getDate(),
           date.getHours() + 1,
-          date.getMinutes(), 0, 0, 0),
-        firstReminderMinutes: 30, // +vm.calendarData.alarm,
-        secondReminderMinutes: 5//+vm.calendarData.alarm,
+          date.getMinutes(), 0, 0, 0)
       };
 
       if (calendarOptions instanceof Object) {
@@ -183,6 +183,8 @@
     }
 
     function compareDates(dateOne, dateTwo) {
+      if(!dateOne || !dateTwo) return;
+
       return dateOne.getFullYear() === dateTwo.getFullYear() &&
              dateOne.getMonth() === dateTwo.getMonth() &&
              dateOne.getDate() === dateTwo.getDate();

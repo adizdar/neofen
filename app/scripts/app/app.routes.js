@@ -20,7 +20,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
     $ionicConfigProvider.tabs.style('standard');
 
     // @todo: CHECK THIS
-    $ionicConfigProvider.views.maxCache(1);
+    $ionicConfigProvider.views.maxCache(4);
 
     // white listning pictures
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|cdvfile|content):|data:image\//);
