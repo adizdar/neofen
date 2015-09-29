@@ -32,13 +32,19 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
 
         // .state('main', {
         //     url: "/main",
-        //     abstract: true
+        //     abstract: true,
+        //     resolve: {
+        //         cdm: function (localStorageService) {
+        //             // resolving data so it will be loaded before the view appears
+        //             return localStorageService.initializeCdmWithLocalStorage([{ about: {} }, { myfirst: []}, { aboutMe: [] }]);
+        //         }
+        //     }
         // })
 
         .state('home', {
             url: '/home',
             data: { hideTabsBar: true },
-            templateUrl: 'templates/home.html',
+            templateUrl: 'home.html',
             controller: 'HomeController as home',
             resolve: {
                 cdm: function (localStorageService) {
@@ -51,7 +57,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
         .state('tab', {
             url: "/tab",
             abstract: true,
-            templateUrl: "templates/tabs.html"
+            templateUrl: "tabs.html"
         })
 
         // Each tab has its own nav history stack
@@ -59,7 +65,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             url: '/smpc',
             views: {
                 'tab-hidden': {
-                    templateUrl: 'templates/tab-smpc.html',
+                    templateUrl: 'tab-smpc.html',
                     controller: 'ProductsController as smpc'
                 }
             }
@@ -70,7 +76,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             data: { hideTabsBar: true },
             views: {
                 'tab-aboutme': {
-                    templateUrl: 'templates/tab-about-me.html',
+                    templateUrl: 'tab-about-me.html',
                     controller: 'DefaultController as vm'
                 }
             }
@@ -81,7 +87,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             data: { hideTabsBar: true },
             views: {
                 'tab-aboutme': {
-                    templateUrl: 'templates/tab-about-me-info.html',
+                    templateUrl: 'tab-about-me-info.html',
                     controller: 'AboutMeInfoController as vm'
                 }
             }
@@ -92,7 +98,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             data: { hideTabsBar: true },
             views: {
                 'tab-aboutme': {
-                    templateUrl: 'templates/tab-about-me-edit.html',
+                    templateUrl: 'tab-about-me-edit.html',
                     controller: 'AboutMeAddEditController as vm'
                 }
             }
@@ -102,7 +108,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             url: '/smpc-details',
             views: {
                 'tab-hidden': {
-                    templateUrl: 'templates/tab-smpc-details.html',
+                    templateUrl: 'tab-smpc-details.html',
                     controller: 'ProductDetailsController as smpc'
                 }
             }
@@ -111,7 +117,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             url: '/products',
             views: {
                 'tab-products': {
-                    templateUrl: 'templates/tab-products.html',
+                    templateUrl: 'tab-products.html',
                     controller: 'ProductsController as products'
                 }
             }
@@ -121,7 +127,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             url: '/list',
             views: {
                 'tab-products': {
-                    templateUrl: 'templates/tab-products-list.html',
+                    templateUrl: 'tab-products-list.html',
                     controller: 'ProductsController as products'
                 }
             }
@@ -131,7 +137,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             url: '/details',
             views: {
                 'tab-products': {
-                    templateUrl: 'templates/tab-product-details.html',
+                    templateUrl: 'tab-product-details.html',
                     controller: 'ProductDetailsController as productDetails'
                 }
             }
@@ -141,7 +147,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             url: '/dosage',
             views: {
                 'tab-products': {
-                    templateUrl: 'templates/tab-products-dosage.html',
+                    templateUrl: 'tab-products-dosage.html',
                     controller: 'ProductsController as productDosage'
                 }
             }
@@ -151,7 +157,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             url: '/dosage-details',
             views: {
                 'tab-products': {
-                    templateUrl: 'templates/tab-products-dosage-details.html',
+                    templateUrl: 'tab-products-dosage-details.html',
                     controller: 'ProductsController as productDosage'
                 }
             }
@@ -161,7 +167,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             url: '/info',
             views: {
                 'tab-info': {
-                    templateUrl: 'templates/tab-info.html',
+                    templateUrl: 'tab-info.html',
                     controller: 'InfoController as info'
                 }
             }
@@ -171,7 +177,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             url: '/infodetails',
             views: {
                 'tab-info': {
-                    templateUrl: 'templates/tab-info-details.html',
+                    templateUrl: 'tab-info-details.html',
                     controller: 'InfoController as info'
                 }
             }
@@ -181,7 +187,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             url: '/about',
             views: {
                 'tab-about': {
-                    templateUrl: 'templates/tab-about.html',
+                    templateUrl: 'tab-about.html',
                     controller: 'DefaultController as vm'
                 }
             }
@@ -193,7 +199,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             data: { hideTabsBar: true },
             views: {
                 'tab-about': {
-                    templateUrl: 'templates/tab-about-view.html',
+                    templateUrl: 'tab-about-view.html',
                     controller: 'AboutController as vm'
                 }
             }
@@ -203,7 +209,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             url: '/myfirst',
             views: {
                 'tab-myfirst': {
-                    templateUrl: 'templates/tab-myfirst.html',
+                    templateUrl: 'tab-myfirst.html',
                     controller: 'DefaultController as vm'
                 }
             }
@@ -214,7 +220,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             data: { hideTabsBar: true },
             views: {
                 'tab-myfirst': {
-                    templateUrl: 'templates/tab-myfirst-add.html',
+                    templateUrl: 'tab-myfirst-add.html',
                     controller: 'MyFirstController as vm'
                 }
             }
@@ -225,7 +231,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             data: { hideTabsBar: true },
             views: {
                 'tab-myfirst': {
-                    templateUrl: 'templates/tab-myfirst-view.html',
+                    templateUrl: 'tab-myfirst-view.html',
                     controller: 'MyFirstViewController as vm'
                 }
             }
@@ -235,7 +241,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             url: '/music',
             views: {
                 'tab-hidden': {
-                    templateUrl: 'templates/tab-zabava.html',
+                    templateUrl: 'tab-zabava.html',
                     controller: 'MusicController as vm'
                 }
             }
@@ -243,7 +249,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
         .state('calculator', {
             url: '/calculator',
             data: { hideTabsBar: true },
-            templateUrl: 'templates/calculator.html',
+            templateUrl: 'calculator.html',
             controller: 'CalculatorController as calculator'
         })
 
@@ -252,7 +258,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             data: { hideTabsBar: true },
             views: {
               'tab-calendar': {
-                templateUrl: 'templates/calendar.html',
+                templateUrl: 'calendar.html',
                 controller: 'CalendarController as vm'
               }
             }
@@ -263,7 +269,7 @@ function configSetup($stateProvider, $urlRouterProvider, $ionicConfigProvider, $
             data: { hideTabsBar: true },
             views: {
               'tab-calendar': {
-                templateUrl: 'templates/calendar-archiv.html',
+                templateUrl: 'calendar-archiv.html',
                 controller: 'CalendarArchivController as vm'
               }
             }

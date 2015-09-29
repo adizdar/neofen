@@ -1864,18 +1864,29 @@ pre {
         margin-left: 15%;
         margin-top: -9%;
         position: relative;
+        .profile {
+          position: absolute;
+          top: 10.5%;
+          height: 77%;
+          width: 67%;
+          left: 17%;
+          -webkit-transform: rotate(-12deg);
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
         img {
             &:first-child {
                 width: 100%;
             }
-            &:nth-of-type(2) {
-                position: absolute;
-                top: 11%;
-                height: 76%;
-                width: 66%;
-                left: 17%;
-                @include rotate(-12deg);
-            }
+            // &:nth-of-type(2) {
+            //     position: absolute;
+            //     top: 11%;
+            //     height: 76%;
+            //     width: 66%;
+            //     left: 17%;
+            //     @include rotate(-12deg);
+            // }
         }
     }
     .input-star {
@@ -1977,6 +1988,7 @@ pre {
         margin-top: -11%;
         .profile-round-square {
             z-index: 10;
+            top: 22%;
         }
         .profile-camera {
             z-index: 9;

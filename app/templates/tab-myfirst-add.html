@@ -5,8 +5,8 @@
 	on-tap="vm.goBack()">
 </ion-nav-buttons>
 <ion-nav-buttons side="right" class="back-button-cont">
-	<img src="images/btndone.png" 
-		class="back-button-trigger button-done-nav" 
+	<img src="images/btndone.png"
+		class="back-button-trigger button-done-nav"
 		on-tap="vm.save()">
 </ion-nav-buttons>
 <ion-content class="padding bg-style bg-style-myfirst my-first">
@@ -15,14 +15,15 @@
 	</button>
 	<div class="my-image">
 			<img src="images/photoframe.png" alt="">
-			<img ng-src="{{vm.myfirst.image}}" alt="">    
+			<div class="profile" style="background-image: url('{{vm.myfirst.image}}')">
+			</div>
 	</div>
 		<label class="item item-input" style="margin-top: 8%;">
 			<img src="images/redstar.png" class="input-star">
 			<input type="text" placeholder="Moj prvi..." ng-model="vm.myfirst.title">
 		</label>
 	    <ionic-datepicker input-obj="vm.datepickerNowObject">
-          <button class="button button-block button-positive button-date"> 
+          <button class="button button-block button-positive button-date">
 			<img src="images/redstar.png" class="input-star">
 		    {{vm.datepickerNowObject.inputDate || 'Datum' | date:'dd - MMMM - yyyy'}}
           </button>

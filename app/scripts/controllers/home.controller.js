@@ -75,13 +75,13 @@
                     localStorageService.syncCdmByKeyValue('profile', vm.profile);
                     $ionicPopup.alert({
                       title: 'Slika',
-                      template: 'Ukoliko postavja slika ne odgovara molimo pokušajte odabrati neku drugu iz vase galerije!'
+                      template: 'Ukoliko postavjena slika ne odgovara molimo pokušajte odabrati neku drugu iz vaše galerije!'
                     });
                 }
             }, function (err) {
                 $ionicPopup.alert({
                   title: 'Slika',
-                  template: 'Doslo je do greske molimo vas pokusajte ponovo!'
+                  template: 'Došlo je do greške molimo vas pokušajte ponovo!'
                 });
                 $log.error(err);
                 vm.profile.defaultValues = true;

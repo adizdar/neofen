@@ -663,6 +663,12 @@ if (!window.cordova) {
           // android fix to display image, this technique force the uri to let pass "%3A" as it is, without changing it to ":"
           imageData.replace("%", "%25") :
           imageData;
+
+        // base64 resolver
+        if(options.destinationType === Camera.DestinationType.DATA_URL) {
+          imageData = 'data:image/jpeg;base64,' + imageData;
+        }
+
         q.resolve(imageData);
       }
 
@@ -737,9 +743,7 @@ if (!window.cordova) {
       return $localForage.getItem('cdm').then(function(data) {
         _cdm = data || {};
         if (initData && !data) initializeCdmWithData(initData);
-        console.log(_cdm);
       }, function(err) {
-        console.error(err);
       });
     }
 
